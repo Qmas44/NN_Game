@@ -55,7 +55,7 @@ MonoBehaviour:
   DelayBeforeUseReleaseInterruption: 1
   TimeBetweenUses: 0.5
   TimeBetweenUsesReleaseInterruption: 1
-  UseBurstMode: 1
+  UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 0

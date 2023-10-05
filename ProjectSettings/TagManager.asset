@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Terrain
+  - EnemyCounter
+  - Score
   layers:
   - Default
   - TransparentFX
