@@ -48,6 +48,12 @@ namespace MoreMountains.TopDownEngine
 		/// the pattern to apply to format the display of points
 		[Tooltip("the pattern to apply to format the display of points")]
 		public string PointsTextPattern = "000000";
+		/// the points counter
+		[Tooltip("the experience points counter")]
+		public Text ExperiencePointsText;
+		/// the pattern to apply to format the display of experience points
+		[Tooltip("the pattern to apply to format the display of experience points")]
+		public string ExperiencePointsTextPattern = "000000";
 
 
 		protected float _initialJoystickAlpha;
@@ -254,6 +260,17 @@ namespace MoreMountains.TopDownEngine
 			if (PointsText!= null)
 			{ 
 				PointsText.text = GameManager.Instance.Points.ToString(PointsTextPattern);
+			}
+		}
+
+		/// <summary>
+		/// Sets the text to the game manager's experience points.
+		/// </summary>
+		public virtual void RefreshExperiencePoints()
+		{
+			if (ExperiencePointsText!= null)
+			{ 
+				ExperiencePointsText.text = GameManager.Instance.Points.ToString(ExperiencePointsTextPattern);
 			}
 		}
 

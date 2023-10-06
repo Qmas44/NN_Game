@@ -12,6 +12,8 @@ TagManager:
   - Terrain
   - EnemyCounter
   - Score
+  - LevelProgressUI
+  - Stats
   layers:
   - Default
   - TransparentFX

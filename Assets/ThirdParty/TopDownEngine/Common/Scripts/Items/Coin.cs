@@ -11,8 +11,8 @@ namespace MoreMountains.TopDownEngine
 	public class Coin : PickableItem
 	{
 		/// The amount of points to add when collected
-		[Tooltip("The amount of points to add when collected")]
-		public int PointsToAdd = 10;
+		[Tooltip("The amount of experience points to add when collected")]
+		public int ExperiencePointsToAdd = 10;
 
 		/// <summary>
 		/// Triggered when something collides with the coin
@@ -21,7 +21,7 @@ namespace MoreMountains.TopDownEngine
 		protected override void Pick(GameObject picker) 
 		{
 			// we send a new points event for the GameManager to catch (and other classes that may listen to it too)
-			TopDownEnginePointEvent.Trigger(PointsMethods.Add, PointsToAdd);
+			TopDownEngineExperiencePointEvent.Trigger(ExperiencePointsMethods.Add, ExperiencePointsToAdd);
 		}
 	}
 }
