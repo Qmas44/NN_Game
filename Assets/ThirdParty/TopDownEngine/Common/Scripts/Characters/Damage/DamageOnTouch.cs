@@ -201,6 +201,7 @@ namespace MoreMountains.TopDownEngine
 		protected virtual void Awake()
 		{
 			Initialization();
+			Debug.LogWarning("Bullet Health: " + _health.CurrentHealth);
 		}
 
 		/// <summary>
@@ -662,6 +663,7 @@ namespace MoreMountains.TopDownEngine
 			if (DamageTakenEveryTime + DamageTakenDamageable > 0 && !_colliderHealth.PreventTakeSelfDamage)
 			{
 				SelfDamage(DamageTakenEveryTime + DamageTakenDamageable);
+				Debug.LogWarning("Bullet Health: " + _health.CurrentHealth);
 			}
 		}
 

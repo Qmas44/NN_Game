@@ -10,10 +10,9 @@ public class LevelProgressUI : MonoBehaviour
     [SerializeField] private Image progressBar;
     [SerializeField] private Text levelText;
 
-    public void UpdateProgressBar(int experience)
+    public void UpdateProgressBar(int current, int target)
     {
-        float value = (float)experience / 300;
-        progressBar.fillAmount += value;
+        progressBar.fillAmount = current / (float)target;
     }
 
     public void UpdateLevelText(int level)
@@ -31,7 +30,6 @@ public class LevelProgressUI : MonoBehaviour
     }
     public float GetProgress()
     {
-        Debug.Log(progressBar.fillAmount);
         return progressBar.fillAmount;
     }
 }

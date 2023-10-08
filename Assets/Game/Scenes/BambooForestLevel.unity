@@ -264,9 +264,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 86521710448489648, guid: 4a74fe7d98de7b5468e5c8eaf6469d67,
     type: 3}
   playerPrefab: {fileID: 0}
-  spawnInterval: 2
-  spawnDistance: 30
-  numberOfEnemies: 2
+  spawnInterval: 1.5
+  spawnDistance: 40
+  numberOfEnemies: 4
 --- !u!1 &139856174
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +625,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 598334959}
-  - component: {fileID: 598334960}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -648,24 +647,6 @@ Transform:
   m_Father: {fileID: 1918232351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &598334960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598334956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf0948ff269de443808baf40d33fdb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  damagePoints: 10
-  experiencePoints: 0
-  playerLevel: 1
-  levelProgressUI: {fileID: 909930253}
 --- !u!1 &612343370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,17 +1997,17 @@ MonoBehaviour:
   gradient:
     serializedVersion: 2
     key0: {r: 0.49056602, g: 0.34159997, b: 0.071733706, a: 1}
-    key1: {r: 0.09422455, g: 0.23584908, b: 0.03893734, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.49056602, g: 0.34159997, b: 0.071733706, a: 1}
+    key2: {r: 0.09422455, g: 0.23584908, b: 0.03893734, a: 0}
+    key3: {r: 0.09422455, g: 0.23584908, b: 0.03893734, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 27371
-    ctime1: 55319
-    ctime2: 0
-    ctime3: 0
+    ctime0: 43369
+    ctime1: 51464
+    ctime2: 54934
+    ctime3: 55319
     ctime4: 0
     ctime5: 0
     ctime6: 0
@@ -2039,8 +2020,8 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
+    m_Mode: 1
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   noiseScale: 3
   cellSize: 1
@@ -2177,7 +2158,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1908354161}
   - component: {fileID: 1908354162}
-  - component: {fileID: 1908354163}
   m_Layer: 0
   m_Name: StatsManager
   m_TagString: Untagged
@@ -2216,36 +2196,9 @@ MonoBehaviour:
   currentHealth: 100
   damagePoints: 10
   experiencePoints: 0
+  requiredExperiencePoints: 100
   playerLevel: 1
   levelProgressUI: {fileID: 909930253}
---- !u!114 &1908354163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1908354160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d32468fc4b09b2409873fc687f0e04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventName: Load
-  OnMMGameEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1918232350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,7 +2421,7 @@ PrefabInstance:
     - target: {fileID: 224429692818469760, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.999512
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 224435348976259958, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}

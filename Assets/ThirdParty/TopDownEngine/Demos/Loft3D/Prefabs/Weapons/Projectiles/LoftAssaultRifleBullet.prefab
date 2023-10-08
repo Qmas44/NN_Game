@@ -4901,7 +4901,6 @@ GameObject:
   - component: {fileID: 114692968763625280}
   - component: {fileID: 65720217773407688}
   - component: {fileID: 54994276034465240}
-  - component: {fileID: 114675558199215844}
   - component: {fileID: 114469000093533656}
   m_Layer: 18
   m_Name: LoftAssaultRifleBullet
@@ -4973,7 +4972,7 @@ MonoBehaviour:
   FaceDirection: 1
   FaceMovement: 0
   MovementVector: 0
-  Speed: 500
+  Speed: 250
   Acceleration: 0
   Direction: {x: -1, y: 0, z: 0}
   DirectionCanBeChangedBySpawner: 1
@@ -4996,8 +4995,8 @@ MonoBehaviour:
   Model: {fileID: 1622653139896216}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 1
-  MaximumHealth: 1
+  InitialHealth: 2
+  MaximumHealth: 2
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 0}
@@ -5040,28 +5039,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 12032
+    m_Bits: 11008
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+  MinDamageCaused: 25
+  MaxDamageCaused: 25
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
   DamageCausedKnockbackDirection: 3
   DamageCausedKnockbackForce: {x: 10, y: 2, z: 0}
-  InvincibilityDuration: 0.1
+  InvincibilityDuration: 0.038
   RepeatDamageOverTime: 0
   AmountOfRepeats: 3
   DurationBetweenRepeats: 1
   DamageOverTimeInterruptible: 1
   RepeatedDamageType: {fileID: 0}
-  DamageTakenEveryTime: 1
+  DamageTakenEveryTime: 0
   DamageTakenDamageable: 1
-  DamageTakenNonDamageable: 1
+  DamageTakenNonDamageable: 2
   DamageTakenKnockbackType: 0
   DamageTakenKnockbackForce: {x: 0, y: 0, z: 0}
-  DamageTakenInvincibilityDuration: 0.5
+  DamageTakenInvincibilityDuration: 0.038
   HitDamageableFeedback: {fileID: 129939367651388674}
   HitNonDamageableFeedback: {fileID: 9075017781267480604}
   HitAnythingFeedback: {fileID: 0}
@@ -5085,8 +5084,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6635958, y: 0.5, z: 0.69506073}
+  m_Center: {x: -0.0008968711, y: 0, z: 0.0012369156}
 --- !u!54 &54994276034465240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5103,26 +5102,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114675558199215844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854097648223014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194c644ad43b53c478e2164aa4f41cb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObstaclesLayerMask:
-    serializedVersion: 2
-    m_Bits: 12032
-  SkinWidth: 0.1
-  RepositionRigidbody: 1
-  RepositionRigidbodyLayerMask:
-    serializedVersion: 2
-    m_Bits: 12032
 --- !u!114 &114469000093533656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5191,7 +5170,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4cd643376433c14a89d978020e035ec, type: 2}
   - {fileID: 2100000, guid: d4cd643376433c14a89d978020e035ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -10874,6 +10852,16 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3036081855788999947, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278317191066349497, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4392642776950485622, guid: 8c6c4b46f25c8674c836660af8f3582d,
         type: 3}
       propertyPath: lengthInSec
@@ -10883,6 +10871,16 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028473799459125803, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015340367056428161, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6702227914809282779, guid: 8c6c4b46f25c8674c836660af8f3582d,
         type: 3}
@@ -10964,10 +10962,20 @@ PrefabInstance:
       propertyPath: ShapeModule.angle
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8513209184108671709, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8958866738862430482, guid: 8c6c4b46f25c8674c836660af8f3582d,
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002853466149593111, guid: 8c6c4b46f25c8674c836660af8f3582d,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c6c4b46f25c8674c836660af8f3582d, type: 3}

@@ -20,6 +20,9 @@ namespace MoreMountains.TopDownEngine
         [Tooltip("The experience points of the player.")]
         [SerializeField] private int experiencePoints = 0;
 
+        [Tooltip("The required experience points of the player to level.")]
+        [SerializeField] private int requiredExperiencePoints = 100;
+
         [Tooltip("The level of the player.")]
         [SerializeField] private int playerLevel = 1;
 
@@ -32,11 +35,28 @@ namespace MoreMountains.TopDownEngine
 		public virtual void OnMMEvent(TopDownEngineExperiencePointEvent experiencePointEvent)
 		{
             experiencePoints += experiencePointEvent.ExperiencePoints;
-            levelProgressUI.UpdateProgressBar(experiencePoints);
-            CheckLevelUp(experiencePointEvent.ExperiencePoints);
+            levelProgressUI.UpdateProgressBar(experiencePoints, requiredExperiencePoints);
+            CheckLevelUp(experiencePoints);
 		}
 
-        /// <summary>
+        private void CheckLevelUp( int experiencePoints)
+        {
+            requiredExperiencePoints = playerLevel * 100;
+            if (experiencePoints >= requiredExperiencePoints)
+            {
+                LevelUp();
+            }
+        }
+
+        private void LevelUp()
+        {
+            playerLevel += 1;
+            experiencePoints -= requiredExperiencePoints;
+            levelProgressUI.UpdateLevelText(playerLevel);
+            levelProgressUI.ResetProgress();
+        }
+
+                /// <summary>
         /// OnEnable, we start listening to events.
         /// </summary>
         protected virtual void OnEnable()
@@ -50,27 +70,6 @@ namespace MoreMountains.TopDownEngine
         protected virtual void OnDisable()
         {
             this.MMEventStopListening<TopDownEngineExperiencePointEvent> ();
-        }
-
-
-        private void CheckLevelUp( int experiencePoints)
-        {
-            int requiredExperience = playerLevel * 100;
-            if (experiencePoints >= requiredExperience)
-            {
-                playerLevel++;
-                experiencePoints -= requiredExperience;
-                LevelUp();
-            }
-        }
-
-        private void LevelUp()
-        {
-            levelProgressUI.UpdateLevelText(playerLevel);
-            levelProgressUI.ResetProgress();
-            maxHealth += 10;
-            currentHealth = maxHealth;
-            damagePoints += 5;
         }
     }
 }
