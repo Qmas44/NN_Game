@@ -30,4 +30,9 @@ public class EnemyCounter : MonoBehaviour
         Debug.Log("Current enemy count: " + currentEnemies);
         _text.text = "Enemy Count: " + currentEnemies;
     }
+
+    public int GetEnemyCount()
+    {
+        return currentEnemies;
+    }
 }

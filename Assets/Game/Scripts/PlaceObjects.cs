@@ -15,16 +15,17 @@ public class PlaceObjects : MonoBehaviour {
             Vector3 startPoint = RandomPointAboveTerrain();
 
             RaycastHit hit;
-            if (Physics.Raycast(startPoint, Vector3.down, out hit) && hit.point.y > TerrainController.Water.transform.position.y && hit.collider.CompareTag("Terrain")) {
+            if (Physics.Raycast(startPoint, Vector3.down, out hit) && hit.collider.CompareTag("Terrain")) {
+                Physics.Raycast(startPoint, Vector3.down, out hit);
                 Quaternion orientation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
                 RaycastHit boxHit;
                 if (Physics.BoxCast(startPoint, TerrainController.PlaceableObjectSizes[prefabType], Vector3.down, out boxHit, orientation) && boxHit.collider.CompareTag("Terrain")) {
+                    //Debug.Log("Placing " + TerrainController.PlaceableObjects[prefabType].name + " at " + hit.point); 
                     Instantiate(TerrainController.PlaceableObjects[prefabType], new Vector3(startPoint.x, hit.point.y, startPoint.z), orientation, transform);
                 }
                 //Debug code. To use, uncomment the giant thingy below
-                //Debug.DrawRay(startPoint, Vector3.down * 10000, Color.blue);
-                //DrawBoxCastBox(startPoint, TerrainController.PlaceableObjectSizes[prefabType], orientation, Vector3.down, 10000, Color.red);
-                //UnityEditor.EditorApplication.isPaused = true;
+                // Debug.DrawRay(startPoint, Vector3.down * 10000, Color.blue);
+                // UnityEditor.EditorApplication.isPaused = true;
             }
 
         }
@@ -33,7 +34,7 @@ public class PlaceObjects : MonoBehaviour {
     private Vector3 RandomPointAboveTerrain() {
         return new Vector3(
             Random.Range(transform.position.x - TerrainController.TerrainSize.x / 2, transform.position.x + TerrainController.TerrainSize.x / 2),
-            transform.position.y + TerrainController.TerrainSize.y * 2,
+            transform.position.y +  8,
             Random.Range(transform.position.z - TerrainController.TerrainSize.z / 2, transform.position.z + TerrainController.TerrainSize.z / 2)
         );
     }

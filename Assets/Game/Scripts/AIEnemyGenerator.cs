@@ -19,6 +19,9 @@ public class AIEnemyGenerator : MonoBehaviour
     [Tooltip("The number of enemies to spawn")]
     [SerializeField] private int numberOfEnemies = 1;
 
+    [Tooltip("The max number of enemies to spawn at once")]
+    [SerializeField] private int maxEnemyCount = 50;
+
     private float timer;
 
     private Camera mainCamera;
@@ -40,7 +43,10 @@ public class AIEnemyGenerator : MonoBehaviour
 
         if (timer <= 0f)
         {
-            SpawnEnemies();
+            if(_enemyCounter.GetEnemyCount() < maxEnemyCount)
+            {
+                SpawnEnemies();
+            }
             timer = spawnInterval;
         }
     }

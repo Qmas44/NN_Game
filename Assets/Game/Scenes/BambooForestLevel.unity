@@ -267,6 +267,7 @@ MonoBehaviour:
   spawnInterval: 1.5
   spawnDistance: 40
   numberOfEnemies: 4
+  maxEnemyCount: 50
 --- !u!1 &139856174
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +438,7 @@ GameObject:
   - component: {fileID: 370392665}
   - component: {fileID: 370392663}
   m_Layer: 9
-  m_Name: Ground
+  m_Name: Test_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1384,7 +1385,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446994562}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca323e22713fb3a40af2f80e436eb449, type: 3}
   m_Name: 
@@ -1397,7 +1398,8 @@ MonoBehaviour:
   PoolerMode: 0
   PooledSimpleMMFloatingText: {fileID: 1418480443928390043, guid: e3bc05dce75bc334eac3d6b4cc83f92f,
     type: 3}
-  PooledMultipleMMFloatingText: []
+  PooledMultipleMMFloatingText:
+  - {fileID: 1418480443928390043, guid: f6c24cfbb28c9cc4199f633a2f252a7b, type: 3}
   PoolSize: 20
   NestWaitingPool: 1
   MutualizeWaitingPools: 1
@@ -1687,7 +1689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1645158344
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2043,7 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainTilePrefab: {fileID: 7377584938651054113, guid: 58316ac681f1ad94e8fe19de6b02a9ea,
     type: 3}
-  terrainSize: {x: 20, y: 2, z: 20}
+  terrainSize: {x: 20, y: 0, z: 20}
   gradient:
     serializedVersion: 2
     key0: {r: 0.49056602, g: 0.34159997, b: 0.071733706, a: 1}
@@ -2073,7 +2075,7 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
-  noiseScale: 2
+  noiseScale: 3
   cellSize: 1
   radiusToRender: 5
   gameTransforms: []
@@ -2081,27 +2083,27 @@ MonoBehaviour:
   water: {fileID: 1645158347}
   seed: 0
   placeableObjects:
+  - {fileID: 158746, guid: e26b1c1f2a34cca4db6dfe56e6a171c8, type: 3}
   - {fileID: 135904, guid: 81f09681a680a584b87d6562bcda7ccc, type: 3}
   - {fileID: 147186, guid: 795b71a4e5af0c84fadfd94ef2d953cf, type: 3}
   - {fileID: 139960, guid: a7059c4a38188134caf297919a3061ec, type: 3}
   - {fileID: 166620, guid: 2ac5ce9f86638f6428436ca146fcd4a4, type: 3}
   - {fileID: 150520, guid: aa92f5b46da4230438556bd7f3f899d6, type: 3}
-  - {fileID: 159512, guid: 527e396ec1bf1324093be472d41f03b5, type: 3}
+  - {fileID: 6677878600043802644, guid: eb83689059d95e24caf0fb2c3008055d, type: 3}
   - {fileID: 169626, guid: 48e99c660ff7cff46bd926161ac5d523, type: 3}
   - {fileID: 135904, guid: 81f09681a680a584b87d6562bcda7ccc, type: 3}
-  - {fileID: 158746, guid: e26b1c1f2a34cca4db6dfe56e6a171c8, type: 3}
   placeableObjectSizes:
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  - {x: 1, y: 1, z: 1}
-  minObjectsPerTile: 2
-  maxObjectsPerTile: 10
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  - {x: 2, y: 2, z: 2}
+  minObjectsPerTile: 0
+  maxObjectsPerTile: 20
   destroyDistance: 1000
   usePerlinNoise: 1
   noise: {fileID: 0}
