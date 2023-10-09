@@ -266,7 +266,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 0}
   spawnInterval: 1.5
   spawnDistance: 40
-  numberOfEnemies: 4
+  numberOfEnemies: 3
   maxEnemyCount: 50
 --- !u!1 &139856174
 GameObject:
@@ -2474,7 +2474,7 @@ PrefabInstance:
     - target: {fileID: 224429692818469760, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28
+      value: -28.000061
       objectReference: {fileID: 0}
     - target: {fileID: 224435348976259958, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}

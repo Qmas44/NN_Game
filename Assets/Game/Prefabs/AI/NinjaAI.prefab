@@ -6654,7 +6654,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 4
+  WalkSpeed: 3
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 10
@@ -6893,7 +6893,7 @@ MonoBehaviour:
   PreventTakeSelfDamage: 0
   ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
-  KnockbackForceMultiplier: 0.2
+  KnockbackForceMultiplier: 1.2
   DestroyOnDeath: 1
   DelayBeforeDestruction: 3
   PointsWhenDestroyed: 0
