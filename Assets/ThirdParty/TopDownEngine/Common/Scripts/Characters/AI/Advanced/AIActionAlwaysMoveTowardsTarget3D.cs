@@ -44,8 +44,14 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void Move()
 		{
-			_brain.Target = GameObject.FindWithTag("Player").transform;
-            
+			if (GameObject.FindWithTag("Player") != null)
+			{
+				_brain.Target = GameObject.FindWithTag("Player").transform;
+			}
+			else
+			{
+				_brain.Target = this.transform;
+			}
 			_directionToTarget = _brain.Target.position - this.transform.position;
 			_movementVector.x = _directionToTarget.x;
 			_movementVector.y = _directionToTarget.z;

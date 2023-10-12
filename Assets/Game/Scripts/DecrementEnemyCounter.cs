@@ -10,12 +10,10 @@ public class DecrementEnemyCounter : MonoBehaviour
     void Start()
     {
         _enemyCounter = GameObject.Find("EnemyCounter").GetComponent<EnemyCounter>();
-        Debug.Log("Enemy counter: in death feedback" + _enemyCounter);
     }
 
     public void Decrement()
     {
-        Debug.Log("decrement counter in death feedback");
         _enemyCounter.DecreaseEnemyCount();
     }
 

@@ -27,7 +27,6 @@ public class EnemyCounter : MonoBehaviour
 
     public void UpdateCounter()
     {
-        Debug.Log("Current enemy count: " + currentEnemies);
         _text.text = "Enemy Count: " + currentEnemies;
     }
 

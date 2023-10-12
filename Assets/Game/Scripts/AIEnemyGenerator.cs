@@ -37,7 +37,12 @@ public class AIEnemyGenerator : MonoBehaviour
 
     private void Update()
     {
-        playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
+
+        playerPrefab = GameObject.FindGameObjectWithTag("Player"); // need to refactor here to get player prefab not in update 
 
         timer -= Time.deltaTime;
 
@@ -59,7 +64,6 @@ public class AIEnemyGenerator : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(spawnPosition, 1f);
             if (colliders.Length == 0 && !IsInView(spawnPosition))
             {
-                Debug.Log("Spawning enemy at " + spawnPosition);
                 GameObject mob = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
                 mob.SetActive(true);
                 _enemyCounter.IncreaseEnemyCount();
