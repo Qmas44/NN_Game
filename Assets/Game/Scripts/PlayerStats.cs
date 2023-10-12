@@ -8,15 +8,6 @@ namespace MoreMountains.TopDownEngine
 {
     public class PlayerStats : MonoBehaviour, MMEventListener<TopDownEngineExperiencePointEvent>
     {
-        [Tooltip("The maximum health points of the player.")]
-        [SerializeField] private int maxHealth = 100;
-
-        [Tooltip("The current health points of the player.")]
-        [SerializeField] private int currentHealth = 100;
-
-        [Tooltip("The damage points the player deals.")]
-        [SerializeField] private int damagePoints = 10;
-
         [Tooltip("The experience points of the player.")]
         [SerializeField] private int experiencePoints = 0;
 

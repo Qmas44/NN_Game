@@ -471,11 +471,14 @@ namespace MoreMountains.TopDownEngine
 			// we play our feedback
 			if (FeedbackIsProportionalToDamage)
 			{
+				Debug.Log("DamageMMFeedbacksProportional : " + DamageMMFeedbacks);
 				DamageMMFeedbacks?.PlayFeedbacks(this.transform.position, damage);    
 			}
 			else
 			{
+				Debug.Log("DamageMMFeedbacks : " + DamageMMFeedbacks);
 				DamageMMFeedbacks?.PlayFeedbacks(this.transform.position);
+				Debug.LogWarning("Played Feedback");
 			}
             
 			// we update the health bar
