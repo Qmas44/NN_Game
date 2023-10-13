@@ -57,6 +57,7 @@ public class TerrainController : MonoBehaviour {
             noisePixels = GetGrayScalePixels(noise);
         GenerateMesh.UsePerlinNoise = usePerlinNoise;
         noiseRange = usePerlinNoise ? Vector2.one * 256 : new Vector2(noisePixels.Length, noisePixels[0].Length);
+        seed = UnityEngine.Random.Range(0, 99999);
     }
 
     private void Start() {

@@ -6428,8 +6428,8 @@ GameObject:
   - component: {fileID: 87750186855700557}
   - component: {fileID: 87750186855700571}
   - component: {fileID: 6956499121558024813}
-  - component: {fileID: -2949267067878037833}
   - component: {fileID: 5217267478793966359}
+  - component: {fileID: 189960951533996776}
   - component: {fileID: 8552096529092264008}
   m_Layer: 13
   m_Name: NinjaAI
@@ -7097,23 +7097,6 @@ MonoBehaviour:
   GizmosColor: {r: 0.827451, g: 0.827451, b: 0.827451, a: 1}
   GimosSize: 1
   SpawnLootButton: 0
---- !u!114 &-2949267067878037833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86521710448489648}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 794539ff210c56d4d8fe1b215440a6c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnableDistance: 30
-  DisableDistance: 40
-  DisabledByManager: 0
-  DebugProximityManager: {fileID: 0}
-  AddButton: 0
 --- !u!136 &5217267478793966359
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7128,6 +7111,26 @@ CapsuleCollider:
   m_Height: 2.4889784
   m_Direction: 2
   m_Center: {x: -0.10433376, y: 1.2456576, z: 0.106683254}
+--- !u!114 &189960951533996776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86521710448489648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffb1a55ded8298418d0417df2d26d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnableDistance: 35
+  DisableDistance: 45
+  DestroyDistance: 50
+  DestroyOnDistance: 1
+  DisabledByManager: 0
+  DebugProximityManager: {fileID: 0}
+  AddButton: 0
+  _enemyCounter: {fileID: 0}
 --- !u!114 &8552096529092264008
 MonoBehaviour:
   m_ObjectHideFlags: 0

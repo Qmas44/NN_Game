@@ -30,6 +30,9 @@ namespace MoreMountains.TopDownEngine
         /// whether or not to automatically grab all ProximityManaged objects in the scene
         [Tooltip("whether or not to automatically grab all ProximityManaged objects in the scene")]
         public bool AutomaticallyGrabControlledObjects = true;
+        /// whether or not to automatically grab new objects
+        [Tooltip("whether or not to automatically grab the player from the LevelManager once the scene loads")]
+        public bool GrabNewObjects = true;
         /// the list of objects to check proximity with
         [Tooltip("the list of objects to check proximity with")]
         public List<ProximityManaged> ControlledObjects;
@@ -42,12 +45,34 @@ namespace MoreMountains.TopDownEngine
 
         protected float _lastEvaluationAt = 0f;
 
+        private EnemyCounter _enemyCounter;
+
         /// <summary>
         /// On start we grab our controlled objects
         /// </summary>
         protected virtual void Start()
         {
+            _enemyCounter = GameObject.Find("EnemyCounter").GetComponent<EnemyCounter>();
             GrabControlledObjects();
+        }
+
+        /// <summary>
+        /// Grabs all proximity managed objects in the scene
+        /// </summary>
+        protected virtual void GrabNewControlledObjects()
+        {
+            if (GrabNewObjects)
+            {
+                var items = FindObjectsOfType<ProximityManaged>();
+                foreach(ProximityManaged managed in items)
+                {
+                    managed.Manager = this;
+                    if (!ControlledObjects.Contains(managed))
+                    {
+                    ControlledObjects.Add(managed);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -92,7 +117,9 @@ namespace MoreMountains.TopDownEngine
         /// </summary>
         protected virtual void Update()
         {
+            GrabNewControlledObjects();
             EvaluateDistance();
+            DestroyOnDistance();
         }
 
         /// <summary>
@@ -136,6 +163,19 @@ namespace MoreMountains.TopDownEngine
                 {
                     proxy.gameObject.SetActive(true);
                     proxy.DisabledByManager = false;
+                }
+            }
+        }
+
+        protected virtual void DestroyOnDistance()
+        {
+            foreach(ProximityManaged proxy in ControlledObjects)
+            {
+                float distance = Vector3.Distance(proxy.transform.position, ProximityTarget.position);
+                if (distance > proxy.DestroyDistance)
+                {
+                    _enemyCounter.DecreaseEnemyCount();
+                    Destroy(proxy.gameObject);
                 }
             }
         }

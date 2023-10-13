@@ -19,6 +19,14 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("the distance from the proximity center (the player) after which the object should be disabled")]
 		public float DisableDistance = 45f;
 
+		/// the distance from the proximity center (the player) after which the object should be disabled
+		[Tooltip("the distance from the proximity center (the player) after which the object should be disabled")]
+		public float DestroyDistance = 45f;
+
+		[Tooltip("whether or not this object was disabled by the ProximityManager")]
+		public bool DestroyOnDistance;
+
+
 		/// whether or not this object was disabled by the ProximityManager
 		[MMReadOnly]
 		[Tooltip("whether or not this object was disabled by the ProximityManager")]
@@ -31,6 +39,8 @@ namespace MoreMountains.TopDownEngine
 		/// a debug button to add this object to the debug manager
 		[MMInspectorButton("DebugAddObject")]
 		public bool AddButton;
+
+		public EnemyCounter _enemyCounter;
 
 		public ProximityManager Manager { get; set; }
 		
@@ -74,6 +84,7 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (Manager != null && Manager.ControlledObjects != null)
 			{
+
 				Manager.ControlledObjects.Remove(this);
 			}
 		}
