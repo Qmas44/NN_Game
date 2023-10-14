@@ -20807,7 +20807,7 @@ MonoBehaviour:
   Model: {fileID: 360167182035659813}
   RequireCharacterComponent: 1
   RequirePlayerType: 1
-  ExperiencePointsToAdd: 10
+  ExperiencePointsToAdd: 100
 --- !u!1 &8891366897707457857
 GameObject:
   m_ObjectHideFlags: 0

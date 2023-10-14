@@ -1,0 +1,41 @@
+using UnityEngine;
+using System.Collections;
+using MoreMountains.Tools;
+using System.Collections.Generic;
+using MoreMountains.Feedbacks;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
+
+
+namespace MoreMountains.TopDownEngine
+{
+    public class CharacterUpgradeManager : MonoBehaviour
+    {
+        public Character character;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); // need to refactor here to get player prefab not in update
+        }
+        
+    public void Upgrade(CharacterUpgradeType type)
+        {
+            switch (type)
+            {
+                case CharacterUpgradeType.Health:
+                    Health health = character.GetComponent<Health>();
+                    health.MaximumHealth += 10;
+                    health.CurrentHealth += 10;
+                    break;
+            }
+
+        }
+    }
+}

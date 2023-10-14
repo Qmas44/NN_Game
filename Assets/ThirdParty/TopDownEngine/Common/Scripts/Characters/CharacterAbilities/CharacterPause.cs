@@ -37,14 +37,14 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("a UnityEvent that will trigger when the game unpauses")]
 		public UnityEvent OnUnpause;
 
-
 		/// <summary>
 		/// Every frame, we check the input to see if we need to pause/unpause the game
 		/// </summary>
 		protected override void HandleInput()
 		{
+
 			if (_inputManager.PauseButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
-			{
+			{	
 				TriggerPause();
 			}
 		}
