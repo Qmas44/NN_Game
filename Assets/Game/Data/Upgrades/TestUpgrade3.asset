@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7779e69a76c476f4cb2a8925aff65510, type: 3}
   m_Name: TestUpgrade3
   m_EditorClassIdentifier: 
-  upgradeType: 1
-  upgradeName: Test 3
-  upgradeDescription: Test Upgrade 3
+  upgradeType: 2
+  characterUpgradeType: 0
+  upgradeName: Kunai Upgrade 1
+  upgradeDescription: Kunai Upgrade 1
   upgradeSprite: {fileID: 1970396426, guid: d9d3a17567bc32d4fbad57ff40da60a9, type: 3}
   ability: {fileID: 0}
+  weapon: {fileID: 2626507152828799474, guid: b760ad7ea57f85a4da8c3809d595a134, type: 3}

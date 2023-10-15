@@ -30,6 +30,7 @@ namespace MoreMountains.TopDownEngine
         [SerializeField] private PassiveItems passiveItems;
         [SerializeField] private AbilityManager abilityManager;
         [SerializeField] private CharacterUpgradeManager characterUpgradeManager;
+        [SerializeField] private WeaponUpgradeManager weaponUpgradeManager;
 
 
 
@@ -73,6 +74,7 @@ namespace MoreMountains.TopDownEngine
                     characterUpgradeManager.Upgrade(upgradeData.characterUpgradeType);
                     break;
                 case UpgradeType.WeaponUpgrade:
+                    weaponUpgradeManager.Upgrade(upgradeData.weapon);
                     break;
                 case UpgradeType.ItemUnlock:
                     // passiveItems.UnlockItem(upgradeData.item);

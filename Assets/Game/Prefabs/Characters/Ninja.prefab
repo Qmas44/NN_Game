@@ -15215,8 +15215,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 2626507152828799474, guid: b760ad7ea57f85a4da8c3809d595a134,
-    type: 3}
+  InitialWeapon: {fileID: 0}
   CanPickupWeapons: 0
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 5076730317615281704}
@@ -17589,6 +17588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6744464641728477986}
+  - component: {fileID: 2173964437419296589}
   - component: {fileID: 2876252121577909299}
   - component: {fileID: 3982302854025629935}
   m_Layer: 10
@@ -17613,6 +17613,38 @@ Transform:
   m_Father: {fileID: 1357507880282749192}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2173964437419296589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815735138337833261}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b56d00552d6cd44b46000232e9d83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  PlayerID: Player1
+  MainInventoryName: inventory
+  WeaponInventoryName: Weapons
+  HotbarInventoryName: hotbar
+  InventoryTransform: {fileID: 0}
+  WeaponRotationMode: 1
+  AutoPickItems: []
+  AutoPickOnlyIfMainInventoryIsEmpty: 0
+  AutoEquipWeaponOnStart: {fileID: 0}
+  AutoEquipOnlyIfMainInventoryIsEmpty: 0
+  CharacterHandleWeapon: {fileID: 0}
 --- !u!114 &2876252121577909299
 MonoBehaviour:
   m_ObjectHideFlags: 0

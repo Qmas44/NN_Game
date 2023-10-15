@@ -38,5 +38,6 @@ namespace MoreMountains.TopDownEngine
         public string upgradeDescription;
         public Sprite upgradeSprite;
         public CharacterAbility ability;
+        public Weapon weapon;
     }
 }

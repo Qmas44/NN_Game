@@ -820,5 +820,15 @@ namespace MoreMountains.TopDownEngine
 				}
 			}
 		}
+
+		public virtual void SetMinDamageCaused(float newMinDamageCaused)
+		{
+			MinDamageCaused = newMinDamageCaused;
+		}
+
+		public virtual void SetMaxDamageCaused(float newMaxDamageCaused)
+		{
+			MaxDamageCaused = newMaxDamageCaused;
+		}
 	}
 }

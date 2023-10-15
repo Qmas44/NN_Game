@@ -249,11 +249,25 @@ namespace MoreMountains.TopDownEngine
 			_weapon = newWeapon;
 		}
 
+		public virtual float GetMinDamageCaused()
+		{
+
+			return _damageOnTouch.MinDamageCaused;
+
+		}
+
+		public virtual float GetMaxDamageCaused()
+		{
+
+			return _damageOnTouch.MaxDamageCaused;
+
+		}
+
 		/// <summary>
 		/// Sets the damage caused by the projectile's DamageOnTouch to the specified value
 		/// </summary>
 		/// <param name="newDamage"></param>
-		public virtual void SetDamage(float minDamage, float maxDamage)
+		public virtual void SetDamageCaused(float minDamage, float maxDamage)
 		{
 			if (_damageOnTouch != null)
 			{

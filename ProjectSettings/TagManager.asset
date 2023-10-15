@@ -18,6 +18,8 @@ TagManager:
   - SecondUpgrade
   - ThirdUpgrade
   - UpgradePanel
+  - Weapon
+  - Kunai
   layers:
   - Default
   - TransparentFX
