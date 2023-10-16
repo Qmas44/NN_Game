@@ -21,6 +21,19 @@ namespace MoreMountains.Tools
 		public List<MMSimpleObjectPooler> Owner { get; set; }
 		private void OnDestroy() { Owner?.Remove(this); }
 
+		public void ClearPool()
+		{
+			if (_objectPool == null)
+			{
+				return;
+			}
+			for (int i = 0; i < _objectPool.PooledGameObjects.Count; i++)
+			{
+				Destroy(_objectPool.PooledGameObjects[i]);
+			}
+			_objectPool.PooledGameObjects.Clear();
+		}
+
 		/// <summary>
 		/// Fills the object pool with the gameobject type you've specified in the inspector
 		/// </summary>

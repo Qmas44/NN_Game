@@ -1179,5 +1179,10 @@ namespace MoreMountains.TopDownEngine
 				MMAnimatorExtensions.UpdateAnimatorBool(animator, _comboInProgressAnimationParameter, _comboWeapon.ComboInProgress, list, PerformAnimatorSanityChecks);
 			}
 		}
+
+		public void SetTimeBetweenUses(float newTimeBetweenUses)
+		{
+			TimeBetweenUses = newTimeBetweenUses;
+		}
 	}
 }

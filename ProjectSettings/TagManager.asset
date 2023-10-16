@@ -9,6 +9,17 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Terrain
+  - EnemyCounter
+  - Score
+  - LevelProgressUI
+  - Stats
+  - FirstUpgrade
+  - SecondUpgrade
+  - ThirdUpgrade
+  - UpgradePanel
+  - Weapon
+  - Kunai
   layers:
   - Default
   - TransparentFX

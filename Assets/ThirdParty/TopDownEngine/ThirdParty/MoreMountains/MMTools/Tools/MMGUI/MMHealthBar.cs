@@ -149,6 +149,9 @@ namespace MoreMountains.Tools
 		/// if this is set to true the bar will hide itself when it reaches zero
 		[Tooltip("if this is set to true the bar will hide itself when it reaches zero")]
 		public bool HideBarAtZero = true;
+		/// if this is set to true the bar will destroy itself when it reaches zero
+		[Tooltip("if this is set to true the bar will destroy itself when it reaches zero")]
+		public bool DestroyBarAtZero = true;
 		/// the delay (in seconds) after which to hide the bar
 		[Tooltip("the delay (in seconds) after which to hide the bar")]
 		public float HideBarAtZeroDelay = 1f;
@@ -478,6 +481,11 @@ namespace MoreMountains.Tools
 				{
 					StartCoroutine(FinalHideBar());
 				}
+				if (DestroyBarAtZero && !HideBarAtZero && _progressBar.BarTarget <= 0)
+				{
+					Destroy(_progressBar.gameObject);
+				}
+				
 
 				if (BumpScaleOnChange)
 				{

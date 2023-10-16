@@ -97,6 +97,7 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (_inputManager.JumpButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
 			{
+				Debug.Log("Jump button down");
 				JumpStart();
 			}
 			if (_inputManager.JumpButton.State.CurrentState == MMInput.ButtonStates.ButtonUp)

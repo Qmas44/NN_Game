@@ -90,7 +90,6 @@ namespace MoreMountains.TopDownEngine
 		[Header("Debug")]
 
 		/// the weapon currently equipped by the Character
-		[MMReadOnly]
 		[Tooltip("the weapon currently equipped by the Character")]
 		public Weapon CurrentWeapon;
 
@@ -166,6 +165,12 @@ namespace MoreMountains.TopDownEngine
 			{
 				_weaponIK = _animator.GetComponent<WeaponIK>();
 			}
+			Weapon SetWeapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
+			if (SetWeapon != null)
+			{
+				InitialWeapon = SetWeapon;
+			}
+
 			// we set the initial weapon
 			if (InitialWeapon != null)
 			{
@@ -573,6 +578,12 @@ namespace MoreMountains.TopDownEngine
 					}
 				}
 			}
+		}
+
+		public virtual Weapon GetCurrentWeapon()
+		{
+			Debug.Log("getting current weapon from weapon handle" + CurrentWeapon);
+			return CurrentWeapon;
 		}
 
 		/// <summary>

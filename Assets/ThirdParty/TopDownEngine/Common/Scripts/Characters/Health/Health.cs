@@ -847,6 +847,7 @@ namespace MoreMountains.TopDownEngine
 			else
 			{
 				// finally we destroy the object
+				Debug.LogWarning("Destroying " + this.gameObject.name);
 				DestroyObject();	
 			}
 		}

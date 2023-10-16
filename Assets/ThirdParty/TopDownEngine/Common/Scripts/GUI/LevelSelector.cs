@@ -75,7 +75,6 @@ namespace MoreMountains.TopDownEngine
 		public virtual void ReloadLevel()
 		{
 			// we trigger an unPause event for the GameManager (and potentially other classes)
-			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.UnPause, null);
 			LoadScene(SceneManager.GetActiveScene().name);
 		}
 		

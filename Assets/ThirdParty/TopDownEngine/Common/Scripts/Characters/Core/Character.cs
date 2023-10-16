@@ -463,12 +463,15 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void ResetInput()
 		{
+			Debug.Log("Resetting input for " + this.gameObject.name);
+			Debug.Log("Ability number " + _characterAbilities.Length);
 			if (_characterAbilities == null)
 			{
 				return;
 			}
 			foreach (CharacterAbility ability in _characterAbilities)
 			{
+				Debug.Log("Abilities  = " + ability);
 				ability.ResetInput();
 			}
 		}
@@ -771,6 +774,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Reset()
 		{
+			Debug.Log("Resetting character");
 			_spawnDirectionForced = false;
 			if (_characterAbilities == null)
 			{

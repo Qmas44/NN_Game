@@ -569,5 +569,10 @@ namespace MoreMountains.TopDownEngine
 		{
 			this.MMEventStopListening<TopDownEngineEvent>();
 		}
+
+		public GameObject GetPlayer()
+		{
+			return Players[0].gameObject;
+		}
 	}
 }

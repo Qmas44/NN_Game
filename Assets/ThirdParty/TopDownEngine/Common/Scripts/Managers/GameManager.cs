@@ -70,7 +70,43 @@ namespace MoreMountains.TopDownEngine
 			e.OriginCharacter = originCharacter;
 			MMEventManager.TriggerEvent(e);
 		}
-	} 
+	}
+
+	// <summary>
+	/// A list of the methods available to change the current experience points
+	/// </summary>
+	public enum ExperiencePointsMethods
+	{
+		Add,
+		Set
+	}
+
+	/// <summary>
+	/// A type of event used to signal changes to the current experience points
+	/// </summary>
+	public struct TopDownEngineExperiencePointEvent
+	{
+		public ExperiencePointsMethods ExperiencePointsMethod;
+		public int ExperiencePoints;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MoreMountains.TopDownEngine.TopDownEngineExperiencePointEvent"/> struct.
+		/// </summary>
+		/// <param name="experiencePointsMethod">Experience Points method.</param>
+		/// <param name="points">Points.</param>
+		public TopDownEngineExperiencePointEvent(ExperiencePointsMethods experiencePointsMethod, int experiencePoints)
+		{
+			ExperiencePointsMethod = experiencePointsMethod;
+			ExperiencePoints = experiencePoints;
+		}
+
+		static TopDownEngineExperiencePointEvent e;
+		public static void Trigger(ExperiencePointsMethods experiencePointsMethod, int experiencePoints)
+		{
+			e.ExperiencePointsMethod = experiencePointsMethod;
+			e.ExperiencePoints = experiencePoints;
+			MMEventManager.TriggerEvent(e);
+		}
+	}
 
 	/// <summary>
 	/// A list of the methods available to change the current score
@@ -141,7 +177,8 @@ namespace MoreMountains.TopDownEngine
 	public class GameManager : 	MMPersistentSingleton<GameManager>, 
 		MMEventListener<MMGameEvent>, 
 		MMEventListener<TopDownEngineEvent>, 
-		MMEventListener<TopDownEnginePointEvent>
+		MMEventListener<TopDownEnginePointEvent>,
+		MMEventListener<TopDownEngineExperiencePointEvent>
 	{
 		/// the target frame rate for the game
 		[Tooltip("the target frame rate for the game")]
@@ -164,6 +201,12 @@ namespace MoreMountains.TopDownEngine
 		[MMReadOnly]
 		[Tooltip("the current number of game points")]
 		public int Points;
+
+		[Header("ExperiencePoints")]
+		/// the current number of experience points
+		[MMReadOnly]
+		[Tooltip("the current number of experience points")]
+		public int ExperiencePoints;
 
 		[Header("Pause")]
 		/// if this is true, the game will automatically pause when opening an inventory
@@ -215,6 +258,7 @@ namespace MoreMountains.TopDownEngine
 		public virtual void Reset()
 		{
 			Points = 0;
+			ExperiencePoints = 0;
 			MMTimeScaleEvent.Trigger(MMTimeScaleMethods.Reset, 1f, 0f, false, 0f, true);
 			Paused = false;
 		}
@@ -261,6 +305,35 @@ namespace MoreMountains.TopDownEngine
 			CurrentLives = _initialCurrentLives;
 			MaximumLives = _initialMaximumLives;
 		}
+
+		/// <summary>
+		/// Adds the experience points in parameters to the current game experience points.
+		/// </summary>
+		/// <param name="experiencePointsToAdd">Experience Points to add.</param>
+		public virtual void AddExperiencePoints(int experiencePointsToAdd)
+		{
+			ExperiencePoints += experiencePointsToAdd;
+			GUIManager.Instance.RefreshPoints(); // NEED TO ADD REFRESH EXPERIENCE POINTS
+		}
+		
+		/// <summary>
+		/// use this to set the current experience points to the one you pass as a parameter
+		/// </summary>
+		/// <param name="experience points">Experience Points.</param>
+		public virtual void SetExperiencePoints(int experiencePoints)
+		{
+			ExperiencePoints = experiencePoints;
+			GUIManager.Instance.RefreshPoints(); // refresh experience points
+		}
+		/// <summary>
+		/// use this to get the current experience pointsr
+		/// </summary>
+		/// <param name="experience points">Experience Points.</param>
+		public virtual int GetExperiencePoints()
+		{
+			return ExperiencePoints;
+		}
+
 
 		/// <summary>
 		/// Adds the points in parameters to the current game points.
@@ -530,6 +603,24 @@ namespace MoreMountains.TopDownEngine
 		}
 
 		/// <summary>
+		/// Catches TopDownEngineExperiencePointsEvents and acts on them, playing the corresponding sounds
+		/// </summary>
+		/// <param name="pointEvent">TopDownEngineExperiencePointEvent event.</param>
+		public virtual void OnMMEvent(TopDownEngineExperiencePointEvent experiencePointEvent)
+		{
+			switch (experiencePointEvent.ExperiencePointsMethod)
+			{
+				case ExperiencePointsMethods.Set:
+					SetExperiencePoints(experiencePointEvent.ExperiencePoints);
+					break;
+
+				case ExperiencePointsMethods.Add:
+					AddExperiencePoints(experiencePointEvent.ExperiencePoints);
+					break;
+			}
+		}
+
+		/// <summary>
 		/// Catches TopDownEnginePointsEvents and acts on them, playing the corresponding sounds
 		/// </summary>
 		/// <param name="pointEvent">TopDownEnginePointEvent event.</param>
@@ -548,12 +639,13 @@ namespace MoreMountains.TopDownEngine
 		}
 
 		/// <summary>
-		/// OnDisable, we start listening to events.
+		/// OnEnable, we start listening to events.
 		/// </summary>
 		protected virtual void OnEnable()
 		{
 			this.MMEventStartListening<MMGameEvent> ();
 			this.MMEventStartListening<TopDownEngineEvent> ();
+			this.MMEventStartListening<TopDownEngineExperiencePointEvent> ();
 			this.MMEventStartListening<TopDownEnginePointEvent> ();
 		}
 
@@ -564,7 +656,10 @@ namespace MoreMountains.TopDownEngine
 		{
 			this.MMEventStopListening<MMGameEvent> ();
 			this.MMEventStopListening<TopDownEngineEvent> ();
+			this.MMEventStopListening<TopDownEngineExperiencePointEvent> ();
 			this.MMEventStopListening<TopDownEnginePointEvent> ();
+
+			
 		}
 	}
 }
