@@ -53,16 +53,17 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
-			if (_inputManager.DashButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
+			if (_inputManager.YinActivationButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
 			{
-				DashStart();
+				Debug.Log("Yin button pressed");
+				YinStart();
 			}
 		}
 
         /// <summary>
 		/// Starts a dash
 		/// </summary>
-		public virtual void DashStart()
+		public virtual void YinStart()
 		{
 			if (!Cooldown.Ready())
 			{
@@ -71,8 +72,6 @@ namespace MoreMountains.TopDownEngine
 			Cooldown.Start();
 
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
-			_controller.FreeMovement = false;
-			_controller3D.DetachFromMovingPlatform();
 			YinFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 		}
