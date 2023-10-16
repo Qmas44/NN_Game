@@ -26,15 +26,15 @@ namespace MoreMountains.TopDownEngine
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
-        public void Upgrade(Weapon weapon)
+        public void Upgrade(UpgradeData upgradeData)
         {
-            if (weapon == null) { return; }      
+            if (upgradeData.weapon == null) { return; }      
 
             Weapon currentWeapon = player.GetComponent<CharacterHandleWeapon>().GetCurrentWeapon();
 
             if (currentWeapon == null) { return; }
 
-            if (currentWeapon.name == weapon.name)
+            if (currentWeapon.name == upgradeData.weapon.name)
             {
                 Debug.Log("weapon matches ");
                 if (currentWeapon.name == "Kunai")
@@ -46,16 +46,42 @@ namespace MoreMountains.TopDownEngine
                     Projectile kunaiProjectile = kunaiPoolObject.GetComponent<Projectile>();
                     Health kunaiHealth = kunaiPoolObject.GetComponent<Health>();
 
-                    // Upgrade kunai damage caused
-                    kunaiProjectile.SetDamageCaused(kunaiProjectile.GetMinDamageCaused(), kunaiProjectile.GetMaxDamageCaused() + 5);
-                    
-                    // Upgrade kunai health
-                    kunaiHealth.CurrentHealth += 1;
-                    kunaiHealth.InitialHealth += 1;
+                    switch (upgradeData.upgradeLevel)
+                    {
+                        case UpgradeLevel.Level1:
+                            Debug.Log("Level 1");
+                            // Upgrade kunai damage caused
+                            kunaiProjectile.SetDamageCaused(kunaiProjectile.GetMinDamageCaused(), kunaiProjectile.GetMaxDamageCaused() + upgradeData.weaponDamageCaused);
+                            // Upgrade kunai Speed
+                            currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - upgradeData.weaponSpeed);
+                            break;
+                        case UpgradeLevel.Level2:
+                            Debug.Log("Level 2");
+                            // Upgrade kunai damage caused
+                            kunaiProjectile.SetDamageCaused(kunaiProjectile.GetMinDamageCaused() + upgradeData.weaponDamageCaused, kunaiProjectile.GetMaxDamageCaused() + upgradeData.weaponDamageCaused);
 
-                    // Upgrade kunai Speed
-                    currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - 0.1f);
+                            // Upgrade kunai health
+                            kunaiHealth.CurrentHealth += upgradeData.weaponHealth;
+                            kunaiHealth.InitialHealth += upgradeData.weaponHealth;
 
+                            // Upgrade kunai Speed
+                            currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - upgradeData.weaponSpeed);
+                            break;
+                        case UpgradeLevel.Level3:
+                            Debug.Log("Level 3");
+                            // Upgrade kunai damage caused
+                            kunaiProjectile.SetDamageCaused(kunaiProjectile.GetMinDamageCaused() + upgradeData.weaponDamageCaused, kunaiProjectile.GetMaxDamageCaused() + upgradeData.weaponDamageCaused);
+                            // Upgrade kunai Speed
+                            currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - upgradeData.weaponSpeed);
+                            break;
+                        case UpgradeLevel.Level4:
+                            Debug.Log("Level 4");
+                            break;
+                        case UpgradeLevel.Level5:
+                            Debug.Log("Level 5");
+                            break;
+                    }
+                
                     // Update kunai pooler
                     kunaiPooler.ClearPool();
                     kunaiPooler.FillObjectPool();

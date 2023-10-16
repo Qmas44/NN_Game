@@ -22,11 +22,12 @@ namespace MoreMountains.TopDownEngine
         // Update is called once per frame
         void Update()
         {
-            character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); // need to refactor here to get player prefab not in update
         }
         
     public void Upgrade(CharacterUpgradeType type)
         {
+            character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); // nned to refactor to now get character every time. Handling here for character death
+
             switch (type)
             {
                 case CharacterUpgradeType.Health:

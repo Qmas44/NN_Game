@@ -47624,7 +47624,7 @@ MonoBehaviour:
         Intensity: 1
         Value: 0
         UseIntensityAsValue: 0
-        RoundingMethod: 0
+        RoundingMethod: 1
         ForceColor: 1
         AnimateColorGradient:
           serializedVersion: 2

@@ -17,6 +17,16 @@ public enum UpgradeType
     JutsuUnlock
 }
 
+public enum UpgradeLevel
+{
+    Default,
+    Level1,
+    Level2,
+    Level3,
+    Level4,
+    Level5
+}
+
 public enum CharacterUpgradeType
 {
     Default,
@@ -34,10 +44,15 @@ namespace MoreMountains.TopDownEngine
     {
         public UpgradeType upgradeType;
         public CharacterUpgradeType characterUpgradeType;
+        public UpgradeLevel upgradeLevel;
+        public List<UpgradeData> nextUpgrades; // the next upgrade in the same category
         public string upgradeName;
         public string upgradeDescription;
         public Sprite upgradeSprite;
         public CharacterAbility ability;
         public Weapon weapon;
+        public float weaponDamageCaused;
+        public int weaponHealth;
+        public float weaponSpeed;
     }
 }

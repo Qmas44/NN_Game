@@ -2508,6 +2508,11 @@ PrefabInstance:
       propertyPath: SpawnPosition.z
       value: 9.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2626507152828799474, guid: b760ad7ea57f85a4da8c3809d595a134,
+        type: 3}
+      propertyPath: TimeBetweenUses
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7807763516088165489, guid: b760ad7ea57f85a4da8c3809d595a134,
         type: 3}
       propertyPath: m_RootOrder
@@ -4180,10 +4185,9 @@ MonoBehaviour:
   weaponUpgradeManager: {fileID: 1017410749}
   LevelUpFeedback: {fileID: 0}
   upgrades:
-  - {fileID: 11400000, guid: dfbad7b27520092449495abf03765e1b, type: 2}
   - {fileID: 11400000, guid: 5adff1c9ce022914da3c076836708841, type: 2}
-  - {fileID: 11400000, guid: ec1ec72cd6483984f85156378bfe474e, type: 2}
   - {fileID: 11400000, guid: 4aff5863bd3be1c40a42f08aae8aa6af, type: 2}
+  - {fileID: 11400000, guid: 75048ceb4c270f34bb6594af2d05d123, type: 2}
   aquiredUpgrades: []
   upgradesAvaliableOnStart: []
 --- !u!1 &1918232350
@@ -4403,6 +4407,11 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 20646998284766860, guid: 9edcf7e494cf3e640b18cb7495fb179a,
+        type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114129316014370704, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}
       propertyPath: m_Lens.GateFit
@@ -4422,6 +4431,11 @@ PrefabInstance:
     - target: {fileID: 114381032681085342, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}
       propertyPath: ConfineCameraToLevelBounds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114694380113140822, guid: 9edcf7e494cf3e640b18cb7495fb179a,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224261378349446312, guid: 9edcf7e494cf3e640b18cb7495fb179a,

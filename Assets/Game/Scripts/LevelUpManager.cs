@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Unity.VisualScripting;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -72,9 +73,13 @@ namespace MoreMountains.TopDownEngine
                     break;
                 case UpgradeType.CharacterUpgrade:
                     characterUpgradeManager.Upgrade(upgradeData.characterUpgradeType);
+
+                    AddUpgradesIntoAvailableUpgrades(upgradeData.nextUpgrades);
                     break;
                 case UpgradeType.WeaponUpgrade:
-                    weaponUpgradeManager.Upgrade(upgradeData.weapon);
+                    weaponUpgradeManager.Upgrade(upgradeData);
+
+                    AddUpgradesIntoAvailableUpgrades(upgradeData.nextUpgrades);
                     break;
                 case UpgradeType.ItemUnlock:
                     // passiveItems.UnlockItem(upgradeData.item);
@@ -127,23 +132,36 @@ namespace MoreMountains.TopDownEngine
 
             // Handle UI 
             levelProgressUI.UpdateLevelText(playerLevel);
-            upgradePanel.OpenPanel(selectedUpgrades);
+            
+            Debug.Log("upgrades left: " + upgrades.Count);
+
+            if (upgrades.Count != 0) 
+            { 
+                upgradePanel.OpenPanel(selectedUpgrades); 
+            }
+
             levelProgressUI.ResetProgress();
         }
 
         public List<UpgradeData> GetUpgrades(int count)
         {
             List<UpgradeData> upgradeList = new List<UpgradeData>();
+            List<UpgradeData> availableUpgrades = new List<UpgradeData>(upgrades);
 
-            if (count > upgrades.Count)
+            if (count > availableUpgrades.Count)
             {
-                count = upgrades.Count;
+                count = availableUpgrades.Count;
             }
 
             for (int i = 0; i < count; i++)
             {
-                upgradeList.Add(upgrades[Random.Range(0, upgrades.Count)]);
+                int randomIndex = Random.Range(i, availableUpgrades.Count); // Creates a random index between i and the end of the list
+                UpgradeData temp = availableUpgrades[i]; // Assigns the value of the current index to a temp variable
+                availableUpgrades[i] = availableUpgrades[randomIndex]; // Assigns the value of the random index to the current index
+                availableUpgrades[randomIndex] = temp; // Assigns the value of the temp variable to the random index
             }
+
+            upgradeList.AddRange(availableUpgrades.GetRange(0, count));
 
             return upgradeList;
         }

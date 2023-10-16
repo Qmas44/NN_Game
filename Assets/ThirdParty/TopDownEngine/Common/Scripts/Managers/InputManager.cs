@@ -84,6 +84,8 @@ namespace MoreMountains.TopDownEngine
 		public MMInput.IMButton InteractButton { get; protected set; }
 		/// the shoot button
 		public MMInput.IMButton SecondaryShootButton { get; protected set; }
+		// the yin activation button
+		public MMInput.IMButton YinActivationButton { get; protected set; }
 		/// the reload button
 		public MMInput.IMButton ReloadButton { get; protected set; }
 		/// the pause button
@@ -208,6 +210,7 @@ namespace MoreMountains.TopDownEngine
 			ButtonList.Add(CrouchButton  = new MMInput.IMButton (PlayerID, "Crouch", CrouchButtonDown, CrouchButtonPressed, CrouchButtonUp));
 			ButtonList.Add(SecondaryShootButton = new MMInput.IMButton(PlayerID, "SecondaryShoot", SecondaryShootButtonDown, SecondaryShootButtonPressed, SecondaryShootButtonUp));
 			ButtonList.Add(ShootButton = new MMInput.IMButton (PlayerID, "Shoot", ShootButtonDown, ShootButtonPressed, ShootButtonUp)); 
+			ButtonList.Add(YinActivationButton = new MMInput.IMButton (PlayerID, "Shoot", YinActivationButtonDown, ShootButtonPressed, ShootButtonUp));
 			ButtonList.Add(ReloadButton = new MMInput.IMButton (PlayerID, "Reload", ReloadButtonDown, ReloadButtonPressed, ReloadButtonUp));
 			ButtonList.Add(SwitchWeaponButton = new MMInput.IMButton (PlayerID, "SwitchWeapon", SwitchWeaponButtonDown, SwitchWeaponButtonPressed, SwitchWeaponButtonUp));
 			ButtonList.Add(PauseButton = new MMInput.IMButton(PlayerID, "Pause", PauseButtonDown, PauseButtonPressed, PauseButtonUp));
@@ -556,6 +559,8 @@ namespace MoreMountains.TopDownEngine
 		public virtual void SecondaryShootButtonDown() { SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void SecondaryShootButtonPressed() { SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void SecondaryShootButtonUp() { SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+		public virtual void YinActivationButtonDown() { YinActivationButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 
 		public virtual void PauseButtonDown() { PauseButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void PauseButtonPressed() { PauseButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }

@@ -15161,7 +15161,7 @@ MonoBehaviour:
   ImmuneToKnockbackIfZeroDamage: 0
   KnockbackForceMultiplier: 1
   DestroyOnDeath: 1
-  DelayBeforeDestruction: 0
+  DelayBeforeDestruction: 2
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
   DisableControllerOnDeath: 1
@@ -17591,6 +17591,7 @@ GameObject:
   - component: {fileID: 2173964437419296589}
   - component: {fileID: 2876252121577909299}
   - component: {fileID: 3982302854025629935}
+  - component: {fileID: 1990657899429629466}
   m_Layer: 10
   m_Name: Abilities
   m_TagString: Untagged
@@ -17737,6 +17738,36 @@ MonoBehaviour:
     CurrentDurationLeft: 0
   InvincibleWhileDashing: 1
   DashFeedback: {fileID: 0}
+--- !u!114 &1990657899429629466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815735138337833261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39f62ec5feacb841ac1c34e08eac0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 0
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  Cooldown:
+    Unlimited: 0
+    ConsumptionDuration: 2
+    PauseOnEmptyDuration: 1
+    RefillDuration: 1
+    CanInterruptRefill: 1
+    CooldownState: 0
+    CurrentDurationLeft: 0
+  YinFeedback: {fileID: 0}
 --- !u!1 &6240917317031180916
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7779e69a76c476f4cb2a8925aff65510, type: 3}
-  m_Name: TestUpgrade3
+  m_Name: Kunai Upgrade 2
   m_EditorClassIdentifier: 
   upgradeType: 2
   characterUpgradeType: 0
-  upgradeName: Kunai Upgrade 1
-  upgradeDescription: Kunai Upgrade 1
+  upgradeLevel: 2
+  nextUpgrades:
+  - {fileID: 11400000, guid: bc6733221f7f06f4ba82119ea40e0a5c, type: 2}
+  upgradeName: Kunai Upgrade 2
+  upgradeDescription: Kunai Upgrade 2
   upgradeSprite: {fileID: 1970396426, guid: d9d3a17567bc32d4fbad57ff40da60a9, type: 3}
   ability: {fileID: 0}
   weapon: {fileID: 2626507152828799474, guid: b760ad7ea57f85a4da8c3809d595a134, type: 3}
+  weaponDamageCaused: 5
+  weaponHealth: 1
+  weaponSpeed: 0.1
