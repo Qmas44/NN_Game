@@ -72,6 +72,9 @@ namespace MoreMountains.TopDownEngine
 		/// a particle system to move to the position of the hit and to play when hitting something without a Health component
 		[Tooltip("a particle system to move to the position of the hit and to play when hitting something without a Health component")]
 		public ParticleSystem NonDamageableImpactParticles;
+		
+		/// a character if weapon is a jutsu
+		public Character character;
 
 		protected Vector3 _flippedProjectileSpawnOffset;
 		protected Vector3 _randomSpreadDirection;
@@ -130,12 +133,24 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public override void WeaponUse()
 		{
+			Debug.Log("WeaponUse called");
 			base.WeaponUse();
 
+			Debug.Log("WeaponUse passed");
+
 			DetermineSpawnPosition();
+
+			Debug.Log("DetermineSpawnPosition passed");
 			DetermineDirection();
+
+			Debug.Log("DetermineDirection passed");
 			SpawnProjectile(SpawnPosition, true);
+
+			Debug.Log("SpawnProjectile passed");
+
 			HandleDamage();
+
+			Debug.Log("HandleDamage passed");
 		}
 
 		/// <summary>
@@ -156,16 +171,9 @@ namespace MoreMountains.TopDownEngine
 			}
             
 			Quaternion spread = Quaternion.Euler(_randomSpreadDirection);
-            
-			if (Owner.CharacterDimension == Character.CharacterDimensions.Type3D)
-			{
-				_randomSpreadDirection = spread * transform.forward;
-			}
-			else
-			{
-				_randomSpreadDirection = spread * transform.right * (Flipped ? -1 : 1);
-			}
-            
+
+			_randomSpreadDirection = spread * transform.forward;
+
 			if (RotateWeaponOnSpread)
 			{
 				this.transform.rotation = this.transform.rotation * spread;

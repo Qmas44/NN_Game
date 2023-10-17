@@ -1020,7 +1020,7 @@ InputManager:
     negativeButton: 
     positiveButton: joystick 1 button 5
     altNegativeButton: 
-    altPositiveButton: r
+    altPositiveButton: j
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -1878,7 +1878,7 @@ InputManager:
     axis: 2
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Player1_YinActivation
+    m_Name: Player1_Ten
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1894,7 +1894,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Player1_YangActivation
+    m_Name: Player1_Chi
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -1906,7 +1906,39 @@ InputManager:
     sensitivity: 1
     snap: 0
     invert: 0
-    type: 1
-    axis: 2
-    joyNum: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player1_Jin
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: mouse 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player1_Ninjutsu
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: r
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
   m_UsePhysicalKeys: 0

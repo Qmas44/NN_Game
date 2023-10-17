@@ -93,6 +93,10 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("the weapon currently equipped by the Character")]
 		public Weapon CurrentWeapon;
 
+		/// the weapon currently equipped by the Character
+		[Tooltip("the weapon currently equipped by the Character")]
+		public Weapon Jutsu;
+
 		/// the ID / index of this CharacterHandleWeapon. This will be used to determine what handle weapon ability should equip a weapon.
 		/// If you create more Handle Weapon abilities, make sure to override and increment this  
 		public virtual int HandleWeaponID { get { return 1; } }
@@ -482,7 +486,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				CurrentWeapon = (Weapon)Instantiate(newWeapon, WeaponAttachment.transform.position + newWeapon.WeaponAttachmentOffset, WeaponAttachment.transform.rotation);
 			}
-
+			
 			CurrentWeapon.name = newWeapon.name;
 			CurrentWeapon.transform.parent = WeaponAttachment.transform;
 			CurrentWeapon.transform.localPosition = newWeapon.WeaponAttachmentOffset;
@@ -681,5 +685,6 @@ namespace MoreMountains.TopDownEngine
 			base.OnRespawn();
 			Setup();
 		}
+		
 	}
 }
