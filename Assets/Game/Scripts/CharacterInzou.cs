@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using MoreMountains.Tools;
 using System.Collections.Generic;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Feedbacks;
+
 
 namespace MoreMountains.TopDownEngine
 {
@@ -32,12 +34,29 @@ namespace MoreMountains.TopDownEngine
 		private InzouSign[] currentInzouSequence = new InzouSign[MAX_SEQUENCE_LENGTH];
 		private int sequenceIndex = 0;
 
-		[SerializeField] private float InzouSequenceTimeOutDuration = 5f;
+		[Header("Inzou Sprites")]
+		[SerializeField] private Sprite TenSprite;
+		[SerializeField] private Sprite ChiSprite;
+		[SerializeField] private Sprite JinSprite;
+
+		[SerializeField] private float InzouSequenceTimeOutDuration = 3f;
 
         [Header("Cooldown")]
 		/// this ability's cooldown
 		[Tooltip("this ability's cooldown")]
 		public MMCooldown Cooldown;
+
+		[Header("InzouUI")]
+		/// this is the inzou UI
+		[Tooltip("this is the inzou UI")]
+		private GameObject InzouBar;
+
+		[Header("InzouUI")]
+		/// this is the inzou UI
+		[Tooltip("this is the inzou UI")]
+		[SerializeField] private GameObject firstInzou;
+		[SerializeField] private GameObject secondInzou;
+		[SerializeField] private GameObject thirdInzou;
 
         [Header("Feedbacks")]
 		/// the feedbacks to play when activating inzou signs
@@ -56,7 +75,11 @@ namespace MoreMountains.TopDownEngine
 			TenFeedback?.Initialization(this.gameObject);
 			ChiFeedback?.Initialization(this.gameObject);
 			JinFeedback?.Initialization(this.gameObject);
-			
+
+			InzouBar = GameObject.FindGameObjectWithTag("InzouBar");
+			firstInzou = InzouBar.transform.GetChild(0).gameObject;
+			secondInzou = InzouBar.transform.GetChild(1).gameObject;
+			thirdInzou = InzouBar.transform.GetChild(2).gameObject;
 		}
 
         /// <summary>
@@ -99,7 +122,9 @@ namespace MoreMountains.TopDownEngine
 			}
 			Cooldown.Start();
 
-			AddInzouSignToSequence(InzouSign.Ten);
+			AddInzouSignToSequence(InzouSign.Ten); // add inzou sign to sequence
+
+			
 
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
 			TenFeedback?.PlayFeedbacks(this.transform.position);
@@ -159,6 +184,27 @@ namespace MoreMountains.TopDownEngine
 			if (sequenceIndex < MAX_SEQUENCE_LENGTH)
 			{
 				currentInzouSequence[sequenceIndex] = sign;
+
+				GameObject currentInzouImage = InzouBar.transform.GetChild(sequenceIndex).gameObject;
+
+				switch (sign)
+				{
+					case InzouSign.Ten:
+						currentInzouImage.GetComponent<Image>().sprite = TenSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					case InzouSign.Chi:
+						currentInzouImage.GetComponent<Image>().sprite = ChiSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					case InzouSign.Jin:
+						currentInzouImage.GetComponent<Image>().sprite = JinSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					default:
+						break;
+				}
+
 				sequenceIndex++;
 			}
 			else
@@ -181,7 +227,7 @@ namespace MoreMountains.TopDownEngine
 			if(InzouSequenceComplete())
 			{
 				Debug.Log("Inzou sequence complete");
-				// StartCoroutine(InzouSequenceTimeOut());  // Need better way to timeout inzou sequence
+				StartCoroutine(InzouSequenceTimeOut());  // Need better way to timeout inzou sequence
 			}
 		}
 
@@ -203,6 +249,10 @@ namespace MoreMountains.TopDownEngine
 			// To do: clear inzou sequence
 			sequenceIndex = 0;
 			currentInzouSequence = new InzouSign[MAX_SEQUENCE_LENGTH];
+
+			firstInzou.SetActive(false);
+			secondInzou.SetActive(false);
+			thirdInzou.SetActive(false);
 
 			Debug.LogWarning("Inzou sequence reset");
 			Debug.LogWarning("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
@@ -241,8 +291,15 @@ namespace MoreMountains.TopDownEngine
 		IEnumerator InzouSequenceTimeOut()
 		{
 			yield return new WaitForSeconds(InzouSequenceTimeOutDuration);
-			ResetInzouSequence();
-			Debug.Log("Inzou sequence timed out");
+			if (InzouSequenceComplete())
+			{
+				Debug.Log("Inzou sequence timed out");
+				ResetInzouSequence();
+			}
+			else
+			{
+				Debug.Log("Inzou sequence completed before timeout");
+			}
 		}
     }
 }

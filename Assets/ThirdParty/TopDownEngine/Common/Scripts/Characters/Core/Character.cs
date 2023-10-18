@@ -774,7 +774,6 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Reset()
 		{
-			Debug.Log("Resetting character");
 			_spawnDirectionForced = false;
 			if (_characterAbilities == null)
 			{

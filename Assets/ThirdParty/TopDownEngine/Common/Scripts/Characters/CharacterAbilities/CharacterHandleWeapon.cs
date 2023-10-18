@@ -169,6 +169,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				_weaponIK = _animator.GetComponent<WeaponIK>();
 			}
+			
 			Weapon SetWeapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
 			if (SetWeapon != null)
 			{

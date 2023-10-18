@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6272415335771415069}
   - component: {fileID: 7868770250819758908}
   - component: {fileID: 5021591691938751540}
-  m_Layer: 8
+  m_Layer: 23
   m_Name: HealthPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6266231455936806205}
   - component: {fileID: 5548720826026907923}
-  m_Layer: 8
+  m_Layer: 23
   m_Name: DamageFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 885012942489674709}
   - component: {fileID: 3573755092735459543}
   - component: {fileID: 775428030245833403}
-  m_Layer: 8
+  m_Layer: 23
   m_Name: PropPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2628358449696878493}
-  m_Layer: 8
+  m_Layer: 23
   m_Name: HealthPot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6677878600043802644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.457924, y: 3.6511629, z: 23.481215}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -673,7 +673,7 @@ PrefabInstance:
     - target: {fileID: 2916427525354219933, guid: 40442f24aef653141a9ad4dd236ce6f1,
         type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4570123896158003148, guid: 40442f24aef653141a9ad4dd236ce6f1,
         type: 3}

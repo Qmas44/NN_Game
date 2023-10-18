@@ -21,6 +21,7 @@ TagManager:
   - Weapon
   - Kunai
   - FireballJutsu
+  - InzouBar
   layers:
   - Default
   - TransparentFX
@@ -45,7 +46,7 @@ TagManager:
   - Camera2
   - Camera3
   - Camera4
-  - 
+  - DestroyableObjects
   - 
   - 
   - 

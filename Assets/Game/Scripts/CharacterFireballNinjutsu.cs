@@ -24,8 +24,6 @@ namespace MoreMountains.TopDownEngine
     public class CharacterFireballNinjutsu : CharacterHandleWeapon
     {
         public CharacterInzou inzou;
-
-		public Weapon FireballJutsuWeapon;
         [Header("Cooldown")]
 		/// this ability's cooldown
 		[Tooltip("this ability's cooldown")]
@@ -92,10 +90,16 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		IEnumerator ExecuteNinjutsuCoroutine()
 		{
+			inzou.PermitAbility(false);
 			ChangeWeapon(Jutsu, Jutsu.WeaponName, false);
 			ExecuteNinjutsu();
+
 			yield return new WaitForSeconds(activeDuration);
-			ChangeWeapon(InitialWeapon, InitialWeapon.WeaponName, false);
+
+			inzou.PermitAbility(true);
+
+			ChangeWeapon(InitialWeapon, InitialWeapon.name, false);
+			Debug.LogWarning("permitting inzou");
 
 		}
 
