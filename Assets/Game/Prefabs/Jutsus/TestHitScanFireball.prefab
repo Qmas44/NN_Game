@@ -109,7 +109,7 @@ MonoBehaviour:
   RightHandHandle: {fileID: 0}
   ModifyMovementWhileAttacking: 0
   MovementMultiplier: 0
-  PreventAllMovementWhileInUse: 0
+  PreventAllMovementWhileInUse: 1
   PreventAllAimWhileInUse: 0
   RecoilForce: 0
   Animators: []
@@ -473,7 +473,7 @@ MonoBehaviour:
         MutualizePools: 0
         ParentTransform: {fileID: 0}
         CachedRecycle: 1
-        ParticlesPrefab: {fileID: 19800000, guid: 30247fafdb99c584da7b520737c82f59,
+        ParticlesPrefab: {fileID: 7889005612148752680, guid: 7d0522ffa80144745b03b64bc06584d4,
           type: 3}
         RandomParticlePrefabs: []
         ForceSetActiveOnPlay: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
         PositionMode: 1
         InstantiateParticlesPosition: {fileID: 181535304249802960}
         TargetWorldPosition: {x: 0, y: 0, z: 0}
-        Offset: {x: 0, y: 0, z: 1}
+        Offset: {x: 0, y: 0, z: 0}
         NestParticles: 1
         ApplyRotation: 0
         ApplyScale: 0
