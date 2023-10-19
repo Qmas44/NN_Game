@@ -112,7 +112,7 @@ Material:
     - _CamDistProximityFade: 0
     - _ColorGradingMidPoint: 0.5
     - _ColorMask: 15
-    - _ColorRampBlend: 0.22
+    - _ColorRampBlend: 0.379
     - _ColorRampLuminosity: 1
     - _CullingOption: 2
     - _DebugShape: 1
