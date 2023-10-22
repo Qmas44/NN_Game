@@ -24,7 +24,6 @@ public class GenerateMesh : MonoBehaviour {
 
         MeshDraft draft = TerrainDraft(TerrainSize, CellSize, NoiseOffset, NoiseScale, Gradient);
         draft.Move(Vector3.left * TerrainSize.x / 2 + Vector3.back * TerrainSize.z / 2);
-        meshFilter.mesh = draft.ToMesh();
 
         MeshCollider meshCollider = GetComponent<MeshCollider>();
         if (meshCollider)
