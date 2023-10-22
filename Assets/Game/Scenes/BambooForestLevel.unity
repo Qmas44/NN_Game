@@ -3939,7 +3939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainTilePrefab: {fileID: 7377584938651054113, guid: 58316ac681f1ad94e8fe19de6b02a9ea,
     type: 3}
-  terrainSize: {x: 20, y: 0, z: 20}
+  terrainSize: {x: 10, y: 0, z: 10}
   gradient:
     serializedVersion: 2
     key0: {r: 0.49056602, g: 0.34159997, b: 0.071733706, a: 1}
@@ -3970,8 +3970,8 @@ MonoBehaviour:
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   noiseScale: 3
-  cellSize: 1
-  radiusToRender: 5
+  cellSize: 3
+  radiusToRender: 10
   gameTransforms: []
   playerTransform: {fileID: 1666771299}
   water: {fileID: 1645158347}
