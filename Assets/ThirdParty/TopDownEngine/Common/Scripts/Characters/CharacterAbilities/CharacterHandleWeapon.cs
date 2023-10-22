@@ -86,16 +86,17 @@ namespace MoreMountains.TopDownEngine
 		[MMCondition("BufferInput", true)]
 		[Tooltip("if this is true, and if this character is using GridMovement, then input will only be triggered when on a perfect tile")]
 		public bool RequiresPerfectTile = false;
+
+		[Header("Jutsu")]
+		/// the weapon currently equipped by the Character
+		[Tooltip("the weapon currently equipped by the Character")]
+		public Weapon Jutsu;
         
 		[Header("Debug")]
 
 		/// the weapon currently equipped by the Character
 		[Tooltip("the weapon currently equipped by the Character")]
 		public Weapon CurrentWeapon;
-
-		/// the weapon currently equipped by the Character
-		[Tooltip("the weapon currently equipped by the Character")]
-		public Weapon Jutsu;
 
 		/// the ID / index of this CharacterHandleWeapon. This will be used to determine what handle weapon ability should equip a weapon.
 		/// If you create more Handle Weapon abilities, make sure to override and increment this  

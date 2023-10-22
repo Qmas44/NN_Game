@@ -29,7 +29,7 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("this ability's cooldown")]
 		public MMCooldown Cooldown;
 
-		[SerializeField] private float activeDuration = 5f;
+		[SerializeField] private float activeDuration = 1f;
 
         public MMFeedbacks FireballJutsuFeedback;
 

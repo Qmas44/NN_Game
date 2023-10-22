@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4302948445117471102}
   - component: {fileID: 3516429395493589816}
   m_Layer: 0
-  m_Name: TestHitScanFireball
+  m_Name: FlamethrowerWeaponJutsu
   m_TagString: FireballJutsu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
         MutualizePools: 0
         ParentTransform: {fileID: 0}
         CachedRecycle: 1
-        ParticlesPrefab: {fileID: 7889005612148752680, guid: 7d0522ffa80144745b03b64bc06584d4,
+        ParticlesPrefab: {fileID: 6388874192760388250, guid: ca8e2326e2f056042a0626b01c8f2492,
           type: 3}
         RandomParticlePrefabs: []
         ForceSetActiveOnPlay: 1
