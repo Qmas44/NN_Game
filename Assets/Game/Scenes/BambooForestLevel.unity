@@ -3979,7 +3979,6 @@ MonoBehaviour:
   placeableObjects:
   - {fileID: 158746, guid: e26b1c1f2a34cca4db6dfe56e6a171c8, type: 3}
   - {fileID: 135904, guid: 81f09681a680a584b87d6562bcda7ccc, type: 3}
-  - {fileID: 147186, guid: 795b71a4e5af0c84fadfd94ef2d953cf, type: 3}
   - {fileID: 139960, guid: a7059c4a38188134caf297919a3061ec, type: 3}
   - {fileID: 166620, guid: 2ac5ce9f86638f6428436ca146fcd4a4, type: 3}
   - {fileID: 150520, guid: aa92f5b46da4230438556bd7f3f899d6, type: 3}
@@ -3997,7 +3996,7 @@ MonoBehaviour:
   - {x: 2, y: 2, z: 2}
   - {x: 2, y: 2, z: 2}
   minObjectsPerTile: 0
-  maxObjectsPerTile: 20
+  maxObjectsPerTile: 10
   destroyDistance: 1000
   usePerlinNoise: 1
   noise: {fileID: 0}
@@ -5068,7 +5067,7 @@ PrefabInstance:
     - target: {fileID: 1032700674332631517, guid: 410fa8c6dc6f8fd4995668cb594ffa82,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 410fa8c6dc6f8fd4995668cb594ffa82, type: 3}
