@@ -58221,8 +58221,8 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    m_ColorMin: {r: -8.7751866e-38, g: 2.73e-43, b: -8.7750834e-38, a: 2.73e-43}
-    m_ColorMax: {r: -8.775052e-38, g: 2.73e-43, b: 0.000051604955, a: 4.5916e-41}
+    m_ColorMin: {r: 1.6715297e-15, g: 1.37e-43, b: 1.6715103e-15, a: 1.37e-43}
+    m_ColorMax: {r: 1.6715043e-15, g: 1.37e-43, b: 1.4038371e-27, a: 4.5912e-41}
   isBurst: 1
   minNumberOfParticles: 1
   maxNumberOfParticles: 1
@@ -72748,8 +72748,8 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    m_ColorMin: {r: -8.7751866e-38, g: 2.73e-43, b: -8.7750834e-38, a: 2.73e-43}
-    m_ColorMax: {r: -8.775052e-38, g: 2.73e-43, b: 0.000051604955, a: 4.5916e-41}
+    m_ColorMin: {r: 1.6715297e-15, g: 1.37e-43, b: 1.6715103e-15, a: 1.37e-43}
+    m_ColorMax: {r: 1.6715043e-15, g: 1.37e-43, b: 1.4038371e-27, a: 4.5912e-41}
   isBurst: 1
   minNumberOfParticles: 1
   maxNumberOfParticles: 1
