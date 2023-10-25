@@ -179,34 +179,13 @@ namespace MoreMountains.TopDownEngine
 			{
 				currentInzouSequence[sequenceIndex] = sign;
 
-				GameObject currentInzouImage = InzouBar.transform.GetChild(sequenceIndex).gameObject;
-
-				switch (sign)
-				{
-					case InzouSign.Ten:
-						currentInzouImage.GetComponent<Image>().sprite = TenSprite;
-						currentInzouImage.SetActive(true);
-						break;
-					case InzouSign.Chi:
-						currentInzouImage.GetComponent<Image>().sprite = ChiSprite;
-						currentInzouImage.SetActive(true);
-						break;
-					case InzouSign.Jin:
-						currentInzouImage.GetComponent<Image>().sprite = JinSprite;
-						currentInzouImage.SetActive(true);
-						break;
-					default:
-						break;
-				}
+				SetInzouUI(sign);
 
 				sequenceIndex++;
 
-				if (isTimeoutRunning)
-				{
-					Debug.LogWarning("Stopping inzou sequence timeout");
-					StopCoroutine("InzouSequenceTimeOutCoroutine");
-				}
-				StartCoroutine("InzouSequenceTimeOutCoroutine");
+				Timeout(); // start timeout coroutine
+
+				CheckJutsu(); // check if jutsu is selected
 			}
 			else
 			{
@@ -223,6 +202,30 @@ namespace MoreMountains.TopDownEngine
 			return currentInzouSequence;
 		}
 
+		private void SetInzouUI(InzouSign sign)
+		{
+			// To do: set inzou UI
+			GameObject currentInzouImage = InzouBar.transform.GetChild(sequenceIndex).gameObject;
+
+			switch (sign)
+				{
+					case InzouSign.Ten:
+						currentInzouImage.GetComponent<Image>().sprite = TenSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					case InzouSign.Chi:
+						currentInzouImage.GetComponent<Image>().sprite = ChiSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					case InzouSign.Jin:
+						currentInzouImage.GetComponent<Image>().sprite = JinSprite;
+						currentInzouImage.SetActive(true);
+						break;
+					default:
+						break;
+				}
+		}
+
 		public bool InzouSequenceComplete()
 		{
 			// To do: check if inzou sequence is complete
@@ -236,6 +239,32 @@ namespace MoreMountains.TopDownEngine
 			}
 		}
 
+		public void CheckJutsu()
+		{
+			if (WindwallJutsuSequence())
+			{
+				Debug.Log("Set Windwall Jutsu UI");
+			}
+			else if (FireballJutsuSequence())
+			{
+				Debug.Log("Set Fireball Jutsu UI");
+			}
+			else
+			{
+				Debug.Log("No jutsu activated");
+			}
+		}
+
+		private void Timeout()
+		{
+			if (isTimeoutRunning)
+				{
+					Debug.LogWarning("Stopping inzou sequence timeout");
+					StopCoroutine("InzouSequenceTimeOutCoroutine");
+				}
+				StartCoroutine("InzouSequenceTimeOutCoroutine");
+		}
+
 		public void ResetInzouSequence()
 		{
 			sequenceIndex = 0; // reset sequence index
@@ -243,7 +272,7 @@ namespace MoreMountains.TopDownEngine
 
 			StopCoroutine("InzouSequenceTimeOutCoroutine"); // stop timeout coroutine
 			isTimeoutRunning = false; // reset timeout bool
-			
+
 			// reset inzou UI
 			firstInzou.SetActive(false);
 			secondInzou.SetActive(false);
