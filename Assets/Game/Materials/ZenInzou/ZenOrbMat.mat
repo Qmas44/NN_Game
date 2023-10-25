@@ -273,12 +273,12 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BackFaceTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Color: {r: 1, g: 0.3254717, b: 0.3254717, a: 1}
+    - _Color: {r: 0.4117647, g: 0.047058824, b: 0.77254903, a: 1}
     - _ColorGradingDark: {r: 1, g: 1, b: 1, a: 1}
     - _ColorGradingLight: {r: 1, g: 1, b: 1, a: 1}
     - _ColorGradingMiddle: {r: 1, g: 1, b: 1, a: 1}
     - _DepthGlowColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.013848039, g: 0.0054534315, b: 0.005514706, a: 1}
+    - _EmissionColor: {r: 0.013571115, g: 0.003921569, b: 0.015686275, a: 1}
     - _FadeBurnColor: {r: 1, g: 1, b: 0, a: 1}
     - _FrontFaceTint: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 1, g: 1, b: 1, a: 1}

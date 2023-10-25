@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 218bcf5e84b2d7344a7ebeff31f7a8f9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4f55a76a686616544a3e0b01ae23142a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -233,7 +233,7 @@ Material:
     - _DepthGlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 1, b: 0, a: 1}
     - _FrontFaceTint: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.9811321, g: 0.21751513, b: 0.21751513, a: 1}
+    - _GlowColor: {r: 0.4117647, g: 0.047058824, b: 0.77254903, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _Shape2Color: {r: 1, g: 1, b: 1, a: 1}
@@ -246,7 +246,7 @@ Texture2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: _ColorRampTexGradientTex{"mode":0,"colorKeys":[{"color":{"r":0.8396226167678833,"g":0.6154519319534302,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":0.8207547068595886,"g":0.18672801554203034,"b":0.06581524759531021,"a":1.0},"time":0.24118410050868989}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}
+  m_Name: _ColorRampTexGradientTex{"mode":0,"colorKeys":[{"color":{"r":0.12775897979736329,"g":0.17227140069007874,"b":0.27358490228652956,"a":1.0},"time":0.0},{"color":{"r":0.07058820873498917,"g":0.17519618570804597,"b":0.7058823704719544,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}]}
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -281,7 +281,7 @@ Texture2D:
   m_ColorSpace: 1
   m_PlatformBlob: 
   image data: 256
-  _typelessdata: d69d00ffd69601ffd58f02ffd58703ffd58004ffd57906ffd47207ffd46b08ffd46309ffd35c0affd3550bffd34e0cffd2470dffd23f0effd2380fffd13111ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ffd13011ff
+  _typelessdata: 212c46ff202c48ff202c49ff202c4bff202c4dff1f2c4fff1f2c50ff1f2c52ff1f2c54ff1e2c56ff1e2c57ff1e2c59ff1e2c5bff1e2c5dff1d2c5eff1d2c60ff1d2c62ff1d2c64ff1c2c65ff1c2c67ff1c2c69ff1c2c6bff1b2c6cff1b2c6eff1b2c70ff1b2c72ff1b2c73ff1a2c75ff1a2c77ff1a2c79ff1a2c7aff192c7cff192c7eff192c80ff192c81ff182c83ff182c85ff182c87ff182c88ff182c8aff172c8cff172c8eff172c8fff172c91ff162c93ff162c95ff162c96ff162c98ff152c9aff152d9cff152d9dff152d9fff152da1ff142da3ff142da4ff142da6ff142da8ff132daaff132dabff132dadff132dafff122db1ff122db2ff122db4ff
   m_StreamData:
     serializedVersion: 2
     offset: 0
