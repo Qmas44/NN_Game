@@ -29,7 +29,7 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("this ability's cooldown")]
 		public MMCooldown Cooldown;
 
-		[SerializeField] private float activeDuration = 1f;
+		[SerializeField] private float activeDuration = 0.5f;
 
         public MMFeedbacks FireballJutsuFeedback;
 
@@ -94,13 +94,12 @@ namespace MoreMountains.TopDownEngine
 			ChangeWeapon(Jutsu, Jutsu.WeaponName, false);
 			ExecuteNinjutsu();
 
-			yield return new WaitForSeconds(activeDuration);
+			yield return new WaitForSeconds(1);
 
 			inzou.PermitAbility(true);
 
 			ChangeWeapon(InitialWeapon, InitialWeapon.name, false);
 			Debug.LogWarning("permitting inzou");
-
 		}
 
 		public virtual void SetActiveDuration(float newDuration)

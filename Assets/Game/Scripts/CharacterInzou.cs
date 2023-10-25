@@ -33,13 +33,13 @@ namespace MoreMountains.TopDownEngine
 		private const int MAX_SEQUENCE_LENGTH = 3;
 		private InzouSign[] currentInzouSequence = new InzouSign[MAX_SEQUENCE_LENGTH];
 		private int sequenceIndex = 0;
+		[SerializeField] private bool isTimeoutRunning = false;
+		[SerializeField] private float InzouSequenceTimeOutDuration = 3f;
 
 		[Header("Inzou Sprites")]
 		[SerializeField] private Sprite TenSprite;
 		[SerializeField] private Sprite ChiSprite;
 		[SerializeField] private Sprite JinSprite;
-
-		[SerializeField] private float InzouSequenceTimeOutDuration = 3f;
 
         [Header("Cooldown")]
 		/// this ability's cooldown
@@ -130,8 +130,6 @@ namespace MoreMountains.TopDownEngine
 			TenFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 
-			CheckInzouSequenceComplete();
-
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
 		}
 
@@ -152,8 +150,6 @@ namespace MoreMountains.TopDownEngine
 			ChiFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 
-			CheckInzouSequenceComplete();
-
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
 		}
 
@@ -173,8 +169,6 @@ namespace MoreMountains.TopDownEngine
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
 			JinFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
-
-			CheckInzouSequenceComplete();
 
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
 		}
@@ -206,6 +200,13 @@ namespace MoreMountains.TopDownEngine
 				}
 
 				sequenceIndex++;
+
+				if (isTimeoutRunning)
+				{
+					Debug.LogWarning("Stopping inzou sequence timeout");
+					StopCoroutine("InzouSequenceTimeOutCoroutine");
+				}
+				StartCoroutine("InzouSequenceTimeOutCoroutine");
 			}
 			else
 			{
@@ -220,15 +221,6 @@ namespace MoreMountains.TopDownEngine
 		{
 			// To do: return current inzou sequence
 			return currentInzouSequence;
-		}
-
-		public void CheckInzouSequenceComplete()
-		{
-			if(InzouSequenceComplete())
-			{
-				Debug.Log("Inzou sequence complete");
-				StartCoroutine(InzouSequenceTimeOut());  // Need better way to timeout inzou sequence
-			}
 		}
 
 		public bool InzouSequenceComplete()
@@ -246,10 +238,13 @@ namespace MoreMountains.TopDownEngine
 
 		public void ResetInzouSequence()
 		{
-			// To do: clear inzou sequence
-			sequenceIndex = 0;
-			currentInzouSequence = new InzouSign[MAX_SEQUENCE_LENGTH];
+			sequenceIndex = 0; // reset sequence index
+			currentInzouSequence = new InzouSign[MAX_SEQUENCE_LENGTH]; // reset inzou sequence
 
+			StopCoroutine("InzouSequenceTimeOutCoroutine"); // stop timeout coroutine
+			isTimeoutRunning = false; // reset timeout bool
+			
+			// reset inzou UI
 			firstInzou.SetActive(false);
 			secondInzou.SetActive(false);
 			thirdInzou.SetActive(false);
@@ -259,6 +254,18 @@ namespace MoreMountains.TopDownEngine
 		}
 
 		public bool FireballJutsuSequence()
+		{
+
+			if (currentInzouSequence[0] == InzouSign.Ten && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Chi && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Jin && sequenceIndex == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		public bool WindwallJutsuSequence()
 		{
 			// To do: check if inzou sequence is complete
 			if (sequenceIndex == MAX_SEQUENCE_LENGTH)
@@ -277,6 +284,7 @@ namespace MoreMountains.TopDownEngine
 				return false;
 			}
 		}
+		
 
         // Update is called once per frame
         void Update()
@@ -288,18 +296,15 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Starts the inzou sequence timeout
 		/// </summary>
-		IEnumerator InzouSequenceTimeOut()
+		IEnumerator InzouSequenceTimeOutCoroutine()
 		{
+			Debug.LogWarning("Starting inzou sequence timeout");
+			isTimeoutRunning = true;
 			yield return new WaitForSeconds(InzouSequenceTimeOutDuration);
-			if (InzouSequenceComplete())
-			{
-				Debug.Log("Inzou sequence timed out");
-				ResetInzouSequence();
-			}
-			else
-			{
-				Debug.Log("Inzou sequence completed before timeout");
-			}
+			isTimeoutRunning = false;
+			Debug.LogWarning("Inzou sequence timed out");
+			ResetInzouSequence();
+
 		}
     }
 }
