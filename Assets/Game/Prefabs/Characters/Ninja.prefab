@@ -8994,17 +8994,10 @@ MonoBehaviour:
   BlockingWeaponStates: 
   isTimeoutRunning: 0
   InzouSequenceTimeOutDuration: 5
+  inzouReady: 1
   RinSprite: {fileID: -336324050, guid: 39f44cf3da5e72e48aad5dce07445125, type: 3}
-  KaiSprite: {fileID: 0}
-  ZenSprite: {fileID: 0}
-  Cooldown:
-    Unlimited: 0
-    ConsumptionDuration: 2
-    PauseOnEmptyDuration: 2
-    RefillDuration: 2
-    CanInterruptRefill: 0
-    CooldownState: 0
-    CurrentDurationLeft: 0
+  KaiSprite: {fileID: 354769714, guid: 959fcdfb8ec1f2c44862880a116da2d1, type: 3}
+  ZenSprite: {fileID: -2139537352, guid: c1079e77609990044bfe4fa69c8f9403, type: 3}
   firstInzou: {fileID: 0}
   secondInzou: {fileID: 0}
   thirdInzou: {fileID: 0}
