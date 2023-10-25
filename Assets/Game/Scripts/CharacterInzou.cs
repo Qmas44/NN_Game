@@ -12,9 +12,9 @@ namespace MoreMountains.TopDownEngine
 	public enum InzouSign
 	{
 		Default,
-		Ten,
-		Chi,
-		Jin
+		Rin,
+		Kai,
+		Zen
 	}
     /// <summary>
     /// Add this ability to a 3D character and it'll be able to activate inzou signs
@@ -36,15 +36,12 @@ namespace MoreMountains.TopDownEngine
 		[SerializeField] private bool isTimeoutRunning = false;
 		[SerializeField] private float InzouSequenceTimeOutDuration = 3f;
 
-		[Header("Inzou Sprites")]
-		[SerializeField] private Sprite TenSprite;
-		[SerializeField] private Sprite ChiSprite;
-		[SerializeField] private Sprite JinSprite;
+		[SerializeField] private bool inzouReady = true;
 
-        [Header("Cooldown")]
-		/// this ability's cooldown
-		[Tooltip("this ability's cooldown")]
-		public MMCooldown Cooldown;
+		[Header("Inzou Sprites")]
+		[SerializeField] private Sprite RinSprite;
+		[SerializeField] private Sprite KaiSprite;
+		[SerializeField] private Sprite ZenSprite;
 
 		[Header("InzouUI")]
 		/// this is the inzou UI
@@ -61,9 +58,9 @@ namespace MoreMountains.TopDownEngine
         [Header("Feedbacks")]
 		/// the feedbacks to play when activating inzou signs
 		[Tooltip("the feedbacks to play when activating inzou signs")]
-		public MMFeedbacks TenFeedback;
-		public MMFeedbacks ChiFeedback;
-		public MMFeedbacks JinFeedback;
+		public MMFeedbacks RinFeedback;
+		public MMFeedbacks KaiFeedback;
+		public MMFeedbacks ZenFeedback;
 
         /// <summary>
 		/// On init we initialize our cooldown and feedback
@@ -71,10 +68,9 @@ namespace MoreMountains.TopDownEngine
 		protected override void Initialization()
 		{
 			base.Initialization();
-			Cooldown.Initialization();
-			TenFeedback?.Initialization(this.gameObject);
-			ChiFeedback?.Initialization(this.gameObject);
-			JinFeedback?.Initialization(this.gameObject);
+			RinFeedback?.Initialization(this.gameObject);
+			KaiFeedback?.Initialization(this.gameObject);
+			ZenFeedback?.Initialization(this.gameObject);
 
 			InzouBar = GameObject.FindGameObjectWithTag("InzouBar");
 			firstInzou = InzouBar.transform.GetChild(0).gameObject;
@@ -89,85 +85,79 @@ namespace MoreMountains.TopDownEngine
 		{
 			base.HandleInput();
 			if (!AbilityAuthorized
-			    || (!Cooldown.Ready())
 			    || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))
 			{
 				return;
 			}
-			if (_inputManager.TenButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete()) // add conditional to check if sequence is comeplete here
+			if (_inputManager.RinButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete()) // add conditional to check if sequence is comeplete here
 			{
-				Debug.Log("Ten button pressed");
-				TenStart();
+				Debug.Log("Rin button pressed");
+				RinStart();
 			}
-			if (_inputManager.ChiButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
+			if (_inputManager.KaiButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
 			{
-				Debug.Log("Chi button pressed");
-				ChiStart();
+				Debug.Log("Kai button pressed");
+				KaiStart();
 			}
-			if (_inputManager.JinButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
+			if (_inputManager.ZenButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
 			{
-				Debug.Log("Jin button pressed");
-				JinStart();
+				Debug.Log("Zen button pressed");
+				ZenStart();
 			}
 		}
 
         /// <summary>
-		/// Starts Ten
+		/// Starts Rin
 		/// </summary>
-		private void TenStart()
+		private void RinStart()
 		{
-			if (!Cooldown.Ready())
+			if (!inzouReady)
 			{
 				return;
 			}
-			Cooldown.Start();
 
-			AddInzouSignToSequence(InzouSign.Ten); // add inzou sign to sequence
-
-			
+			AddInzouSignToSequence(InzouSign.Rin); // add inzou sign to sequence		
 
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
-			TenFeedback?.PlayFeedbacks(this.transform.position);
+			RinFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
 		}
 
 		/// <summary>
-		/// Starts Chi
+		/// Starts Kai
 		/// </summary>
-		private void ChiStart()
+		private void KaiStart()
 		{
-			if (!Cooldown.Ready())
+			if (!inzouReady)
 			{
 				return;
 			}
-			Cooldown.Start();
 
-			AddInzouSignToSequence(InzouSign.Chi);
+			AddInzouSignToSequence(InzouSign.Kai);
 
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
-			ChiFeedback?.PlayFeedbacks(this.transform.position);
+			KaiFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
 		}
 
 		/// <summary>
-		/// Starts Jin
+		/// Starts Zen
 		/// </summary>
-		private void JinStart()
+		private void ZenStart()
 		{
-			if (!Cooldown.Ready())
+			if (!inzouReady)
 			{
 				return;
 			}
-			Cooldown.Start();
 
-			AddInzouSignToSequence(InzouSign.Jin);
+			AddInzouSignToSequence(InzouSign.Zen);
 
 			// _movement.ChangeState(CharacterStates.MovementStates.Dashing); // To do: add yin state
-			JinFeedback?.PlayFeedbacks(this.transform.position);
+			ZenFeedback?.PlayFeedbacks(this.transform.position);
 			PlayAbilityStartFeedbacks();
 
 			Debug.Log("Current inzou sequence: " + GetCurrentInzouSequence()[0] + GetCurrentInzouSequence()[1] + GetCurrentInzouSequence()[2]);
@@ -183,6 +173,8 @@ namespace MoreMountains.TopDownEngine
 
 				sequenceIndex++;
 
+				StartCoroutine(InzouDelay()); // start delay coroutine
+
 				Timeout(); // start timeout coroutine
 
 				CheckJutsu(); // check if jutsu is selected
@@ -192,8 +184,6 @@ namespace MoreMountains.TopDownEngine
 				Debug.Log("Inzou sequence is full");
 			}
 			// To do: add inzou sign to sequence
-
-
 		}
 
 		public InzouSign[] GetCurrentInzouSequence()
@@ -209,16 +199,16 @@ namespace MoreMountains.TopDownEngine
 
 			switch (sign)
 				{
-					case InzouSign.Ten:
-						currentInzouImage.GetComponent<Image>().sprite = TenSprite;
+					case InzouSign.Rin:
+						currentInzouImage.GetComponent<Image>().sprite = RinSprite;
 						currentInzouImage.SetActive(true);
 						break;
-					case InzouSign.Chi:
-						currentInzouImage.GetComponent<Image>().sprite = ChiSprite;
+					case InzouSign.Kai:
+						currentInzouImage.GetComponent<Image>().sprite = KaiSprite;
 						currentInzouImage.SetActive(true);
 						break;
-					case InzouSign.Jin:
-						currentInzouImage.GetComponent<Image>().sprite = JinSprite;
+					case InzouSign.Zen:
+						currentInzouImage.GetComponent<Image>().sprite = ZenSprite;
 						currentInzouImage.SetActive(true);
 						break;
 					default:
@@ -247,11 +237,13 @@ namespace MoreMountains.TopDownEngine
 			}
 			else if (FireballJutsuSequence())
 			{
-				Debug.Log("Set Fireball Jutsu UI");
+				Debug.Log("Set Fireball Jutsu UI"); 
+				// To do: set fireball jutsu UI
 			}
 			else
 			{
 				Debug.Log("No jutsu activated");
+				// To do: set no jutsu UI
 			}
 		}
 
@@ -285,7 +277,7 @@ namespace MoreMountains.TopDownEngine
 		public bool FireballJutsuSequence()
 		{
 
-			if (currentInzouSequence[0] == InzouSign.Ten && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Chi && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Jin && sequenceIndex == 1)
+			if (currentInzouSequence[0] == InzouSign.Rin && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Kai && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Zen && sequenceIndex == 1)
 			{
 				return true;
 			}
@@ -299,7 +291,7 @@ namespace MoreMountains.TopDownEngine
 			// To do: check if inzou sequence is complete
 			if (sequenceIndex == MAX_SEQUENCE_LENGTH)
 			{
-				if (currentInzouSequence[0] == InzouSign.Ten && currentInzouSequence[1] == InzouSign.Ten && currentInzouSequence[2] == InzouSign.Ten)
+				if (currentInzouSequence[0] == InzouSign.Rin && currentInzouSequence[1] == InzouSign.Rin && currentInzouSequence[2] == InzouSign.Rin)
 				{
 					return true;
 				}
@@ -334,6 +326,15 @@ namespace MoreMountains.TopDownEngine
 			Debug.LogWarning("Inzou sequence timed out");
 			ResetInzouSequence();
 
+		}
+
+		IEnumerator InzouDelay()
+		{
+			inzouReady = false;
+			Debug.LogWarning("Starting inzou delay");
+			yield return new WaitForSeconds(1);
+			Debug.LogWarning("Inzou delay complete");
+			inzouReady = true;
 		}
     }
 }

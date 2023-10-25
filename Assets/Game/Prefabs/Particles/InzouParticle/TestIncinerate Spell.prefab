@@ -38881,7 +38881,7 @@ GameObject:
   - component: {fileID: 5861191979957969705}
   - component: {fileID: 3063929141111663068}
   m_Layer: 0
-  m_Name: Incinerate Spell
+  m_Name: TestIncinerate Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

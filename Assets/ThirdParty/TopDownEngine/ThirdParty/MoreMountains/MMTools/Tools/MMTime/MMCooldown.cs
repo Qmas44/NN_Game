@@ -69,10 +69,8 @@ namespace MoreMountains.Tools
 		/// </summary>
 		public virtual void Start()
 		{
-			if (Ready())
-			{
-				ChangeState(CooldownStates.Consuming);
-			}
+			Debug.LogWarning("Cooldown start");
+			ChangeState(CooldownStates.Consuming);
 		}
 
 		/// <summary>

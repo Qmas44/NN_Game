@@ -85,11 +85,11 @@ namespace MoreMountains.TopDownEngine
 		/// the shoot button
 		public MMInput.IMButton SecondaryShootButton { get; protected set; }
 		// the ten activation button
-		public MMInput.IMButton TenButton { get; protected set; }
+		public MMInput.IMButton RinButton { get; protected set; }
 		// the chi activation button
-		public MMInput.IMButton ChiButton { get; protected set; }
+		public MMInput.IMButton KaiButton { get; protected set; }
 		// the jin activation button
-		public MMInput.IMButton JinButton { get; protected set; }
+		public MMInput.IMButton ZenButton { get; protected set; }
 		// the ninjutsu activation button
 		public MMInput.IMButton NinjutsuButton { get; protected set; }
 
@@ -217,9 +217,9 @@ namespace MoreMountains.TopDownEngine
 			ButtonList.Add(CrouchButton  = new MMInput.IMButton (PlayerID, "Crouch", CrouchButtonDown, CrouchButtonPressed, CrouchButtonUp));
 			ButtonList.Add(SecondaryShootButton = new MMInput.IMButton(PlayerID, "SecondaryShoot", SecondaryShootButtonDown, SecondaryShootButtonPressed, SecondaryShootButtonUp));
 			ButtonList.Add(ShootButton = new MMInput.IMButton (PlayerID, "Shoot", ShootButtonDown, ShootButtonPressed, ShootButtonUp)); 
-			ButtonList.Add(TenButton = new MMInput.IMButton (PlayerID, "Ten", TenButtonDown, TenButtonPressed, TenButtonUp));
-			ButtonList.Add(ChiButton = new MMInput.IMButton (PlayerID, "Chi", ChiButtonDown, ChiButtonPressed, ChiButtonUp));
-			ButtonList.Add(JinButton = new MMInput.IMButton (PlayerID, "Jin", JinButtonDown, JinButtonPressed, JinButtonUp));
+			ButtonList.Add(RinButton = new MMInput.IMButton (PlayerID, "Rin", RinButtonDown, RinButtonPressed, RinButtonUp));
+			ButtonList.Add(KaiButton = new MMInput.IMButton (PlayerID, "Kai", KaiButtonDown, KaiButtonPressed, KaiButtonUp));
+			ButtonList.Add(ZenButton = new MMInput.IMButton (PlayerID, "Zen", ZenButtonDown, ZenButtonPressed, ZenButtonUp));
 			ButtonList.Add(NinjutsuButton = new MMInput.IMButton (PlayerID, "Ninjutsu", NinjutsuButtonDown, NinjutsuButtonPressed, NinjutsuButtonUp));
 			ButtonList.Add(ReloadButton = new MMInput.IMButton (PlayerID, "Reload", ReloadButtonDown, ReloadButtonPressed, ReloadButtonUp));
 			ButtonList.Add(SwitchWeaponButton = new MMInput.IMButton (PlayerID, "SwitchWeapon", SwitchWeaponButtonDown, SwitchWeaponButtonPressed, SwitchWeaponButtonUp));
@@ -570,17 +570,17 @@ namespace MoreMountains.TopDownEngine
 		public virtual void SecondaryShootButtonPressed() { SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void SecondaryShootButtonUp() { SecondaryShootButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void TenButtonDown() { TenButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
-		public virtual void TenButtonPressed() { TenButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
-		public virtual void TenButtonUp() { TenButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+		public virtual void RinButtonDown() { RinButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void RinButtonPressed() { RinButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void RinButtonUp() { RinButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void ChiButtonDown() { ChiButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
-		public virtual void ChiButtonPressed() { ChiButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
-		public virtual void ChiButtonUp() { ChiButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+		public virtual void KaiButtonDown() { KaiButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void KaiButtonPressed() { KaiButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void KaiButtonUp() { KaiButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
-		public virtual void JinButtonDown() { JinButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
-		public virtual void JinButtonPressed() { JinButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
-		public virtual void JinButtonUp() { JinButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+		public virtual void ZenButtonDown() { ZenButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void ZenButtonPressed() { ZenButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void ZenButtonUp() { ZenButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
 		public virtual void NinjutsuButtonDown() { NinjutsuButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void NinjutsuButtonPressed() { NinjutsuButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }

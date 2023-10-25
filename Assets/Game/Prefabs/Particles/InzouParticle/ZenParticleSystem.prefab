@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5380741209293708529}
   - component: {fileID: 6863063594916513262}
   - component: {fileID: 1599254022831821164}
-  - component: {fileID: 3200985291544627775}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -117,8 +116,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.4
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4813,18 +4812,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3200985291544627775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124060215062263716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &252116957867812474
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,7 +4823,6 @@ GameObject:
   - component: {fileID: 8569891554120356286}
   - component: {fileID: 7561508119589586691}
   - component: {fileID: 9098255655371287047}
-  - component: {fileID: 132536230552649566}
   m_Layer: 0
   m_Name: Orb1
   m_TagString: Untagged
@@ -9699,18 +9685,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &132536230552649566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252116957867812474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &332192073056016137
 GameObject:
   m_ObjectHideFlags: 0
@@ -9723,7 +9697,7 @@ GameObject:
   - component: {fileID: 2884308322167953717}
   - component: {fileID: 1838221897604668834}
   m_Layer: 0
-  m_Name: TenParticleSystem
+  m_Name: ZenParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14536,7 +14510,6 @@ GameObject:
   - component: {fileID: 5136264600451490529}
   - component: {fileID: 4042165659966540759}
   - component: {fileID: 2828402647138827035}
-  - component: {fileID: 2692047552085097907}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -19396,18 +19369,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2692047552085097907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579490904567777227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &618229839454248496
 GameObject:
   m_ObjectHideFlags: 0
@@ -19419,7 +19380,6 @@ GameObject:
   - component: {fileID: 344278596426757621}
   - component: {fileID: 1788137080264095239}
   - component: {fileID: 7700909295851902535}
-  - component: {fileID: 1145471255057051580}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -19524,9 +19484,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 0.4
+      minMaxState: 3
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -24221,18 +24181,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1145471255057051580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618229839454248496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &672692531501743752
 GameObject:
   m_ObjectHideFlags: 0
@@ -24244,7 +24192,6 @@ GameObject:
   - component: {fileID: 3800573706850563522}
   - component: {fileID: 5577010236838850073}
   - component: {fileID: 6758275461042168743}
-  - component: {fileID: 8360549857360561331}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -29104,18 +29051,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8360549857360561331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 672692531501743752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &683693527672424463
 GameObject:
   m_ObjectHideFlags: 0
@@ -29127,7 +29062,6 @@ GameObject:
   - component: {fileID: 1207198540052702234}
   - component: {fileID: 8581944783983032787}
   - component: {fileID: 5557718640853123298}
-  - component: {fileID: 1698557084537000507}
   m_Layer: 0
   m_Name: GroundSymbol
   m_TagString: Untagged
@@ -33988,18 +33922,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1698557084537000507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683693527672424463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &867235122919765025
 GameObject:
   m_ObjectHideFlags: 0
@@ -34011,7 +33933,6 @@ GameObject:
   - component: {fileID: 3438447643308583493}
   - component: {fileID: 3616181381302867286}
   - component: {fileID: 205448523841096068}
-  - component: {fileID: 4883124785381375957}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -38871,18 +38792,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4883124785381375957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867235122919765025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1432134350586670362
 GameObject:
   m_ObjectHideFlags: 0
@@ -43712,7 +43621,6 @@ GameObject:
   - component: {fileID: 4706193371317855822}
   - component: {fileID: 1884197054765546597}
   - component: {fileID: 3989279112283214852}
-  - component: {fileID: 8515019414284638377}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -48572,18 +48480,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8515019414284638377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457037050951668535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2364898880394756290
 GameObject:
   m_ObjectHideFlags: 0
@@ -53468,9 +53364,8 @@ GameObject:
   - component: {fileID: 2339333629887917357}
   - component: {fileID: 45107686659191038}
   - component: {fileID: 2326363339237377856}
-  - component: {fileID: 2816758702617216257}
   m_Layer: 0
-  m_Name: TestSymbolInOrb
+  m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58328,18 +58223,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2816758702617216257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2449008241925817226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2875691523538870443
 GameObject:
   m_ObjectHideFlags: 0
@@ -58351,9 +58234,8 @@ GameObject:
   - component: {fileID: 489839060745047184}
   - component: {fileID: 3407833060083467494}
   - component: {fileID: 4333370593586235328}
-  - component: {fileID: 655306630419743897}
   m_Layer: 0
-  m_Name: TestSymbolInOrb
+  m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63211,18 +63093,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &655306630419743897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2875691523538870443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3405605182159937507
 GameObject:
   m_ObjectHideFlags: 0
@@ -63234,7 +63104,6 @@ GameObject:
   - component: {fileID: 921102999474686757}
   - component: {fileID: 817335778540168257}
   - component: {fileID: 2976660295175711659}
-  - component: {fileID: 4828945394795303117}
   m_Layer: 0
   m_Name: Orb5
   m_TagString: Untagged
@@ -68097,18 +67966,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4828945394795303117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405605182159937507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3491661250220055477
 GameObject:
   m_ObjectHideFlags: 0
@@ -68120,7 +67977,6 @@ GameObject:
   - component: {fileID: 6162800732246477828}
   - component: {fileID: 2668552726981410038}
   - component: {fileID: 7787548034369072519}
-  - component: {fileID: 3666468306500056089}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -72980,18 +72836,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3666468306500056089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491661250220055477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4247468181519223825
 GameObject:
   m_ObjectHideFlags: 0
@@ -73003,9 +72847,8 @@ GameObject:
   - component: {fileID: 4076694645596043914}
   - component: {fileID: 8821413893226722474}
   - component: {fileID: 1218633746878149906}
-  - component: {fileID: 909172397309689447}
   m_Layer: 0
-  m_Name: TestSymbolInOrb
+  m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77863,18 +77706,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &909172397309689447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4247468181519223825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4808338262228776089
 GameObject:
   m_ObjectHideFlags: 0
@@ -77886,7 +77717,6 @@ GameObject:
   - component: {fileID: 2127445758817004398}
   - component: {fileID: 5345400172759186562}
   - component: {fileID: 7174334022132413519}
-  - component: {fileID: 1642490011767295681}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -82746,18 +82576,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1642490011767295681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808338262228776089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5479240808067090191
 GameObject:
   m_ObjectHideFlags: 0
@@ -82769,7 +82587,6 @@ GameObject:
   - component: {fileID: 1522869843123504535}
   - component: {fileID: 6592347321377266985}
   - component: {fileID: 109517714806480082}
-  - component: {fileID: 4153075149634614288}
   m_Layer: 0
   m_Name: Symbol
   m_TagString: Untagged
@@ -87629,18 +87446,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4153075149634614288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5479240808067090191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5482952850225598154
 GameObject:
   m_ObjectHideFlags: 0
@@ -87652,7 +87457,6 @@ GameObject:
   - component: {fileID: 7574162293552710195}
   - component: {fileID: 349938533344307890}
   - component: {fileID: 8828699529034866056}
-  - component: {fileID: 2708866247523130757}
   m_Layer: 0
   m_Name: Orb4
   m_TagString: Untagged
@@ -92515,18 +92319,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2708866247523130757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5482952850225598154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6122761520660387325
 GameObject:
   m_ObjectHideFlags: 0
@@ -92538,7 +92330,6 @@ GameObject:
   - component: {fileID: 8373996301735521833}
   - component: {fileID: 8419462250954446933}
   - component: {fileID: 6685714759342379952}
-  - component: {fileID: 6510794215732257454}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -92643,9 +92434,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 0.4
+      minMaxState: 3
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -97340,18 +97131,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6510794215732257454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6122761520660387325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6306626226579101337
 GameObject:
   m_ObjectHideFlags: 0
@@ -102236,7 +102015,6 @@ GameObject:
   - component: {fileID: 2107326745182883432}
   - component: {fileID: 1572841809837914978}
   - component: {fileID: 2001609389797016892}
-  - component: {fileID: 1941779055220388756}
   m_Layer: 0
   m_Name: OrbGlow
   m_TagString: Untagged
@@ -107096,18 +106874,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1941779055220388756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6514143230951867088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6633599047074922129
 GameObject:
   m_ObjectHideFlags: 0
@@ -107119,9 +106885,8 @@ GameObject:
   - component: {fileID: 1454048306216894788}
   - component: {fileID: 3188840039266519985}
   - component: {fileID: 2366850249970013117}
-  - component: {fileID: 444773459795247085}
   m_Layer: 0
-  m_Name: TestSymbolInOrb
+  m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111979,18 +111744,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &444773459795247085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6633599047074922129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6664691087064553382
 GameObject:
   m_ObjectHideFlags: 0
@@ -112002,7 +111755,6 @@ GameObject:
   - component: {fileID: 115745827293231465}
   - component: {fileID: 5273160145589925202}
   - component: {fileID: 1247717957802900269}
-  - component: {fileID: 1087933196249325870}
   m_Layer: 0
   m_Name: Orb2
   m_TagString: Untagged
@@ -116865,18 +116617,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &1087933196249325870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6664691087064553382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6863260572118511393
 GameObject:
   m_ObjectHideFlags: 0
@@ -116888,7 +116628,6 @@ GameObject:
   - component: {fileID: 4286235055675658982}
   - component: {fileID: 8925954549071367267}
   - component: {fileID: 545040492312356230}
-  - component: {fileID: 2686363072282127716}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -116994,8 +116733,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.4
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -121690,18 +121429,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2686363072282127716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863260572118511393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8075654575429551623
 GameObject:
   m_ObjectHideFlags: 0
@@ -121713,7 +121440,6 @@ GameObject:
   - component: {fileID: 8797679222314998276}
   - component: {fileID: 2193924445450781663}
   - component: {fileID: 317050371849384592}
-  - component: {fileID: 2924722533392887891}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -121819,8 +121545,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.4
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -126515,18 +126241,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2924722533392887891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075654575429551623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8102776201146758314
 GameObject:
   m_ObjectHideFlags: 0
@@ -126538,9 +126252,8 @@ GameObject:
   - component: {fileID: 4188640635254248414}
   - component: {fileID: 4777419474268488564}
   - component: {fileID: 40046313200984132}
-  - component: {fileID: 4930817889755084389}
   m_Layer: 0
-  m_Name: TestSymbolInOrb
+  m_Name: Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131398,18 +131111,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4930817889755084389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102776201146758314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9057327082504202251
 GameObject:
   m_ObjectHideFlags: 0
@@ -131421,7 +131122,6 @@ GameObject:
   - component: {fileID: 2354540043812863647}
   - component: {fileID: 399976609288491089}
   - component: {fileID: 3130904484841338877}
-  - component: {fileID: 126500093663869659}
   m_Layer: 0
   m_Name: OrbFlames
   m_TagString: Untagged
@@ -131527,8 +131227,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.4
+      scalar: 0.3
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -136223,15 +135923,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &126500093663869659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9057327082504202251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5dbbb1030d96d438905b0e01caa8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
