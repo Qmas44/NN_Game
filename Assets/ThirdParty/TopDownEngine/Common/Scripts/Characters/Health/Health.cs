@@ -857,6 +857,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Revive()
 		{
+			Debug.LogWarning("Reviving " + this.gameObject.name);
 			if (!_initialized)
 			{
 				return;
