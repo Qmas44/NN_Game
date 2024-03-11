@@ -5,6 +5,7 @@ using MoreMountains.Tools;
 using System.Collections.Generic;
 using MoreMountains.InventoryEngine;
 using MoreMountains.Feedbacks;
+using ProceduralToolkit;
 
 
 namespace MoreMountains.TopDownEngine
@@ -89,21 +90,28 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
-			if (_inputManager.RinButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete()) // add conditional to check if sequence is comeplete here
+
+			if (_inputManager.MudaraModeButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed)
 			{
-				Debug.Log("Rin button pressed");
-				RinStart();
+				Debug.Log("Mudara mode button pressed");
+
+				if (_inputManager.RinButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete()) // add conditional to check if sequence is comeplete here
+				{
+					Debug.Log("Rin button pressed");
+					RinStart();
+				}
+				if (_inputManager.KaiButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
+				{
+					Debug.Log("Kai button pressed");
+					KaiStart();
+				}
+				if (_inputManager.ZenButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
+				{
+					Debug.Log("Zen button pressed");
+					ZenStart();
+				}
 			}
-			if (_inputManager.KaiButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
-			{
-				Debug.Log("Kai button pressed");
-				KaiStart();
-			}
-			if (_inputManager.ZenButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && !InzouSequenceComplete())
-			{
-				Debug.Log("Zen button pressed");
-				ZenStart();
-			}
+			
 		}
 
         /// <summary>
@@ -277,7 +285,7 @@ namespace MoreMountains.TopDownEngine
 		public bool FireballJutsuSequence()
 		{
 
-			if (currentInzouSequence[0] == InzouSign.Rin && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Kai && sequenceIndex == 1 || currentInzouSequence[0] == InzouSign.Zen && sequenceIndex == 1)
+			if (currentInzouSequence[0] == InzouSign.Rin && currentInzouSequence[1] == InzouSign.Kai && currentInzouSequence[2] == InzouSign.Zen)
 			{
 				return true;
 			}
@@ -332,7 +340,7 @@ namespace MoreMountains.TopDownEngine
 		{
 			inzouReady = false;
 			Debug.LogWarning("Starting inzou delay");
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.2f);
 			Debug.LogWarning("Inzou delay complete");
 			inzouReady = true;
 		}

@@ -92,6 +92,8 @@ namespace MoreMountains.TopDownEngine
 		public MMInput.IMButton ZenButton { get; protected set; }
 		// the ninjutsu activation button
 		public MMInput.IMButton NinjutsuButton { get; protected set; }
+		// the ninjutsu activation button
+		public MMInput.IMButton MudaraModeButton { get; protected set; }
 
 		/// the reload button
 		public MMInput.IMButton ReloadButton { get; protected set; }
@@ -221,6 +223,7 @@ namespace MoreMountains.TopDownEngine
 			ButtonList.Add(KaiButton = new MMInput.IMButton (PlayerID, "Kai", KaiButtonDown, KaiButtonPressed, KaiButtonUp));
 			ButtonList.Add(ZenButton = new MMInput.IMButton (PlayerID, "Zen", ZenButtonDown, ZenButtonPressed, ZenButtonUp));
 			ButtonList.Add(NinjutsuButton = new MMInput.IMButton (PlayerID, "Ninjutsu", NinjutsuButtonDown, NinjutsuButtonPressed, NinjutsuButtonUp));
+			ButtonList.Add(MudaraModeButton = new MMInput.IMButton (PlayerID, "MudaraMode", MudaraModeButtonDown, MudaraModeButtonPressed, MudaraModeButtonUp));
 			ButtonList.Add(ReloadButton = new MMInput.IMButton (PlayerID, "Reload", ReloadButtonDown, ReloadButtonPressed, ReloadButtonUp));
 			ButtonList.Add(SwitchWeaponButton = new MMInput.IMButton (PlayerID, "SwitchWeapon", SwitchWeaponButtonDown, SwitchWeaponButtonPressed, SwitchWeaponButtonUp));
 			ButtonList.Add(PauseButton = new MMInput.IMButton(PlayerID, "Pause", PauseButtonDown, PauseButtonPressed, PauseButtonUp));
@@ -585,6 +588,10 @@ namespace MoreMountains.TopDownEngine
 		public virtual void NinjutsuButtonDown() { NinjutsuButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void NinjutsuButtonPressed() { NinjutsuButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
 		public virtual void NinjutsuButtonUp() { NinjutsuButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
+
+		public virtual void MudaraModeButtonDown() { MudaraModeButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
+		public virtual void MudaraModeButtonPressed() { MudaraModeButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }
+		public virtual void MudaraModeButtonUp() { MudaraModeButton.State.ChangeState(MMInput.ButtonStates.ButtonUp); }
 
 		public virtual void PauseButtonDown() { PauseButton.State.ChangeState(MMInput.ButtonStates.ButtonDown); }
 		public virtual void PauseButtonPressed() { PauseButton.State.ChangeState(MMInput.ButtonStates.ButtonPressed); }

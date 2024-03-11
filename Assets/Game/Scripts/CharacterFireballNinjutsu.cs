@@ -55,12 +55,14 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
-
-			// if fireball jutsu sequence isnt complete, dont do anything
-            if (_inputManager.NinjutsuButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && inzou.FireballJutsuSequence())
+			if (!(_inputManager.MudaraModeButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed))
 			{
-				Debug.Log("Executing Jutsu pressed");
-				StartCoroutine(ExecuteNinjutsuCoroutine());
+			// if fireball jutsu sequence isnt complete, dont do anything
+				if (_inputManager.NinjutsuButton.State.CurrentState == MMInput.ButtonStates.ButtonDown && inzou.FireballJutsuSequence())
+				{
+					Debug.Log("Executing Jutsu pressed");
+					StartCoroutine(ExecuteNinjutsuCoroutine());
+				}
 			}
 		}
 

@@ -5079,7 +5079,7 @@ MonoBehaviour:
   RunAnimatorSanityChecks: 0
   DisableAnimatorLogs: 0
   CharacterModel: {fileID: 1357507881697199310}
-  CharacterHealth: {fileID: 0}
+  CharacterHealth: {fileID: 8823324403685275120}
   SendStateChangeEvents: 1
   AdditionalAbilityNodes:
   - {fileID: 5815735138337833261}
@@ -8825,6 +8825,7 @@ GameObject:
   - component: {fileID: 3982302854025629935}
   - component: {fileID: 7222359178664649712}
   - component: {fileID: 3764265785103041471}
+  - component: {fileID: 152371749433131665}
   m_Layer: 10
   m_Name: Abilities
   m_TagString: Untagged
@@ -9057,6 +9058,27 @@ MonoBehaviour:
     CurrentDurationLeft: 0
   activeDuration: 5
   FireballJutsuFeedback: {fileID: 2596023722815614921}
+--- !u!114 &152371749433131665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815735138337833261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b573df29a3de9a04b90b11131fb95980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
 --- !u!1 &5928915753071883954
 GameObject:
   m_ObjectHideFlags: 0
