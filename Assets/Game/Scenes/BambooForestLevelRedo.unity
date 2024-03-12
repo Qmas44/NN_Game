@@ -1250,6 +1250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 268727120467297996, guid: b760ad7ea57f85a4da8c3809d595a134,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268727120467297996, guid: b760ad7ea57f85a4da8c3809d595a134,
+        type: 3}
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
@@ -1292,6 +1297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: AimControl
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267046326985120505, guid: b760ad7ea57f85a4da8c3809d595a134,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7807763516088165489, guid: b760ad7ea57f85a4da8c3809d595a134,
         type: 3}
