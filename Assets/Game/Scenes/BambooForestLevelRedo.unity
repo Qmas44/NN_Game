@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478972687}
   m_Layer: 0
-  m_Name: Weapons
+  m_Name: Weapons--------------------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1519,6 +1519,11 @@ PrefabInstance:
     - target: {fileID: 1032700674332631517, guid: 410fa8c6dc6f8fd4995668cb594ffa82,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752973698145415812, guid: 410fa8c6dc6f8fd4995668cb594ffa82,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2307,8 +2312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1840f5ca9a512af428401b3b730ca766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2504361798516422463, guid: 2c0ab30c9897ad34d98d5b2b3df4f833,
-    type: 3}
+  enemyPrefabs:
+  - {fileID: 2504361798516422463, guid: 2c0ab30c9897ad34d98d5b2b3df4f833, type: 3}
+  - {fileID: 2504361798516422463, guid: a5d1f7805beaa744fa5404a272c1e8d3, type: 3}
   playerPrefab: {fileID: 0}
   spawnInterval: 3
   spawnDistance: 40
@@ -2542,7 +2548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797268564}
   m_Layer: 0
-  m_Name: Projectiles
+  m_Name: Projectiles---------------------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

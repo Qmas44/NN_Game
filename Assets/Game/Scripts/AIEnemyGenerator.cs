@@ -3,7 +3,7 @@ using UnityEngine;
 public class AIEnemyGenerator : MonoBehaviour
 {
     [Tooltip("The enemy prefab to spawn")]
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
 
     private EnemyCounter _enemyCounter;
 
@@ -62,9 +62,12 @@ public class AIEnemyGenerator : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
             Collider[] colliders = Physics.OverlapSphere(spawnPosition, 1f);
+
+            
             if (colliders.Length == 0 && !IsInView(spawnPosition))
             {
-                GameObject mob = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                GameObject mob = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPosition, Quaternion.identity);
+
                 mob.SetActive(true);
                 _enemyCounter.IncreaseEnemyCount();
 

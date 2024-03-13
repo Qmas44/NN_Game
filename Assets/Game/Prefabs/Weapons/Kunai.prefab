@@ -174,7 +174,7 @@ MonoBehaviour:
   MutualizeWaitingPools: 1
   NestWaitingPool: 1
   NestUnderThis: 0
-  GameObjectToPool: {fileID: 1854097648223014, guid: 93c48a9475ea9f847a7445e33157d906,
+  GameObjectToPool: {fileID: 1032700674332631517, guid: 410fa8c6dc6f8fd4995668cb594ffa82,
     type: 3}
   PoolSize: 20
   PoolCanExpand: 1
@@ -188,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 109298, guid: a8929d8c11f00b24d9d8e3bf32fedfb9, type: 3}
       propertyPath: m_Name
       value: SM_Wep_Kunai_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 109298, guid: a8929d8c11f00b24d9d8e3bf32fedfb9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 453692, guid: a8929d8c11f00b24d9d8e3bf32fedfb9, type: 3}
       propertyPath: m_RootOrder
