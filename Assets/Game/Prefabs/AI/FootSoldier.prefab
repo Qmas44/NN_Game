@@ -25354,8 +25354,13 @@ GameObject:
   - component: {fileID: 5592929229554327910}
   - component: {fileID: 4474192348170258895}
   - component: {fileID: 1143883789206794694}
+  - component: {fileID: 4328348799950845657}
+  - component: {fileID: 3888619632667680045}
+  - component: {fileID: 4310798548536818903}
+  - component: {fileID: 2588601668389640716}
   - component: {fileID: 5379615142936930984}
   - component: {fileID: 8592615487300151113}
+  - component: {fileID: 6219942039603860703}
   m_Layer: 0
   m_Name: AILogic
   m_TagString: Untagged
@@ -25392,15 +25397,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   States:
-  - StateName: MoveTowardsTarget
+  - StateName: Moving
     Actions:
       array:
+      - {fileID: 3888619632667680045}
       - {fileID: 4474192348170258895}
-      - {fileID: 1143883789206794694}
     Transitions:
       array:
-      - Decision: {fileID: 0}
-        TrueState: Patrolling
+      - Decision: {fileID: 4328348799950845657}
+        TrueState: Attacking
+        FalseState: 
+  - StateName: Attacking
+    Actions:
+      array:
+      - {fileID: 3888619632667680045}
+      - {fileID: 4310798548536818903}
+    Transitions:
+      array:
+      - Decision: {fileID: 2588601668389640716}
+        TrueState: Moving
         FalseState: 
   TimeInThisState: 0
   Target: {fileID: 0}
@@ -25427,7 +25442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
-  MinimumDistance: 1
+  MinimumDistance: 2
 --- !u!114 &1143883789206794694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25442,6 +25457,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
+--- !u!114 &4328348799950845657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767051407856291143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: ToAttacking
+  ComparisonMode: 1
+  Distance: 3
+--- !u!114 &3888619632667680045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767051407856291143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad888dc2bbe117441bde19ec878ff32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+  LockRotationX: 0
+--- !u!114 &4310798548536818903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767051407856291143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be53bdd0f8b1b3f4aa7a78c1d318b028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+  TargetHandleWeaponAbility: {fileID: 6219942039603860703}
+  AimAtTarget: 0
+  AimOrigin: 0
+  ShootOffset: {x: 0, y: 0, z: 0}
+  LockVerticalAim: 1
+--- !u!114 &2588601668389640716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767051407856291143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: ToMoving
+  ComparisonMode: 3
+  Distance: 5
 --- !u!114 &5379615142936930984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25546,6 +25625,48 @@ MonoBehaviour:
   DebugProximityManager: {fileID: 0}
   AddButton: 0
   _enemyCounter: {fileID: 0}
+--- !u!114 &6219942039603860703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767051407856291143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d364818be44e51c41bae683aea61008f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  InitialWeapon: {fileID: 7214435677246508981, guid: 33c8fc8a44aa26e44897a6ca129f05c4,
+    type: 3}
+  CanPickupWeapons: 0
+  WeaponUseFeedback: {fileID: 0}
+  WeaponAttachment: {fileID: 0}
+  ProjectileSpawn: {fileID: 0}
+  AutomaticallyBindAnimator: 1
+  AmmoDisplayID: 0
+  AutoIK: 0
+  ContinuousPress: 0
+  GettingHitInterruptsAttack: 0
+  UseSecondaryAxisThresholdToShoot: 0
+  ForceWeaponAimControl: 0
+  ForcedWeaponAimControl: 1
+  ForceAlwaysShoot: 0
+  BufferInput: 0
+  NewInputExtendsBuffer: 0
+  MaximumBufferDuration: 0.25
+  RequiresPerfectTile: 0
+  Jutsu: {fileID: 0}
+  CurrentWeapon: {fileID: 0}
 --- !u!1 &7403298761605853293
 GameObject:
   m_ObjectHideFlags: 0

@@ -2277,7 +2277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1723314286}
-  - component: {fileID: 1723314287}
   - component: {fileID: 1723314288}
   m_Layer: 0
   m_Name: EnemyManager
@@ -2301,26 +2300,6 @@ Transform:
   m_Father: {fileID: 1918232351}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1723314287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723314285}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1840f5ca9a512af428401b3b730ca766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 2504361798516422463, guid: 2c0ab30c9897ad34d98d5b2b3df4f833, type: 3}
-  - {fileID: 2504361798516422463, guid: a5d1f7805beaa744fa5404a272c1e8d3, type: 3}
-  playerPrefab: {fileID: 0}
-  spawnInterval: 3
-  spawnDistance: 40
-  numberOfEnemies: 3
-  maxEnemyCount: 35
 --- !u!114 &1723314288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,10 +2317,10 @@ MonoBehaviour:
   - {fileID: 2504361798516422463, guid: 2c0ab30c9897ad34d98d5b2b3df4f833, type: 3}
   eliteEnemyPrefab:
   - {fileID: 2504361798516422463, guid: a5d1f7805beaa744fa5404a272c1e8d3, type: 3}
-  spawnDistance: 20
-  maxRegularEnemies: 30
-  maxEliteEnemies: 1
-  maxRegularEnemiesPerWave: 10
+  spawnDistance: 40
+  maxRegularEnemies: 5
+  maxEliteEnemies: 0
+  maxRegularEnemiesPerWave: 2
   maxEliteEnemiesPerWave: 1
   regularEnemiesSpawnedPerWave: 0
   eliteEnemiesSpawnedPerWave: 0
