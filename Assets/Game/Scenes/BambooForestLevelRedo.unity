@@ -2319,7 +2319,7 @@ MonoBehaviour:
   - {fileID: 2504361798516422463, guid: a5d1f7805beaa744fa5404a272c1e8d3, type: 3}
   spawnDistance: 40
   maxRegularEnemies: 5
-  maxEliteEnemies: 0
+  maxEliteEnemies: 1
   maxRegularEnemiesPerWave: 2
   maxEliteEnemiesPerWave: 1
   regularEnemiesSpawnedPerWave: 0
