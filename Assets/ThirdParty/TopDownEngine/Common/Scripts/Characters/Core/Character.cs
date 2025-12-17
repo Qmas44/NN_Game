@@ -615,7 +615,7 @@ namespace MoreMountains.TopDownEngine
 			// we kill all potential velocity
 			if (this.gameObject.MMGetComponentNoAlloc<Rigidbody2D>() != null)
 			{
-				this.gameObject.MMGetComponentNoAlloc<Rigidbody2D>().velocity = Vector3.zero;
+				this.gameObject.MMGetComponentNoAlloc<Rigidbody2D>().linearVelocity = Vector3.zero;
 			}
 
 			Reset();

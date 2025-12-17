@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "NN_Game.sln"
+    "dotnet.defaultSolution": "NN_Game.slnx"
 }
