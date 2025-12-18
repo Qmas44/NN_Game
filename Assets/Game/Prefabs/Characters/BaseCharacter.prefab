@@ -44,6 +44,7 @@ Transform:
   m_Children:
   - {fileID: 6744464641728477986}
   - {fileID: 5236958902090984901}
+  - {fileID: 2673984364379764448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586477360014111616
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357507880282749195}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a07c6668aa55403790d27b575279549, type: 3}
   m_Name: 
@@ -396,10 +397,11 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 0}
+  InitialWeapon: {fileID: 2059335800674325366, guid: 9b2845c108520374693557b6f52ebade,
+    type: 3}
   CanPickupWeapons: 0
   WeaponUseFeedback: {fileID: 0}
-  WeaponAttachment: {fileID: 0}
+  WeaponAttachment: {fileID: 2673984364379764448}
   ProjectileSpawn: {fileID: 0}
   AutomaticallyBindAnimator: 1
   AmmoDisplayID: 0
@@ -409,7 +411,7 @@ MonoBehaviour:
   UseSecondaryAxisThresholdToShoot: 0
   ForceWeaponAimControl: 0
   ForcedWeaponAimControl: 1
-  ForceAlwaysShoot: 1
+  ForceAlwaysShoot: 0
   BufferInput: 1
   NewInputExtendsBuffer: 1
   MaximumBufferDuration: 0.25
@@ -632,6 +634,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5511568569343732383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2673984364379764448}
+  m_Layer: 10
+  m_Name: GunPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2673984364379764448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511568569343732383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.975, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1357507880282749192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5815735138337833261
 GameObject:
   m_ObjectHideFlags: 0
