@@ -57,10 +57,20 @@ namespace MoreMountains.TopDownEngine
 			#endif
 		}
 
-		public virtual void SetTarget(Character character)
+	public virtual void SetTarget(Character character)
+	{
+		TargetCharacter = character;
+		
+		// Logging to verify character is being set
+		if (character == null)
 		{
-			TargetCharacter = character;
+			Debug.LogWarning($"[CinemachineCameraController] SetTarget called with NULL character on {gameObject.name}");
 		}
+		else
+		{
+			Debug.Log($"[CinemachineCameraController] SetTarget called with character: {character.name} on {gameObject.name}");
+		}
+	}
 
 		/// <summary>
 		/// Starts following the LevelManager's main player

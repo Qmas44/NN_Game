@@ -126,10 +126,12 @@ namespace MoreMountains.TopDownEngine
 		protected virtual void Start()
 		{
 			StartCoroutine(InitializationCoroutine());
+			Debug.Log($"[LevelManager] Level started");
 		}
 
 		protected virtual IEnumerator InitializationCoroutine()
 		{
+			Debug.Log($"[LevelManager] InitializationCoroutine started");
 			if (SpawnDelay > 0f)
 			{
 				yield return MMCoroutine.WaitFor(SpawnDelay);    
@@ -137,6 +139,7 @@ namespace MoreMountains.TopDownEngine
 
 			BoundsCollider = _collider;
 			InstantiatePlayableCharacters();
+			Debug.Log($"[LevelManager] InstantiatePlayableCharacters complete. Players count: {(Players == null ? "NULL" : Players.Count.ToString())}");
 
 			if (UseLevelBounds)
 			{
@@ -147,12 +150,15 @@ namespace MoreMountains.TopDownEngine
 
 			Initialization();
 
+			Debug.Log($"[LevelManager] Triggering spawn character starts event");
 			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.SpawnCharacterStarts, null);
+			Debug.Log($"[LevelManager] Triggering spawn character starts event complete");
 
 			// we handle the spawn of the character(s)
 			if (Players.Count == 1)
 			{
 				SpawnSingleCharacter();
+				Debug.Log($"[LevelManager] SpawnSingleCharacter complete");
 			}
 			else
 			{
@@ -164,6 +170,7 @@ namespace MoreMountains.TopDownEngine
 			// we trigger a fade
 			MMFadeOutEvent.Trigger(IntroFadeDuration, FadeCurve, FaderID);
 
+			Debug.Log($"[LevelManager] Triggering level start events");
 			// we trigger a level start event
 			TopDownEngineEvent.Trigger(TopDownEngineEventTypes.LevelStart, null);
 			MMGameEvent.Trigger("Load");
@@ -172,10 +179,11 @@ namespace MoreMountains.TopDownEngine
 			{
 				MMSetFeedbackRangeCenterEvent.Trigger(Players[0].transform);
 			}
-
+			Debug.Log($"[LevelManager] Triggering camera events for player: {Players[0].name}");
 			MMCameraEvent.Trigger(MMCameraEventTypes.SetTargetCharacter, Players[0]);
 			MMCameraEvent.Trigger(MMCameraEventTypes.StartFollowing);
 			MMGameEvent.Trigger("CameraBound");
+			Debug.Log($"[LevelManager] Level started with player: {Players[0].name}");
 		}
 
 		/// <summary>
