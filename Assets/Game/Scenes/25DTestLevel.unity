@@ -738,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 0}
   levelUpManager: {fileID: 1908354162}
-  inputManager: {fileID: 1837502437}
+  inputManager: {fileID: 0}
   panel: {fileID: 0}
   upgradeButtons:
   - {fileID: 0}
@@ -1339,10 +1339,130 @@ PrefabInstance:
       propertyPath: field of view
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114075803156855596, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075803156855596, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075803156855596, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075803156855596, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114075803156855596, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112139314024490, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112139314024490, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112139314024490, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 114129316014370704, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: m_Lens.FieldOfView
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208548048572026, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208548048572026, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208548048572026, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215578540934908, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: AxisPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245987018285644, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: AxisPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114270737596463260, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: JoystickValue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114419919085104104, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: AxisPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699754484691186, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699754484691186, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699754484691186, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114714365709490776, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ForceWeaponMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114714365709490776, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: WeaponForcedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114802447044411374, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: AxisPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817388709886958, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817388709886958, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817388709886958, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 223698241362165482, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
@@ -1832,7 +1952,7 @@ MonoBehaviour:
   CurrentTimeScale: 1
   TargetTimeScale: 1
   TestButton: 0
---- !u!1 &1837502436
+--- !u!1 &1837490196
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1840,46 +1960,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1837502438}
-  - component: {fileID: 1837502437}
+  - component: {fileID: 1837490197}
   m_Layer: 0
-  m_Name: InputManager
+  m_Name: InputSystemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1837502437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837502436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281595ba54132634bbe48b336e62e2c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InputDetectionActive: 1
-  ResetButtonStatesOnFocusLoss: 1
-  PlayerID: Player1
-  AutoMobileDetection: 1
-  InputForcedMode: 0
-  ForceWeaponMode: 1
-  WeaponForcedMode: 3
-  HideMobileControlsInEditor: 1
-  MovementControl: 0
-  SmoothMovement: 1
-  Threshold: {x: 0.1, y: 0.4}
-  RotateInputBasedOnCameraDirection: 0
---- !u!4 &1837502438
+--- !u!4 &1837490197
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837502436}
+  m_GameObject: {fileID: 1837490196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1978,9 +2073,9 @@ Transform:
   m_Children:
   - {fileID: 598334959}
   - {fileID: 105135217}
+  - {fileID: 1837490197}
   - {fileID: 1723314286}
   - {fileID: 1618121292}
-  - {fileID: 1837502438}
   - {fileID: 1908354161}
   - {fileID: 369142182}
   - {fileID: 1747284129}
