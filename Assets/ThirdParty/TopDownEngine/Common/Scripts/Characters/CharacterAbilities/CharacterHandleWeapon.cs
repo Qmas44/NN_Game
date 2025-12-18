@@ -3,6 +3,8 @@ using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -23,6 +25,8 @@ namespace MoreMountains.TopDownEngine
 		/// the initial weapon owned by the character
 		[Tooltip("the initial weapon owned by the character")]
 		public Weapon InitialWeapon;
+		[Tooltip("the Secondary weapon owned by the character")]
+		public Weapon SecondaryWeapon;
 		/// if this is set to true, the character can pick up PickableWeapons
 		[Tooltip("if this is set to true, the character can pick up PickableWeapons")]
 		public bool CanPickupWeapons = true;
@@ -206,6 +210,7 @@ namespace MoreMountains.TopDownEngine
 			HandleBuffer();
 		}
 
+
 		/// <summary>
 		/// Checks character state and stops shooting if not in normal state
 		/// </summary>
@@ -266,6 +271,14 @@ namespace MoreMountains.TopDownEngine
 			if (inputAuthorized && ContinuousPress && (CurrentWeapon.TriggerMode == Weapon.TriggerModes.Auto) && buttonPressed)
 			{
 				ShootStart();
+			}
+
+			// weapon switch
+			if (_inputManager.SwitchWeaponButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
+			{
+				Debug.Log("attempting to switch weapon");
+				ChangeWeapon(SecondaryWeapon, SecondaryWeapon.WeaponName, false);  
+				
 			}
             
 			if (_inputManager.ReloadButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)

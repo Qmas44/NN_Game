@@ -82,8 +82,6 @@ namespace MoreMountains.TopDownEngine
 		public float AbsoluteThresholdWeapon = 0.5f;
 		/// the threshold after which we start rotating (absolute mode only)
 		[MMCondition("ShouldRotateToFaceWeaponDirection", true)]
-		[Tooltip("the threshold after which we start rotating (absolute mode only)")]
-		public bool LockVerticalRotation = true;
 
 		[Header("Animation")]
 
@@ -194,6 +192,7 @@ namespace MoreMountains.TopDownEngine
 			if (WeaponRotatingModel != null)
 			{
 				_newWeaponQuaternion = WeaponRotatingModel.transform.rotation;
+				Debug.Log("WeaponRotationDirection: " + _newWeaponQuaternion);
 			}
 		}
 
@@ -311,10 +310,6 @@ namespace MoreMountains.TopDownEngine
 
 			_rotationDirection = _characterHandleWeapon.WeaponAimComponent.CurrentAim.normalized;
 
-			if (LockVerticalRotation)
-			{
-				_rotationDirection.y = 0;
-			}
 
 			_weaponRotationDirection = _rotationDirection;
 
