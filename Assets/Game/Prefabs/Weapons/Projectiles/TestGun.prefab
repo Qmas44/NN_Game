@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2059335800674325366}
   - component: {fileID: 7518200683085793562}
   - component: {fileID: 1446514243737241437}
+  - component: {fileID: 5206256209966651847}
   m_Layer: 0
   m_Name: TestGun
   m_TagString: Untagged
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514d297deadac74fb15a7b7326ff0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.WeaponAim3D
-  AimControl: 1
+  AimControl: 3
   AimControlActive: 1
   RotationMode: 0
   WeaponRotationSpeed: 0
@@ -269,3 +270,18 @@ MonoBehaviour:
     type: 3}
   PoolSize: 20
   PoolCanExpand: 1
+--- !u!114 &5206256209966651847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173885462560486049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e471cd75c6d63b444a011599dabb4f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.WeaponAimMouseOverride
+  CheckMouse: 1
+  CheckPrimaryAxis: 1
+  CheckSecondaryAxis: 1

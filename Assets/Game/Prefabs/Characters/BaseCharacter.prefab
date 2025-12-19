@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 594770931942504500}
   - component: {fileID: 535888067870605396}
   - component: {fileID: -8371917933811900188}
+  - component: {fileID: -2025765609209791315}
   - component: {fileID: 2266700727274820682}
   m_Layer: 10
   m_Name: BaseCharacter
@@ -306,7 +307,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   BlockingWeaponStates: 
   Mode: 1
-  TimeScale: 0.5
+  TimeScale: 0.2
   OneTimeDuration: 1
   LerpTimeScale: 1
   LerpSpeed: 5
@@ -398,9 +399,9 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 2059335800674325366, guid: 9b2845c108520374693557b6f52ebade,
+  InitialWeapon: {fileID: 114594623923584052, guid: 0e30730430bf5e7499b141657832dc8b,
     type: 3}
-  SecondaryWeapon: {fileID: 114277323309942634, guid: fb8d2e90db13fd2488aa68c29911ecb0,
+  SecondaryWeapon: {fileID: 2059335800674325366, guid: 9b2845c108520374693557b6f52ebade,
     type: 3}
   CanPickupWeapons: 0
   WeaponUseFeedback: {fileID: 0}
@@ -444,7 +445,7 @@ MonoBehaviour:
   BlockingWeaponStates: 
   RotationMode: 3
   CharacterRotationAuthorized: 1
-  ApplyVisualRotation: 0
+  ApplyVisualRotation: 1
   ShouldRotateToFaceMovementDirection: 1
   MovementRotationSpeed: 0
   MovementRotatingModel: {fileID: 4076349074540018599}
@@ -457,6 +458,46 @@ MonoBehaviour:
   WeaponRotatingModel: {fileID: 4076349074540018599}
   RotateToFaceWeaponDirectionSpeed: 10
   AbsoluteThresholdWeapon: 0.5
+  RotationSpeedResetSpeed: 2
+  RotationOffsetSmoothSpeed: 1
+  ForcedRotation: 0
+  ForcedRotationDirection: {x: 0, y: 0, z: 0}
+--- !u!114 &-2025765609209791315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357507880282749195}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2dd01ffdd1cc045a614bd354672723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.CharacterOrientation3D
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  RotationMode: 3
+  CharacterRotationAuthorized: 1
+  ShouldRotateToFaceMovementDirection: 1
+  MovementRotationSpeed: 0
+  MovementRotatingModel: {fileID: 0}
+  RotateToFaceMovementDirectionSpeed: 10
+  AbsoluteThresholdMovement: 0.5
+  ModelDirection: {x: 0, y: 0, z: 0}
+  ModelAngles: {x: 0, y: 0, z: 0}
+  ShouldRotateToFaceWeaponDirection: 1
+  WeaponRotationSpeed: 0
+  WeaponRotatingModel: {fileID: 0}
+  RotateToFaceWeaponDirectionSpeed: 10
+  AbsoluteThresholdWeapon: 0.5
+  LockVerticalRotation: 1
   RotationSpeedResetSpeed: 2
   RotationOffsetSmoothSpeed: 1
   ForcedRotation: 0
@@ -546,8 +587,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861488856682714632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.802, y: 0.21400003, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []

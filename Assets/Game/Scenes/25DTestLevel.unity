@@ -1437,12 +1437,12 @@ PrefabInstance:
     - target: {fileID: 114714365709490776, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: ForceWeaponMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114714365709490776, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: WeaponForcedMode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114802447044411374, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
