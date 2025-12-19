@@ -260,7 +260,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   BlockingWeaponStates: 
   RunSpeed: 8
-  AutoRun: 0
+  AutoRun: 1
   AutoRunThreshold: 0
 --- !u!114 &2734981647997501249
 MonoBehaviour:
@@ -404,6 +404,8 @@ MonoBehaviour:
   SecondaryWeapon: {fileID: 2059335800674325366, guid: 9b2845c108520374693557b6f52ebade,
     type: 3}
   CanPickupWeapons: 0
+  AimSpeed: 4
+  CharacterRun: {fileID: 1985737710445581563}
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 5443610513189618353}
   ProjectileSpawn: {fileID: 0}
@@ -917,6 +919,8 @@ MonoBehaviour:
     type: 3}
   SecondaryWeapon: {fileID: 0}
   CanPickupWeapons: 0
+  AimSpeed: 4
+  CharacterRun: {fileID: 0}
   WeaponUseFeedback: {fileID: 0}
   WeaponAttachment: {fileID: 1357507880282749192}
   ProjectileSpawn: {fileID: 0}

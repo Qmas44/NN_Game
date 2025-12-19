@@ -87,6 +87,8 @@ namespace MoreMountains.TopDownEngine
 		[Tooltip("if this is true, the owner can be damaged by its own weapon's damage area (usually false)")]
 		public bool CanDamageOwner = false;
 
+		public bool ShouldDash = false;
+
 		protected Collider _damageAreaCollider;
 		protected Collider2D _damageAreaCollider2D;
 		protected bool _attackInProgress = false;

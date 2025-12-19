@@ -30,6 +30,8 @@ namespace MoreMountains.TopDownEngine
 		/// if this is set to true, the character can pick up PickableWeapons
 		[Tooltip("if this is set to true, the character can pick up PickableWeapons")]
 		public bool CanPickupWeapons = true;
+		public float AimSpeed = 4f;
+		public CharacterRun CharacterRun;
 
 		[Header("Feedbacks")]
 		/// a feedback that gets triggered at the character level everytime the weapon is used
@@ -257,6 +259,21 @@ namespace MoreMountains.TopDownEngine
 			if (ForceAlwaysShoot)
 			{
 				ShootStart();
+			}
+
+			if (inputAuthorized && (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown ))
+			{
+				Debug.Log("pressing secondary button");
+				ChangeWeapon(SecondaryWeapon, SecondaryWeapon.WeaponName, false);
+				CharacterRun.RunStop();
+				CharacterRun.AutoRun = false;
+			}
+
+			if (inputAuthorized && (_inputManager.SecondaryShootButton.State.CurrentState == MMInput.ButtonStates.ButtonUp ))
+			{
+				Debug.Log("RELEASE secondary button");
+				ChangeWeapon(InitialWeapon, InitialWeapon.WeaponName, false);
+				CharacterRun.RunStart();
 			}
 			
 			if (inputAuthorized && ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonDown)))
