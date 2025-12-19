@@ -274,6 +274,7 @@ namespace MoreMountains.TopDownEngine
 				Debug.Log("RELEASE secondary button");
 				ChangeWeapon(InitialWeapon, InitialWeapon.WeaponName, false);
 				CharacterRun.RunStart();
+				CharacterRun.AutoRun = false;
 			}
 			
 			if (inputAuthorized && ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonDown)))
