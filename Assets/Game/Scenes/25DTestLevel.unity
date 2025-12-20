@@ -1472,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 224429692818469760, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.000061
+      value: -28.000488
       objectReference: {fileID: 0}
     - target: {fileID: 311904076257975510, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
@@ -1582,7 +1582,7 @@ PrefabInstance:
     - target: {fileID: 8152932044601555620, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -106.999756
+      value: -106.99951
       objectReference: {fileID: 0}
     - target: {fileID: 8168846747553057534, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
@@ -1612,7 +1612,7 @@ PrefabInstance:
     - target: {fileID: 9163876137028720918, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -106.999756
+      value: -106.99951
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114276557751269602, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84, type: 3}
@@ -1800,6 +1800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723314286}
   - component: {fileID: 1723314288}
+  - component: {fileID: 1723314289}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -1829,18 +1830,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723314285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 581e173e4260db84b80c145bc7d250a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   regularEnemyPrefab:
-  - {fileID: 2504361798516422463, guid: 2c0ab30c9897ad34d98d5b2b3df4f833, type: 3}
-  eliteEnemyPrefab:
-  - {fileID: 2504361798516422463, guid: a5d1f7805beaa744fa5404a272c1e8d3, type: 3}
-  spawnDistance: 40
-  maxRegularEnemies: 0
+  - {fileID: 2504361798516422463, guid: 4b1b06d67f7a0a74c99ab226410b2fa3, type: 3}
+  eliteEnemyPrefab: []
+  spawnDistance: 10
+  maxRegularEnemies: 1
   maxEliteEnemies: 0
   maxRegularEnemiesPerWave: 0
   maxEliteEnemiesPerWave: 0
@@ -1853,6 +1853,22 @@ MonoBehaviour:
   currentRegularEnemies: 0
   currentEliteEnemies: 0
   currentStage: 0
+--- !u!114 &1723314289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723314285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb681cf5588ec7045b40cbe7232b8512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleEnemySpawner
+  _player: {fileID: 0}
+  RegularEnemyPrefab: {fileID: 2504361798516422463, guid: 4b1b06d67f7a0a74c99ab226410b2fa3,
+    type: 3}
+  SpawnDistance: 10
 --- !u!1 &1734572835
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ MonoBehaviour:
   TriggerMode: 0
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 0
-  TimeBetweenUses: 1
+  TimeBetweenUses: 0.7
   TimeBetweenUsesReleaseInterruption: 0
   UseBurstMode: 0
   BurstLength: 3
@@ -109,7 +109,7 @@ MonoBehaviour:
   MeleeDamageAreaMode: 0
   DamageAreaShape: 2
   AreaOffset: {x: 0, y: 0, z: 2}
-  AreaSize: {x: 2, y: 2, z: 4}
+  AreaSize: {x: 4, y: 2, z: 4}
   TriggerFilter: 195
   HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 8448
-  MinDamageCaused: 2
-  MaxDamageCaused: 2
+  MinDamageCaused: 5
+  MaxDamageCaused: 5
   Knockback: 1
-  KnockbackForce: {x: 30, y: 0, z: 0}
+  KnockbackForce: {x: 0, y: 0, z: 10}
   KnockbackDirection: 0
   InvincibilityDuration: 0.5
   CanDamageOwner: 0

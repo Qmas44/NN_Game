@@ -5073,8 +5073,8 @@ MonoBehaviour:
     m_Bits: 8448
   Owner: {fileID: 0}
   TriggerFilter: 195
-  MinDamageCaused: 25
-  MaxDamageCaused: 25
+  MinDamageCaused: 10
+  MaxDamageCaused: 10
   TypedDamages: []
   DamageDirectionMode: 1
   DamageCausedKnockbackType: 1
@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b5efd8658a97749a87733fd4bddb28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PushPower: 50
+  PushPower: 30
   PositionOffset: 0
 --- !u!1 &1018883284677772756
 GameObject:
