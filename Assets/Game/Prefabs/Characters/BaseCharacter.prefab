@@ -229,7 +229,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 4
+  WalkSpeed: 8
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 0
@@ -259,8 +259,8 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  RunSpeed: 8
-  AutoRun: 1
+  RunSpeed: 4
+  AutoRun: 0
   AutoRunThreshold: 0
 --- !u!114 &2734981647997501249
 MonoBehaviour:

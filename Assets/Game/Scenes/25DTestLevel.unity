@@ -1871,9 +1871,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleEnemySpawner
   _player: {fileID: 0}
-  RegularEnemyPrefab: {fileID: 2504361798516422463, guid: 4b1b06d67f7a0a74c99ab226410b2fa3,
+  RegularEnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
     type: 3}
-  SpawnDistance: 10
+  SpawnDistance: 30
 --- !u!1 &1734572835
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9044582951057148420}
   - component: {fileID: 4286510824649956258}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7518200683085793562}
   - component: {fileID: 1446514243737241437}
   - component: {fileID: 5206256209966651847}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: TestGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3167024261543065240}
   - component: {fileID: 8939323203767559458}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ShootFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,9 +420,9 @@ MonoBehaviour:
   - rid: 1
   - rid: 2
   - rid: 3
+  - rid: 6
   - rid: 4
   - rid: 5
-  - rid: 6
   - rid: 7
   KeepPlayModeChanges: 0
   PerformanceMode: 0
@@ -1451,7 +1451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5509721966559305675}
   - component: {fileID: 1626876427651393328}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

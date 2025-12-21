@@ -645,6 +645,8 @@ namespace MoreMountains.TopDownEngine
 
 				DetermineDamageDirection();
 
+				Debug.Log("applying damage: " + randomDamage);
+
 				if (RepeatDamageOverTime)
 				{
 					_colliderHealth.DamageOverTime(randomDamage, gameObject, InvincibilityDuration,

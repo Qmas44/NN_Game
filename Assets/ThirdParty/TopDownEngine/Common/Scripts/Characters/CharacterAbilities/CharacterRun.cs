@@ -116,15 +116,15 @@ namespace MoreMountains.TopDownEngine
 		/// Causes the character to start running.
 		/// </summary>
 		public virtual void RunStart()
-		{		
-			if ( !AbilityAuthorized // if the ability is not permitted
-			     || (!_controller.Grounded) // or if we're not grounded
-			     || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal) // or if we're not in normal conditions
-			     || (_movement.CurrentState != CharacterStates.MovementStates.Walking) ) // or if we're not walking
+		{	
+			if ( !AbilityAuthorized // if the ability is not permitted  // or if we're not grounded
+			     || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal))// or if we're not in normal condition  // or if we're not walking
 			{
 				// we do nothing and exit
+				Debug.Log("not running");
 				return;
 			}
+
 
 			// if the player presses the run button and if we're on the ground and not crouching and we can move freely, 
 			// then we change the movement speed in the controller's parameters.
