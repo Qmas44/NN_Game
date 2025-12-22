@@ -37,7 +37,7 @@ MonoBehaviour:
   ShortDescription: Point pointy end towards the enemy
   Description: A heavy and sharp sword you grabbed from a tomb or something.
   Icon: {fileID: 21300016, guid: b528708a5a8f28343aefa9e1d46670a7, type: 3}
-  Prefab: {fileID: 1660504258585598, guid: 376a6904cf0b75744a4e3cb2b8786bad, type: 3}
+  Prefab: {fileID: 0}
   ForcePrefabDropQuantity: 0
   PrefabDropQuantity: 1
   DropProperties:
@@ -83,13 +83,13 @@ MonoBehaviour:
     MaximumScale: {x: 1, y: 1, z: 1}
   MaximumStack: 1
   ItemClass: 2
-  TargetEquipmentInventoryName: KoalaWeaponInventory
+  TargetEquipmentInventoryName: BaseCharacterWeaponInventory
   EquippedSound: {fileID: 0}
   UsedSound: {fileID: 0}
   MovedSound: {fileID: 0}
   DroppedSound: {fileID: 0}
   UseDefaultSoundsIfNull: 1
-  EquippableWeapon: {fileID: 114594623923584052, guid: ea4d9a1282e7d5748a3393a32892ddbf,
+  EquippableWeapon: {fileID: 114594623923584052, guid: 0e30730430bf5e7499b141657832dc8b,
     type: 3}
   AutoEquipMode: 2
   HandleWeaponID: 1

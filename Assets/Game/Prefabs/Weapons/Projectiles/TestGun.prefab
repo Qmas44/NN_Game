@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7518200683085793562}
   - component: {fileID: 1446514243737241437}
   - component: {fileID: 5206256209966651847}
+  - component: {fileID: 7998819147017190268}
   m_Layer: 18
   m_Name: TestGun
   m_TagString: Untagged
@@ -152,7 +153,7 @@ MonoBehaviour:
   UseBurstMode: 0
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
-  MagazineBased: 1
+  MagazineBased: 0
   MagazineSize: 5
   AutoReload: 0
   NoInputReload: 0
@@ -287,6 +288,24 @@ MonoBehaviour:
   CheckMouse: 1
   CheckPrimaryAxis: 1
   CheckSecondaryAxis: 1
+--- !u!114 &7998819147017190268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173885462560486049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d708b09d7c685aa4596060c0c90f2d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmmoID: BaseCharacterTestGunAmmo
+  AmmoInventoryName: BaseCharacterMainInventory
+  MaxAmmo: 5
+  ShouldLoadOnStart: 1
+  ShouldEmptyOnSave: 1
+  CurrentAmmoAvailable: 0
 --- !u!1 &6038515751507162202
 GameObject:
   m_ObjectHideFlags: 0

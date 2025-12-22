@@ -127,6 +127,7 @@ namespace MoreMountains.InventoryEngine
 				return;
 			}
 
+			Debug.Log("ATTEMPTING Pick");
 			if (!Pickable()) 
 			{
 				PickFail ();
@@ -148,13 +149,15 @@ namespace MoreMountains.InventoryEngine
 			else
 			{
 				MMInventoryEvent.Trigger(MMInventoryEventType.Pick, null, Item.TargetInventoryName, Item, _pickedQuantity, 0, playerID);
+				Debug.Log("PICKED TRIGGERED");
 			}				
 			if (Item.Pick(playerID))
 			{
-				RemainingQuantity = RemainingQuantity - _pickedQuantity;
+				//RemainingQuantity = RemainingQuantity - _pickedQuantity; // Commented out to prevent the item from being depleted when picked  MAYBE REVERT THIS LATER 
 				PickSuccess();
 				DisableObjectIfNeeded();
 			}			
+			Debug.Log("PICKED");
 		}
 
 		/// <summary>

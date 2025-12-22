@@ -151,6 +151,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void FillWeaponWithAmmo()
 		{
+			Debug.Log("ATTEMPTING FillWeaponWithAmmo");
 			if (AmmoInventory != null)
 			{
 				RefreshCurrentAmmoAvailable ();
