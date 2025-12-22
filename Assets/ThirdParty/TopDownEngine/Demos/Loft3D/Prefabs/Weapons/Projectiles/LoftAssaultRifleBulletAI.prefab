@@ -5167,7 +5167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstaclesLayerMask:
     serializedVersion: 2
-    m_Bits: 12032
+    m_Bits: 11008
   SkinWidth: 0.1
   RepositionRigidbody: 1
   RepositionRigidbodyLayerMask:

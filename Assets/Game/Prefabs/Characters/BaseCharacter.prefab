@@ -805,7 +805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5815735138337833261}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05b56d00552d6cd44b46000232e9d83a, type: 3}
   m_Name: 
@@ -825,11 +825,15 @@ MonoBehaviour:
   HotbarInventoryName: hotbar
   InventoryTransform: {fileID: 0}
   WeaponRotationMode: 1
-  AutoPickItems: []
+  AutoPickItems:
+  - Item: {fileID: 0}
+    Quantity: 0
+  - Item: {fileID: 0}
+    Quantity: 0
   AutoPickOnlyIfMainInventoryIsEmpty: 0
   AutoEquipWeaponOnStart: {fileID: 0}
   AutoEquipOnlyIfMainInventoryIsEmpty: 0
-  CharacterHandleWeapon: {fileID: 0}
+  CharacterHandleWeapon: {fileID: 535888067870605396}
 --- !u!114 &2876252121577909299
 MonoBehaviour:
   m_ObjectHideFlags: 0

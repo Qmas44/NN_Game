@@ -152,7 +152,7 @@ MonoBehaviour:
   BurstLength: 3
   BurstTimeBetweenShots: 0.1
   MagazineBased: 0
-  MagazineSize: 30
+  MagazineSize: 39
   AutoReload: 0
   NoInputReload: 0
   ReloadTime: 2
@@ -162,7 +162,7 @@ MonoBehaviour:
   PreventReloadIfAmmoEmpty: 0
   CurrentAmmoLoaded: 0
   WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
-  FlipWeaponOnCharacterFlip: 1
+  FlipWeaponOnCharacterFlip: 0
   RightFacingFlipValue: {x: 1, y: 1, z: 1}
   LeftFacingFlipValue: {x: -1, y: 1, z: 1}
   WeaponUseTransform: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
   InitializeOnStart: 1
   Interruptable: 0
   Flipped: 0
-  ProjectileSpawnOffset: {x: 1, y: 0, z: 1.5}
+  ProjectileSpawnOffset: {x: 0, y: 0, z: 1.5}
   DefaultProjectileDirection: {x: 1, y: 0, z: 0}
   ProjectilesPerShot: 1
   SpawnTransforms: []
@@ -209,7 +209,7 @@ MonoBehaviour:
   Spread: {x: 0, y: 0, z: 0}
   RotateWeaponOnSpread: 0
   RandomSpread: 0
-  SpawnPosition: {x: 1, y: 0.202, z: 1.5}
+  SpawnPosition: {x: 0, y: 0.202, z: 1.5}
   ObjectPooler: {fileID: 0}
   SpawnFeedbacks: []
   TestShootButton: 0
@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 4561577932886290505}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.962, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
