@@ -49,9 +49,14 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		protected virtual void Start()
 		{
+			Debug.Log("Starting CinemachineCameraController");
+			Debug.Log("Confiner: " + _confiner);
+			Debug.Log("ConfineCameraToLevelBounds: " + ConfineCameraToLevelBounds);
+			Debug.Log("LevelManager: " + LevelManager.HasInstance);
 			#if MM_CINEMACHINE
 			if ((_confiner != null) && ConfineCameraToLevelBounds && LevelManager.HasInstance)
 			{
+				Debug.Log("Setting confiner bounding volume to: " + LevelManager.Instance.BoundsCollider.name);
 				_confiner.m_BoundingVolume = LevelManager.Instance.BoundsCollider;
 			}
 			#endif

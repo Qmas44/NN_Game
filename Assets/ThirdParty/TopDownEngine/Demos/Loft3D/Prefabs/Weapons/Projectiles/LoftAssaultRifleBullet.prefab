@@ -5003,7 +5003,7 @@ MonoBehaviour:
   FaceDirection: 1
   FaceMovement: 0
   MovementVector: 0
-  Speed: 200
+  Speed: 400
   Acceleration: 0
   Direction: {x: -1, y: 0, z: 0}
   DirectionCanBeChangedBySpawner: 1
@@ -5123,7 +5123,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6635958, y: 0.5, z: 0.69506073}
+  m_Size: {x: 1, y: 0.5, z: 1}
   m_Center: {x: -0.0008968711, y: 0, z: 0.0012369156}
 --- !u!54 &54994276034465240
 Rigidbody:

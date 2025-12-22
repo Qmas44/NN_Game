@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreCounter : MonoBehaviour
 {
     private Score _score;
+    public int ScoreValue = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class ScoreCounter : MonoBehaviour
 
     public void Increment()
     {
-        _score.IncreaseScore(10);
+        _score.IncreaseScore(ScoreValue);
     }
 
 }
