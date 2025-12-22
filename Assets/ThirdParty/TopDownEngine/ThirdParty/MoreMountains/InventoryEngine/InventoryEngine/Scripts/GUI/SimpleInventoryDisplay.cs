@@ -20,6 +20,15 @@ namespace MoreMountains.InventoryEngine
 	public class SimpleInventoryDisplay : MonoBehaviour
 	{
 		[Header("Binding")]
+
+		
+    protected Text _text;
+
+    protected virtual void Start()
+    {
+        _text = GetComponent<Text>();
+    }
+
 		/// the name of the inventory to display
 		/// <summary>
 		/// Grabs the target inventory based on its name
@@ -33,6 +42,7 @@ namespace MoreMountains.InventoryEngine
 		void Update()
 		{
 			AmmoCount = TargetInventory.GetQuantity(AmmoItemID);
+			 _text.text = "Ammo: " + AmmoCount;
 		}
 		
 	}

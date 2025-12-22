@@ -692,7 +692,7 @@ namespace MoreMountains.TopDownEngine
 				}
 			}
 
-			if (MagazineBased)
+			if (MagazineBased) // marker
 			{
 				if (WeaponAmmo != null)
 				{
