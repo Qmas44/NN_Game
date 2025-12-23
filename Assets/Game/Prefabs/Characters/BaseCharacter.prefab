@@ -309,8 +309,8 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  Mode: 1
-  TimeScale: 0.2
+  Mode: 0
+  TimeScale: 0.4
   OneTimeDuration: 1
   LerpTimeScale: 1
   LerpSpeed: 5
