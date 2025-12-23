@@ -66,6 +66,10 @@ namespace  MoreMountains.TopDownEngine
 		/// if this is false, spawn won't happen
 		[Tooltip("if this is false, spawn won't happen")]
 		public bool CanSpawn = true;
+		/// the chance (between 0 and 1) that loot will spawn when SpawnLoot is called. 1 means 100% chance, 0.5 means 50% chance, etc.
+		[Tooltip("the chance (between 0 and 1) that loot will spawn when SpawnLoot is called. 1 means 100% chance, 0.5 means 50% chance, etc.")]
+		[Range(0f, 1f)]
+		public float SpawnProbability = 1f;
 		/// a delay (in seconds) to wait for before spawning loot
 		[Tooltip("a delay (in seconds) to wait for before spawning loot")]
 		public float Delay = 0f; 
@@ -279,7 +283,15 @@ namespace  MoreMountains.TopDownEngine
 			{
 				return;
 			}
-			StartCoroutine(SpawnLootCo());
+
+			if (Random.value <= SpawnProbability)
+			{
+				StartCoroutine(SpawnLootCo());
+			}
+			else 
+			{
+				Debug.Log("LOOT FAILED SPAWN DUE TO PROBABILITYY");
+			}
 		}
 
 		/// <summary>

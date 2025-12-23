@@ -3495,10 +3495,13 @@ MonoBehaviour:
   Enemies:
   - EnemyPrefab: {fileID: 1101376284208606, guid: 6b90c69e185d7de47815ad9591e800a3,
       type: 3}
-    Cost: 1
+    Cost: 2
   - EnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
       type: 3}
-    Cost: 2
+    Cost: 3
+  - EnemyPrefab: {fileID: 1101376284208606, guid: 11cf3bf8ca755874283f3a09b29ccc78,
+      type: 3}
+    Cost: 6
   CurrWave: 1
   WaveValue: 1
   EnemiesToSpawn: []
