@@ -2565,6 +2565,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2987743737209259866, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      propertyPath: WaveSpawner
+      value: 
+      objectReference: {fileID: 1723314290}
     - target: {fileID: 3205844762110206865, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3241,6 +3246,37 @@ MonoBehaviour:
   FacingDirection: 3
   ForceAssignation: 0
   CheckPointOrder: 0
+--- !u!1 &1623183524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623183525}
+  m_Layer: 0
+  m_Name: KillsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1623183525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623183524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1918232351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625016507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,11 +3493,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsBasedWaveSpawner
   Enemies:
-  - EnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
+  - EnemyPrefab: {fileID: 1101376284208606, guid: 6b90c69e185d7de47815ad9591e800a3,
       type: 3}
     Cost: 1
+  - EnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
+      type: 3}
+    Cost: 2
   CurrWave: 1
-  WaveValue: 0
+  WaveValue: 1
   EnemiesToSpawn: []
   SpawnLocations:
   - {fileID: 1339942200}
@@ -3860,6 +3899,7 @@ Transform:
   - {fileID: 2051699943}
   - {fileID: 1017410748}
   - {fileID: 2105217692}
+  - {fileID: 1623183525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919321263

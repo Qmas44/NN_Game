@@ -7,6 +7,8 @@ public class PointsBasedWaveSpawner : MonoBehaviour
 {
     public List<Enemy> Enemies = new List<Enemy>();
     public int CurrWave;
+    /// If this is true, this confiner will listen to set confiner events
+		[Tooltip("Wave value is currWave * 10")]
     public int WaveValue;
 
     public List<GameObject> EnemiesToSpawn = new List<GameObject>();
