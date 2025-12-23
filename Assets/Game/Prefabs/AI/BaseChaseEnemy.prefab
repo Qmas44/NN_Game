@@ -15567,8 +15567,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3017164128260505405}
   - component: {fileID: 2374314560129497217}
-  - component: {fileID: 1510411972809631579}
   - component: {fileID: 8470430289224611640}
+  - component: {fileID: 6039422266334663830}
   m_Layer: 13
   m_Name: DeathFeedback
   m_TagString: Untagged
@@ -15974,9 +15974,9 @@ MonoBehaviour:
         PlayEvents:
           m_PersistentCalls:
             m_Calls:
-            - m_Target: {fileID: 1510411972809631579}
-              m_TargetAssemblyTypeName: DecrementEnemyCounter, Assembly-CSharp
-              m_MethodName: Decrement
+            - m_Target: {fileID: 8470430289224611640}
+              m_TargetAssemblyTypeName: ScoreCounter, Assembly-CSharp
+              m_MethodName: Increment
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -15986,9 +15986,9 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-            - m_Target: {fileID: 8470430289224611640}
-              m_TargetAssemblyTypeName: ScoreCounter, Assembly-CSharp
-              m_MethodName: Increment
+            - m_Target: {fileID: 6039422266334663830}
+              m_TargetAssemblyTypeName: EnemyWaveTracker, Assembly-CSharp
+              m_MethodName: RemoveEnemy
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -16216,18 +16216,6 @@ MonoBehaviour:
           m_RotationOrder: 4
         FlipX: 0
         FlipY: 0
---- !u!114 &1510411972809631579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9021945583285958202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab2a8af61377234d8bc63f81bef6da8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8470430289224611640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16241,3 +16229,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreValue: 50
+--- !u!114 &6039422266334663830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021945583285958202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046c3bdfd00b3844e808d0f02410db69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveTracker

@@ -3375,9 +3375,10 @@ GameObject:
   - component: {fileID: 1723314286}
   - component: {fileID: 1723314288}
   - component: {fileID: 1723314289}
+  - component: {fileID: 1723314290}
   m_Layer: 0
   m_Name: EnemyManager
-  m_TagString: Untagged
+  m_TagString: EnemyManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3434,7 +3435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723314285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb681cf5588ec7045b40cbe7232b8512, type: 3}
   m_Name: 
@@ -3443,6 +3444,39 @@ MonoBehaviour:
   RegularEnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
     type: 3}
   SpawnDistance: 30
+--- !u!114 &1723314290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723314285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13826a1baee753c4c962f3451e2ff01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsBasedWaveSpawner
+  Enemies:
+  - EnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
+      type: 3}
+    Cost: 1
+  CurrWave: 1
+  WaveValue: 0
+  EnemiesToSpawn: []
+  SpawnLocations:
+  - {fileID: 1339942200}
+  - {fileID: 1554659846}
+  - {fileID: 398865363}
+  - {fileID: 1969250444}
+  - {fileID: 1969250444}
+  - {fileID: 1980212244}
+  - {fileID: 965442029}
+  - {fileID: 1900443649}
+  WaveDuration: 30
+  WaveTimer: 0
+  SpawnInverval: 0
+  SpawnTimer: 0
+  SpawnedEnemies: []
 --- !u!1 &1734572835
 GameObject:
   m_ObjectHideFlags: 0
