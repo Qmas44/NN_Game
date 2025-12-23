@@ -108,6 +108,8 @@ namespace MoreMountains.TopDownEngine
 		/// If you create more Handle Weapon abilities, make sure to override and increment this  
 		public virtual int HandleWeaponID { get { return 1; } }
 
+		public CharacterDash3D CharacterDash;
+
 		/// an animator to update when the weapon is used
 		public Animator CharacterAnimator { get; set; }
 		/// the weapon's weapon aim component, if it has one
@@ -278,6 +280,13 @@ namespace MoreMountains.TopDownEngine
 			if (inputAuthorized && ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonDown)))
 			{
 				ShootStart();
+
+				// Dash on melee weapon use
+				Debug.Log("Current weapon name: " + CurrentWeapon.WeaponName);
+				if(CurrentWeapon.WeaponName == "basemeleeweapon")
+				{
+					CharacterDash.WeaponDashStart();
+				}
 			}
 
 			bool buttonPressed =

@@ -231,7 +231,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 8
+  WalkSpeed: 10
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   RequiresPerfectTile: 0
   Jutsu: {fileID: 0}
   CurrentWeapon: {fileID: 0}
+  CharacterDash: {fileID: 2266700727274820682}
 --- !u!114 &-8371917933811900188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,6 +3289,7 @@ MonoBehaviour:
   RequiresPerfectTile: 0
   Jutsu: {fileID: 7565608674015977300, guid: 5daff4ee6f1d2f1479da51d72b19a5f1, type: 3}
   CurrentWeapon: {fileID: 0}
+  CharacterDash: {fileID: 0}
   inzou: {fileID: 7222359178664649712}
   Cooldown:
     Unlimited: 0

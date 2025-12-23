@@ -118,6 +118,11 @@ namespace MoreMountains.TopDownEngine
 				return;
 			}
 
+			//if (_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
+			//{
+			//	DashStart();
+			//}
+
 			if (_inputManager.DashButton.State.CurrentState == MMInput.ButtonStates.ButtonDown)
 			{
 				DashStart();
@@ -149,6 +154,22 @@ namespace MoreMountains.TopDownEngine
 			{
 				_health.DamageDisabled();
 			}
+
+			HandleDashMode();
+		}
+
+		/// <summary>
+		/// Starts a dash
+		/// </summary>
+		public virtual void WeaponDashStart()
+		{
+			//_movement.ChangeState(CharacterStates.MovementStates.Dashing);
+			_dashing = true;
+			_dashTimer = 0f;
+			_dashOrigin = this.transform.position;
+			_controller.FreeMovement = false;
+			_controller3D.DetachFromMovingPlatform();
+			_dashStartedThisFrame = true;
 
 			HandleDashMode();
 		}
