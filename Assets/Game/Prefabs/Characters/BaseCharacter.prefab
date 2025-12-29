@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: -8371917933811900188}
   - component: {fileID: -2025765609209791315}
   - component: {fileID: 2266700727274820682}
+  - component: {fileID: 8406419462160161653}
   m_Layer: 10
   m_Name: BaseCharacter
   m_TagString: Player
@@ -569,6 +570,43 @@ MonoBehaviour:
     CurrentDurationLeft: 0
   InvincibleWhileDashing: 1
   DashFeedback: {fileID: 1244327168266619109}
+--- !u!114 &8406419462160161653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357507880282749195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d12d6ec83ff7264c9648a232483dec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.CharacterBulletTime
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  Mode: 0
+  TimeScale: 0.4
+  OneTimeDuration: 1
+  LerpTimeScale: 1
+  LerpSpeed: 5
+  Cooldown:
+    Unlimited: 0
+    ConsumptionDuration: 2
+    PauseOnEmptyDuration: 1
+    RefillDuration: 1
+    CanInterruptRefill: 1
+    CooldownState: 0
+    CurrentDurationLeft: 0
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 270336
 --- !u!1 &1795297429607270226
 GameObject:
   m_ObjectHideFlags: 0
