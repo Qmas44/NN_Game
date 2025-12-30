@@ -6,12 +6,11 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "CheckTarget", story: "Check if [DetectTarget] has a Target", category: "Action", id: "6754428ed7226fe04d332aa0ca9c25c2")]
+[NodeDescription(name: "CheckTarget", story: "Check if [DetectTarget] has a Target and set [CurrentTarget]", category: "Action", id: "6754428ed7226fe04d332aa0ca9c25c2")]
 public partial class CheckTargetAction : Action
 {
     [SerializeReference] public BlackboardVariable<AIDecisionDetectTargetRadius3D> DetectTarget;
-    public Transform CurrentTarget;
-
+    [SerializeReference] public BlackboardVariable<GameObject> CurrentTarget;
     protected override Status OnStart()
     {
         //return DetectTarget.Value.CurrentTarget == null ? Status.Failure : Status.Success;
@@ -19,11 +18,8 @@ public partial class CheckTargetAction : Action
         {
             return Status.Failure;
         }
-        else
-        {
-            CurrentTarget = DetectTarget.Value.CurrentTarget;
-            return Status.Success;
-        }
+        CurrentTarget.ObjectValue = DetectTarget.Value.CurrentTarget.gameObject;
+        return Status.Success;
     }
 
 }
