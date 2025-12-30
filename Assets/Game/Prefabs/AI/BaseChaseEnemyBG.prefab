@@ -637,13 +637,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101376284208606}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 210ecb3d02181d244935dc0092d62a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 2
+  Radius: 10
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayerMask:
     serializedVersion: 2
@@ -654,6 +654,7 @@ MonoBehaviour:
   TargetCheckFrequency: 1
   CanTargetSelf: 0
   OverlapMaximum: 10
+  CurrentTarget: {fileID: 0}
 --- !u!114 &114795141040930852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +802,7 @@ MonoBehaviour:
     type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 6870683910632636694
+  - rid: 6870683919525609977
   m_OriginalGraph: {fileID: -5133138024650193483, guid: 51d710e1e7f48ba4db2aedfdc6c82d08,
     type: 2}
   m_IsInitialised: 0
@@ -817,6 +819,15 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 1101376284208606}
+    - rid: 6870683919525609977
+      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIDecisionDetectTargetRadius3D, MoreMountains.TopDownEngine]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3922676599490552423
+          m_Value1: 1340986140876082266
+        Name: DetectTarget
+        m_Value: {fileID: 114744288162225558}
 --- !u!1 &6095698580119175571
 GameObject:
   m_ObjectHideFlags: 0

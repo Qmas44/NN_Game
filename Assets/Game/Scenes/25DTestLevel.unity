@@ -1000,6 +1000,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899114975061156714, guid: 8a888d0ad82395640a03a1349e8ded1c,
         type: 3}
+      propertyPath: m_Graph
+      value: 
+      objectReference: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
+        type: 2}
+    - target: {fileID: 3899114975061156714, guid: 8a888d0ad82395640a03a1349e8ded1c,
+        type: 3}
+      propertyPath: m_OriginalGraph
+      value: 
+      objectReference: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
+        type: 2}
+    - target: {fileID: 3899114975061156714, guid: 8a888d0ad82395640a03a1349e8ded1c,
+        type: 3}
       propertyPath: 'managedReferences[6870683910632636696]'
       value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule]], mscorlib]]'
@@ -3810,15 +3822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsBasedWaveSpawner
   Enemies:
-  - EnemyPrefab: {fileID: 1101376284208606, guid: 6b90c69e185d7de47815ad9591e800a3,
+  - EnemyPrefab: {fileID: 1101376284208606, guid: 8a888d0ad82395640a03a1349e8ded1c,
       type: 3}
-    Cost: 100
-  - EnemyPrefab: {fileID: 1101376284208606, guid: 2f8de31a73f86a6428e0be176ed57300,
-      type: 3}
-    Cost: 10
-  - EnemyPrefab: {fileID: 1101376284208606, guid: 11cf3bf8ca755874283f3a09b29ccc78,
-      type: 3}
-    Cost: 100
+    Cost: 1
   CurrWave: 1
   WaveValue: 1
   EnemiesToSpawn: []
