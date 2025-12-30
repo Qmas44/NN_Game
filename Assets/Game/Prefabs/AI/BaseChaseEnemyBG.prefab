@@ -798,12 +798,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: -5133138024650193483, guid: 51d710e1e7f48ba4db2aedfdc6c82d08,
+  m_Graph: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
     type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 6870683910632636694
   - rid: 6870683919525609977
-  m_OriginalGraph: {fileID: -5133138024650193483, guid: 51d710e1e7f48ba4db2aedfdc6c82d08,
+  - rid: 6870683931705868582
+  m_OriginalGraph: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
     type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -828,6 +829,15 @@ MonoBehaviour:
           m_Value1: 1340986140876082266
         Name: DetectTarget
         m_Value: {fileID: 114744288162225558}
+    - rid: 6870683931705868582
+      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.Health, MoreMountains.TopDownEngine]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6710771683231453764
+          m_Value1: 9525759222805290833
+        Name: Health
+        m_Value: {fileID: 114914711379046516}
 --- !u!1 &6095698580119175571
 GameObject:
   m_ObjectHideFlags: 0
