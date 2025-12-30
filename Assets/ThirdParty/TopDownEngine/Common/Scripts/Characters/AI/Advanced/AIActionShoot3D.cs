@@ -103,17 +103,36 @@ namespace MoreMountains.TopDownEngine
 				}
 			}
 		}
+
+		public void Aim()
+		{
+			if (TargetHandleWeaponAbility.CurrentWeapon != null)
+			{
+				if (_weaponAim != null)
+				{
+					if (LockVerticalAim)
+					{
+						_weaponAimDirection.y = 0;
+					}
+
+					if (AimAtTarget)
+					{
+						_weaponAim.SetCurrentAim(_weaponAimDirection);    
+					}
+
+				}
+			}
+		}
         
 		/// <summary>
 		/// Aims at the target if required
 		/// </summary>
-		protected virtual void TestAimAtTarget()
+		public virtual void TestAimAtTarget()
 		{
 			if (!AimAtTarget || (_brain.Target == null))
 			{
 				return;
 			}
-
 			if (TargetHandleWeaponAbility.CurrentWeapon != null)
 			{
 				if (_weaponAim == null)
@@ -146,19 +165,28 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Activates the weapon
 		/// </summary>
-		protected virtual void Shoot()
+		public virtual void Shoot()
 		{
 			if (_numberOfShoots < 1)
 			{
 				_targetWeapon = TargetHandleWeaponAbility.CurrentWeapon;
 				TargetHandleWeaponAbility.ShootStart();
-				_numberOfShoots++;
+				//_numberOfShoots++; //commented this out for the BG
 			}
 
 			if ((_targetWeapon == null) || (TargetHandleWeaponAbility.CurrentWeapon != _targetWeapon))
 			{
 				OnEnterState();
 			}
+		}
+
+		public virtual void StopShoot()
+		{
+			if (TargetHandleWeaponAbility != null)
+			{
+				TargetHandleWeaponAbility.ForceStop();    
+			}
+			_shooting = false;
 		}
 
 		/// <summary>

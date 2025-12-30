@@ -20,13 +20,17 @@ GameObject:
   - component: {fileID: 114914711379046516}
   - component: {fileID: 114342588805778650}
   - component: {fileID: 114744288162225558}
+  - component: {fileID: 114469007807312640}
+  - component: {fileID: 114795141040930852}
   - component: {fileID: 114364124336155630}
+  - component: {fileID: 114991062058746594}
+  - component: {fileID: 114685922831737518}
   - component: {fileID: 3138193573763059608}
-  - component: {fileID: 6850543633172530184}
-  - component: {fileID: 1076202550610720726}
-  - component: {fileID: 3899114975061156714}
+  - component: {fileID: -1250986615751597429}
+  - component: {fileID: 4156261664239054261}
+  - component: {fileID: 5872575283434247027}
   m_Layer: 13
-  m_Name: BaseChaseEnemyBG
+  m_Name: AIRifleTurretBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +52,6 @@ Transform:
   - {fileID: 8989957215247829552}
   - {fileID: 6369879640458805152}
   - {fileID: 5234120900504392801}
-  - {fileID: 2878968666688691672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -93.967, z: 0}
 --- !u!143 &143614059195123156
@@ -69,8 +72,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.89
+  m_Height: 2.2
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -270,7 +273,7 @@ MonoBehaviour:
   InputAuthorized: 1
   AnalogInput: 0
   ScriptDrivenInput: 0
-  WalkSpeed: 8
+  WalkSpeed: 4
   ShouldSetMovement: 1
   IdleThreshold: 0.05
   Acceleration: 10
@@ -302,7 +305,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 7214435677246508981, guid: e1f0337f6da114742bf6c97b5b4dc542,
+  InitialWeapon: {fileID: 4530408370221591511, guid: 1c27419ec4e1b4f4f8af7c1f48d9c0d9,
     type: 3}
   SecondaryWeapon: {fileID: 0}
   CanPickupWeapons: 0
@@ -319,7 +322,7 @@ MonoBehaviour:
   UseSecondaryAxisThresholdToShoot: 0
   ForceWeaponAimControl: 0
   ForcedWeaponAimControl: 1
-  ForceAlwaysShoot: 1
+  ForceAlwaysShoot: 0
   BufferInput: 0
   NewInputExtendsBuffer: 0
   MaximumBufferDuration: 0.25
@@ -550,8 +553,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 10
-  MaximumHealth: 10
+  InitialHealth: 20
+  MaximumHealth: 20
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 6846283701983353122}
@@ -593,7 +596,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
-  States: []
+  States:
+  - StateName: Moving
+    Actions:
+      array:
+      - {fileID: 3138193573763059608}
+      - {fileID: 114685922831737518}
+      - {fileID: -1250986615751597429}
+    Transitions:
+      array:
+      - Decision: {fileID: 114744288162225558}
+        TrueState: Aim
+        FalseState: 
+  - StateName: Aim
+    Actions:
+      array:
+      - {fileID: 114991062058746594}
+    Transitions:
+      array:
+      - Decision: {fileID: 114795141040930852}
+        TrueState: Shoot
+        FalseState: Moving
+  - StateName: Shoot
+    Actions:
+      array:
+      - {fileID: 114364124336155630}
+    Transitions:
+      array:
+      - Decision: {fileID: 4156261664239054261}
+        TrueState: Moving
+        FalseState: 
   TimeInThisState: 0
   Target: {fileID: 0}
   _lastKnownTargetPosition: {x: 0, y: 0, z: 0}
@@ -618,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: 
-  Radius: 100
+  Radius: 15
   DetectionOriginOffset: {x: 0, y: 0, z: 0}
   TargetLayerMask:
     serializedVersion: 2
@@ -630,6 +662,44 @@ MonoBehaviour:
   CanTargetSelf: 0
   OverlapMaximum: 10
   CurrentTarget: {fileID: 0}
+--- !u!114 &114469007807312640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101376284208606}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab38fb8d19ed4db48b4e6216a171c08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+  ChangeDirectionOnObstacle: 1
+  ObstacleDetectionDistance: 1
+  ObstaclesCheckFrequency: 1
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 6400
+  CurrentPathIndex: 0
+--- !u!114 &114795141040930852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101376284208606}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500eec6de7da5b941b00fda076e758ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Label: 
+  ObstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 6400
+  LineOfSightOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114364124336155630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,11 +714,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitializationMode: 0
   Label: 
-  TargetHandleWeaponAbility: {fileID: 114310850975520472}
+  TargetHandleWeaponAbility: {fileID: 0}
   AimAtTarget: 1
   AimOrigin: 0
   ShootOffset: {x: 0, y: 1.8, z: 0}
   LockVerticalAim: 0
+--- !u!114 &114991062058746594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101376284208606}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561ab803e1e9aa94ab096724696e5475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
+--- !u!114 &114685922831737518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101376284208606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationMode: 0
+  Label: 
 --- !u!114 &3138193573763059608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,43 +762,37 @@ MonoBehaviour:
   InitializationMode: 0
   Label: 
   LockRotationX: 0
---- !u!114 &6850543633172530184
+--- !u!114 &-1250986615751597429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101376284208606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758bd960e1ca6d41828c58712425d60, type: 3}
+  m_Script: {fileID: 11500000, guid: c5e34b0834b2da6469ea606eda18845f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.AIActionAimWeaponAtMovement
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.AIActionAlwaysMoveTowardsTarget3D
   InitializationMode: 0
-  Label: 
---- !u!195 &1076202550610720726
-NavMeshAgent:
+  Label: MoveToTarget
+  MinimumDistance: 3
+--- !u!114 &4156261664239054261
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101376284208606}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &3899114975061156714
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206825d6db9c84741810b9da915cfb9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.AIDecisionDistanceToTarget
+  Label: ToMoving
+  ComparisonMode: 3
+  Distance: 25
+--- !u!114 &5872575283434247027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -712,22 +804,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
-  m_Graph: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
+  m_Graph: {fileID: -5133138024650193483, guid: a927392f41ce64e468cab0db7238db34,
     type: 2}
   m_BlackboardVariableOverridesList:
-  - rid: 6870683910632636694
-  - rid: 6870683919525609977
-  - rid: 6870683931705868582
-  - rid: 6870683931705869310
-  - rid: 6870683932333965939
-  m_OriginalGraph: {fileID: -5133138024650193483, guid: e45ce364b7eec124b90dc8ac0c68b277,
+  - rid: 6870683932333966284
+  - rid: 6870683932333966285
+  - rid: 6870683932333966286
+  - rid: 6870683932333966287
+  - rid: 6870683932333966288
+  - rid: 6870683933784670691
+  m_OriginalGraph: {fileID: -5133138024650193483, guid: a927392f41ce64e468cab0db7238db34,
     type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
-    - rid: 6870683910632636694
+    - rid: 6870683932333966284
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -736,16 +829,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 1101376284208606}
-    - rid: 6870683919525609977
-      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIDecisionDetectTargetRadius3D, MoreMountains.TopDownEngine]]',
-        ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 3922676599490552423
-          m_Value1: 1340986140876082266
-        Name: DetectTarget
-        m_Value: {fileID: 114744288162225558}
-    - rid: 6870683931705868582
+    - rid: 6870683932333966285
       type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.Health, MoreMountains.TopDownEngine]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -754,16 +838,16 @@ MonoBehaviour:
           m_Value1: 9525759222805290833
         Name: Health
         m_Value: {fileID: 114914711379046516}
-    - rid: 6870683931705869310
-      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIActionShoot3D, MoreMountains.TopDownEngine]]',
+    - rid: 6870683932333966286
+      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIDecisionDetectTargetRadius3D, MoreMountains.TopDownEngine]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 17895127847533185011
-          m_Value1: 5504405406798394241
-        Name: Attack
-        m_Value: {fileID: 114364124336155630}
-    - rid: 6870683932333965939
+          m_Value0: 3922676599490552423
+          m_Value1: 1340986140876082266
+        Name: DetectTarget
+        m_Value: {fileID: 114744288162225558}
+    - rid: 6870683932333966287
       type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIActionRotateTowardsTarget3D, MoreMountains.TopDownEngine]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -772,97 +856,24 @@ MonoBehaviour:
           m_Value1: 1053944919034281835
         Name: RotateToTarget
         m_Value: {fileID: 3138193573763059608}
---- !u!1 &6095698580119175571
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2878968666688691672}
-  - component: {fileID: 5326249259875451431}
-  m_Layer: 13
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2878968666688691672
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6095698580119175571}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4342363781704982}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!212 &5326249259875451431
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6095698580119175571}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ea89fcbae5384964396ee97b92b7132d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+    - rid: 6870683932333966288
+      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIActionShoot3D, MoreMountains.TopDownEngine]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 17895127847533185011
+          m_Value1: 5504405406798394241
+        Name: Attack
+        m_Value: {fileID: 114364124336155630}
+    - rid: 6870683933784670691
+      type: {class: 'BlackboardVariable`1[[MoreMountains.TopDownEngine.AIActionAimWeaponAtMovement, MoreMountains.TopDownEngine]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 5848006696893991085
+          m_Value1: 3805989456732101038
+        Name: Aim
+        m_Value: {fileID: 0}
 --- !u!1 &6241989455448830065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,7 +1035,6 @@ MonoBehaviour:
   FeedbacksList:
   - rid: 0
   - rid: 6870683748567875888
-  - rid: 6870683769915834493
   - rid: 1
   - rid: 2
   - rid: 3
@@ -1157,7 +1167,7 @@ MonoBehaviour:
     - rid: 1
       type: {class: MMF_ParticlesInstantiation, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 0
+        Active: 1
         UniqueID: -1653460767
         Label: Particles Instantiation
         ChannelMode: 0
@@ -1245,7 +1255,7 @@ MonoBehaviour:
     - rid: 2
       type: {class: MMF_FreezeFrame, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 616769674
         Label: Freeze Frame
         ChannelMode: 0
@@ -1310,12 +1320,12 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1504576865079977540}
         DebugActive: 0
-        FreezeFrameDuration: 0.1
+        FreezeFrameDuration: 0.02
         MinimumTimescaleThreshold: 0.1
     - rid: 3
       type: {class: MMF_Bloom, ns: MoreMountains.FeedbacksForThirdParty, asm: MoreMountains.Feedbacks.PostProcessing}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 950307370
         Label: Bloom
         ChannelMode: 0
@@ -1458,7 +1468,7 @@ MonoBehaviour:
       type: {class: MMF_CinemachineImpulse, ns: MoreMountains.FeedbacksForThirdParty,
         asm: MoreMountains.Feedbacks.Cinemachine}
       data:
-        Active: 0
+        Active: 1
         UniqueID: -901845375
         Label: Cinemachine Impulse
         ChannelMode: 0
@@ -1649,18 +1659,6 @@ MonoBehaviour:
                 m_StringArgument: 
                 m_BoolArgument: 0
               m_CallState: 2
-            - m_Target: {fileID: 609291284874311014}
-              m_TargetAssemblyTypeName: EnemyWaveTracker, Assembly-CSharp
-              m_MethodName: RemoveEnemy
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
         StopEvents:
           m_PersistentCalls:
             m_Calls: []
@@ -1670,144 +1668,6 @@ MonoBehaviour:
         ResetEvents:
           m_PersistentCalls:
             m_Calls: []
-    - rid: 6870683769915834493
-      type: {class: MMF_SpriteRenderer, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
-      data:
-        Active: 1
-        UniqueID: -1391911865
-        Label: SpriteRenderer
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        Owner: {fileID: 1504576865079977540}
-        DebugActive: 0
-        BoundSpriteRenderer: {fileID: 5326249259875451431}
-        Mode: 1
-        Duration: 0.2
-        StartsOff: 0
-        ResetShakerValuesAfterShake: 1
-        ResetTargetValuesAfterShake: 1
-        OnlyBroadcastInRange: 0
-        EventRange: 100
-        EventOriginTransform: {fileID: 0}
-        AllowAdditivePlays: 0
-        InitialColorMode: 1
-        ModifyColor: 1
-        ColorOverTime:
-          serializedVersion: 2
-          key0: {r: 1, g: 1, b: 1, a: 1}
-          key1: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
-          key2: {r: 0, g: 0, b: 0, a: 0}
-          key3: {r: 0, g: 0, b: 0, a: 0}
-          key4: {r: 0, g: 0, b: 0, a: 0}
-          key5: {r: 0, g: 0, b: 0, a: 0}
-          key6: {r: 0, g: 0, b: 0, a: 0}
-          key7: {r: 0, g: 0, b: 0, a: 0}
-          ctime0: 20046
-          ctime1: 65535
-          ctime2: 0
-          ctime3: 0
-          ctime4: 0
-          ctime5: 0
-          ctime6: 0
-          ctime7: 0
-          atime0: 0
-          atime1: 65535
-          atime2: 0
-          atime3: 0
-          atime4: 0
-          atime5: 0
-          atime6: 0
-          atime7: 0
-          m_Mode: 0
-          m_ColorSpace: 0
-          m_NumColorKeys: 2
-          m_NumAlphaKeys: 2
-        InstantColor: {r: 0.4039216, g: 0.058823533, b: 0.058823533, a: 1}
-        ToDestinationColor: {r: 0.4039216, g: 0.058823533, b: 0.058823533, a: 1}
-        ToDestinationColorCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        FlipX: 0
-        FlipY: 0
 --- !u!114 &7409475345549437654
 MonoBehaviour:
   m_ObjectHideFlags: 0
