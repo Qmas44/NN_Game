@@ -45,6 +45,8 @@ namespace MoreMountains.TopDownEngine
 		protected bool _lastReturnValue = false;
 		protected List<Transform> _potentialTargets;
 
+		public Transform CurrentTarget;
+
 		/// <summary>
 		/// On init we grab our Character component
 		/// </summary>
@@ -67,6 +69,23 @@ namespace MoreMountains.TopDownEngine
 		public override bool Decide()
 		{
 			return DetectTarget();
+		}
+
+		void Start()
+		{
+			_lastTargetCheckTimestamp = 0f;
+			_potentialTargets = new List<Transform>();
+			_character = this.gameObject.GetComponentInParent<Character>();
+			_collider = this.gameObject.GetComponentInParent<Collider>();
+			_gizmoColor.a = 0.25f;
+			_init = true;
+			_lastReturnValue = false;
+			_hits = new Collider[OverlapMaximum];
+		}
+
+		void FixedUpdate()
+		{
+			DetectTarget();
 		}
 
 		/// <summary>
@@ -128,6 +147,7 @@ namespace MoreMountains.TopDownEngine
 				if (hit.collider == null)
 				{
 					_brain.Target = t;
+					CurrentTarget = t;
 					_lastReturnValue = true;
 					return true;
 				}
