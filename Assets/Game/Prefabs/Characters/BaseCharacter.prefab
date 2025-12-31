@@ -592,6 +592,7 @@ MonoBehaviour:
   BlockingConditionStates: 
   BlockingWeaponStates: 
   Mode: 0
+  Radius: 4
   TimeScale: 0.4
   OneTimeDuration: 1
   LerpTimeScale: 1
