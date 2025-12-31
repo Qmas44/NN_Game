@@ -104,6 +104,9 @@ namespace MoreMountains.TopDownEngine
 			}
 		}
 
+		/// <summary>
+		/// When entering the state we reset our shoot counter and grab our weapon
+		/// </summary>
 		public void Aim()
 		{
 			if (TargetHandleWeaponAbility.CurrentWeapon != null)
@@ -119,13 +122,12 @@ namespace MoreMountains.TopDownEngine
 					{
 						_weaponAim.SetCurrentAim(_weaponAimDirection);    
 					}
-
 				}
 			}
 		}
         
 		/// <summary>
-		/// Aims at the target if required
+		/// Aims at the target if required (Modified to public)
 		/// </summary>
 		public virtual void TestAimAtTarget()
 		{
