@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 1076202550610720726}
   - component: {fileID: 3899114975061156714}
   m_Layer: 13
-  m_Name: BaseChaseEnemyBG
+  m_Name: SimpleMeleeSamEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,8 +610,8 @@ MonoBehaviour:
   Model: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 2
-  MaximumHealth: 2
+  InitialHealth: 1
+  MaximumHealth: 1
   ResetHealthOnEnable: 1
   ImmuneToDamage: 0
   DamageMMFeedbacks: {fileID: 6846283701983353122}
@@ -620,14 +620,13 @@ MonoBehaviour:
   ImmuneToKnockback: 0
   ImmuneToKnockbackIfZeroDamage: 0
   KnockbackForceMultiplier: 1
-  DestroyOnDeath: 0
+  DestroyOnDeath: 1
   DelayBeforeDestruction: 3
-  DelayBeforeDisable: 3
   PointsWhenDestroyed: 0
   RespawnAtInitialLocation: 0
-  DisableControllerOnDeath: 0
-  DisableModelOnDeath: 0
-  DisableCollisionsOnDeath: 0
+  DisableControllerOnDeath: 1
+  DisableModelOnDeath: 1
+  DisableCollisionsOnDeath: 1
   DisableChildCollisionsOnDeath: 0
   ChangeLayerOnDeath: 0
   ChangeLayersRecursivelyOnDeath: 0
@@ -1390,7 +1389,7 @@ MonoBehaviour:
     - rid: 2
       type: {class: MMF_FreezeFrame, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 1
+        Active: 0
         UniqueID: 616769674
         Label: Freeze Frame
         ChannelMode: 0
@@ -1455,7 +1454,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 1504576865079977540}
         DebugActive: 0
-        FreezeFrameDuration: 0.04
+        FreezeFrameDuration: 0.1
         MinimumTimescaleThreshold: 0.1
     - rid: 3
       type: {class: MMF_Bloom, ns: MoreMountains.FeedbacksForThirdParty, asm: MoreMountains.Feedbacks.PostProcessing}

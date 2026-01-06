@@ -1071,12 +1071,12 @@ PrefabInstance:
     - target: {fileID: 114914711379046516, guid: 8a888d0ad82395640a03a1349e8ded1c,
         type: 3}
       propertyPath: InitialHealth
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114914711379046516, guid: 8a888d0ad82395640a03a1349e8ded1c,
         type: 3}
       propertyPath: MaximumHealth
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114914711379046516, guid: 8a888d0ad82395640a03a1349e8ded1c,
         type: 3}
@@ -1627,6 +1627,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6846283701983353122, guid: 2edfaab04ccb20245a70316235619763,
+        type: 3}
+      propertyPath: managedReferences[4].Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846283701983353122, guid: 2edfaab04ccb20245a70316235619763,
+        type: 3}
+      propertyPath: managedReferences[4].m_ImpulseDefinition.m_RawSignal
+      value: 
+      objectReference: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3834,7 +3845,11 @@ PrefabInstance:
     - {fileID: 114276557751269602, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1243820240813678, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1848396682}
   m_SourcePrefab: {fileID: 100100000, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84, type: 3}
 --- !u!1 &1554659845
 GameObject:
@@ -4123,7 +4138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1723314286
 Transform:
   m_ObjectHideFlags: 0
@@ -4192,7 +4207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723314285}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13826a1baee753c4c962f3451e2ff01f, type: 3}
   m_Name: 
@@ -4419,6 +4434,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1918232351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1848396674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1243820240813678, guid: 2c3f34fdafe3c624c952cb7f2f2f1a84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1541819081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848396682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848396674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Cinemachine::Cinemachine.CinemachineIndependentImpulseListener
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
+  m_UseLocalSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1859892075
 GameObject:
   m_ObjectHideFlags: 0

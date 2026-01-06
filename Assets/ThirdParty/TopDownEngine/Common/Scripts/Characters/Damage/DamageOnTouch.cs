@@ -681,10 +681,12 @@ namespace MoreMountains.TopDownEngine
 
 				if (_twoD) // if we're in 2D
 				{
+					Debug.Log("Applying knockback 2D");
 					ApplyKnockback2D();
 				}
 				else // if we're in 3D
 				{
+					Debug.Log("Applying knockback 3D");
 					ApplyKnockback3D();
 				}
 				

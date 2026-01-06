@@ -285,7 +285,7 @@ namespace MoreMountains.TopDownEngine
 				Debug.Log("Current weapon name: " + CurrentWeapon.WeaponName);
 				if(CurrentWeapon.WeaponName == "basemeleeweapon")
 				{
-					CharacterDash.WeaponDashStart();
+					//CharacterDash.WeaponDashStart();
 				}
 			}
 

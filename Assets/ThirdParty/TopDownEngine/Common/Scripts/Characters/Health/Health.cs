@@ -103,6 +103,9 @@ namespace MoreMountains.TopDownEngine
 		/// the time (in seconds) before the character is destroyed or disabled
 		[Tooltip("the time (in seconds) before the character is destroyed or disabled")]
 		public float DelayBeforeDestruction = 0f;
+		/// the time (in seconds) before the character is  disabled
+		[Tooltip("the time (in seconds) before the character is disabled!")]
+		public float DelayBeforeDisable = 0f;
 		/// the points the player gets when the object's health reaches zero
 		[Tooltip("the points the player gets when the object's health reaches zero")]
 		public int PointsWhenDestroyed;
@@ -825,6 +828,12 @@ namespace MoreMountains.TopDownEngine
 			OnDeath?.Invoke();
 			MMLifeCycleEvent.Trigger(this, MMLifeCycleEventTypes.Death);
 
+			if (DelayBeforeDisable > 0f)
+			{
+				Debug.LogWarning("Disabling " + this.gameObject.name + " in " + DelayBeforeDisable + " seconds");
+				Invoke ("DisableObject", DelayBeforeDisable);
+			}
+
 			if (DisableControllerOnDeath && (_controller != null))
 			{
 				_controller.enabled = false;
@@ -931,6 +940,16 @@ namespace MoreMountains.TopDownEngine
 			InitializeCurrentHealth();
 			OnRevive?.Invoke();
 			MMLifeCycleEvent.Trigger(this, MMLifeCycleEventTypes.Revive);
+		}
+
+		/// <summary>
+		/// Destroys the object, or tries to, depending on the character's settings
+		/// </summary>
+		protected virtual void DisableObject()
+		{
+			Debug.LogWarning("Disabling " + this.gameObject.name);
+			_controller.enabled = false;
+			_characterController.enabled = false;
 		}
 
 		/// <summary>
