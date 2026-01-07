@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
+using UnityEngine.InputSystem;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -132,6 +133,7 @@ namespace MoreMountains.TopDownEngine
 		/// if this is true all aim will be prevented while the weapon is active
 		[Tooltip("if this is true all aim will be prevented while the weapon is active")]
 		public bool PreventAllAimWhileInUse = false;
+		[SerializeField] private PlayerInput _pInput;
 
 		[MMInspectorGroup("Recoil", true, 15)]
 		/// the force to apply to push the character back when shooting - positive values will push the character back, negative values will launch it forward, turning that recoil into a thrust
@@ -258,6 +260,7 @@ namespace MoreMountains.TopDownEngine
 		protected ComboWeapon _comboWeapon;
 		protected TopDownController _controller;
 		protected CharacterMovement _characterMovement;
+		protected CharacterDash3D _characterDash;
 		protected Vector3 _weaponOffset;
 		protected Vector3 _weaponAttachmentOffset;
 		protected Transform _weaponAttachment;
@@ -351,8 +354,8 @@ namespace MoreMountains.TopDownEngine
 				CharacterHandleWeapon = handleWeapon;
 				_characterMovement = Owner.GetComponent<Character>()?.FindAbility<CharacterMovement>();
 				_controller = Owner.GetComponent<TopDownController>();
-
 				_controllerIs3D = Owner.GetComponent<TopDownController3D>() != null;
+				_characterDash = Owner?.GetComponent<CharacterDash3D>();
 
 				if (CharacterHandleWeapon.AutomaticallyBindAnimator)
 				{
@@ -424,6 +427,12 @@ namespace MoreMountains.TopDownEngine
 			{
 				_characterMovement.SetMovement(Vector2.zero);
 				_characterMovement.MovementForbidden = true;
+				_characterMovement.AbilityPermitted = false;
+				CharacterHandleWeapon.AbilityPermitted = false;
+				if (_characterDash != null)
+				{
+					_characterDash.AbilityPermitted = false;
+				}
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{
@@ -827,6 +836,12 @@ namespace MoreMountains.TopDownEngine
 			if (PreventAllMovementWhileInUse && (_characterMovement != null))
 			{
 				_characterMovement.MovementForbidden = false;
+				_characterMovement.AbilityPermitted = true;
+				CharacterHandleWeapon.AbilityPermitted = true;
+				if (_characterDash != null)
+				{
+					_characterDash.AbilityPermitted = true;
+				}
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{
@@ -888,6 +903,7 @@ namespace MoreMountains.TopDownEngine
 			if (PreventAllMovementWhileInUse && (_characterMovement != null))
 			{
 				_characterMovement.MovementForbidden = false;
+				_characterMovement.AbilityPermitted = true;
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{

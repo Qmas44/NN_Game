@@ -80,7 +80,8 @@ MonoBehaviour:
   MovementMultiplier: 0
   PreventAllMovementWhileInUse: 1
   PreventAllAimWhileInUse: 1
-  RecoilForce: 0
+  _pInput: {fileID: 0}
+  RecoilForce: 5
   Animators: []
   PerformAnimatorSanityChecks: 0
   MirrorCharacterAnimatorParameters: 0
@@ -128,7 +129,6 @@ MonoBehaviour:
   KnockbackDirection: 0
   InvincibilityDuration: 1
   CanDamageOwner: 0
-  ShouldDash: 0
 --- !u!114 &5168054645349362049
 MonoBehaviour:
   m_ObjectHideFlags: 0

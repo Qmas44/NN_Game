@@ -10,7 +10,7 @@ namespace MoreMountains.TopDownEngine
 	/// A basic melee weapon class, that will activate a "hurt zone" when the weapon is used
 	/// </summary>
 	[AddComponentMenu("TopDown Engine/Weapons/Melee Weapon")]
-	public class MeleeWeapon : Weapon
+	public class AIMeleeWeapon : Weapon
 	{
 		/// the possible shapes for the melee weapon's damage area
 		public enum MeleeDamageAreaShapes { Rectangle, Circle, Box, Sphere }
@@ -86,6 +86,8 @@ namespace MoreMountains.TopDownEngine
 		/// if this is true, the owner can be damaged by its own weapon's damage area (usually false)
 		[Tooltip("if this is true, the owner can be damaged by its own weapon's damage area (usually false)")]
 		public bool CanDamageOwner = false;
+
+		public bool ShouldDash = false;
 
 		protected Collider _damageAreaCollider;
 		protected Collider2D _damageAreaCollider2D;

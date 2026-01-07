@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System.Collections;
 using MoreMountains.Tools;
 using System.Collections.Generic;
@@ -348,6 +349,7 @@ namespace MoreMountains.TopDownEngine
 				    || (_movement.CurrentState == CharacterStates.MovementStates.Idle)
 			    ))
 			{
+				Debug.Log("AI IS FALLING");
 				_movement.ChangeState(CharacterStates.MovementStates.Falling);
 			}
 
@@ -530,6 +532,11 @@ namespace MoreMountains.TopDownEngine
 					MMSoundManagerSoundPlayEvent.Trigger(clip, MMSoundManager.MMSoundManagerTracks.Sfx, this.transform.position);
 				}
 			}
+		}
+
+		public virtual void StopInput()
+		{
+			InputManager.Instance.InputDetectionActive = false;
 		}
 
 		/// <summary>

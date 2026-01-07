@@ -761,6 +761,11 @@ namespace MoreMountains.TopDownEngine
 				_character.ConditionState.ChangeState(CharacterStates.CharacterConditions.Dead);
 				_character.Reset();
 
+				Vector2 _movementVector = new Vector2();
+				_movementVector.x = 0f;
+				_movementVector.y = 0f;
+				_controller.SetMovement (_movementVector);
+
 				if (_character.CharacterType == Character.CharacterTypes.Player)
 				{
 					TopDownEngineEvent.Trigger(TopDownEngineEventTypes.PlayerDeath, _character);
