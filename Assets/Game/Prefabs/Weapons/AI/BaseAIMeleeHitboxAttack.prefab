@@ -117,7 +117,7 @@ MonoBehaviour:
   HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
   ExistingDamageArea: {fileID: 0}
-  InitialDelay: 0
+  InitialDelay: 0.2
   ActiveDuration: 0.3
   TargetLayerMask:
     serializedVersion: 2

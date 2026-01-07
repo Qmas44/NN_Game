@@ -5024,6 +5024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Model: {fileID: 1622653139896216}
+  ModelSpriteRenderer: {fileID: 0}
   CurrentHealth: 0
   Invulnerable: 0
   InitialHealth: 2

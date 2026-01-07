@@ -68,7 +68,6 @@ namespace MoreMountains.TopDownEngine
 
 		public virtual void StopPath()
 		{
-			Debug.LogWarning("IN STOP PATH" + _characterPathfinder3D + _characterMovement);
 			_characterPathfinder3D.SetNewDestination(null);
 		}
 

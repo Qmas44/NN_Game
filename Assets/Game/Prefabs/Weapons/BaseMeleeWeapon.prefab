@@ -77,11 +77,10 @@ MonoBehaviour:
   LeftHandHandle: {fileID: 0}
   RightHandHandle: {fileID: 0}
   ModifyMovementWhileAttacking: 0
-  MovementMultiplier: 5
+  MovementMultiplier: 0
   PreventAllMovementWhileInUse: 1
-  PreventAllAimWhileInUse: 0
-  ApplyImpulse: 0
-  ImpulseForce: 0
+  PreventAllAimWhileInUse: 1
+  _pInput: {fileID: 0}
   RecoilForce: -10
   Animators: []
   PerformAnimatorSanityChecks: 0
@@ -130,7 +129,6 @@ MonoBehaviour:
   KnockbackDirection: 0
   InvincibilityDuration: 0.5
   CanDamageOwner: 0
-  ShouldDash: 0
 --- !u!114 &2463841059975174656
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -292,7 +292,6 @@ namespace MoreMountains.TopDownEngine
 			_collider2D = this.gameObject.GetComponentInParent<Collider2D>();
 			_collider3D = this.gameObject.GetComponentInParent<Collider>();
 
-			ModelSpriteRenderer = Model.GetComponentInParent<SpriteRenderer>();
 
 			DamageMMFeedbacks?.Initialization(this.gameObject);
 			DeathMMFeedbacks?.Initialization(this.gameObject);
@@ -855,8 +854,12 @@ namespace MoreMountains.TopDownEngine
 			{
 				Model.SetActive(false);
 			}
-
-			Debug.LogWarning("Model sprite renderer" + ModelSpriteRenderer);
+			
+			if(ModelSpriteRenderer != null)
+			{
+				Debug.LogWarning("Model sprite renderer" + ModelSpriteRenderer);
+				ModelSpriteRenderer.sortingLayerName = "Background";
+			}
 
 			if (DelayBeforeDestruction > 0f)
 			{
