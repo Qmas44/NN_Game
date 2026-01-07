@@ -763,6 +763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2572307250883796560, guid: ee5912a739553564283ca475aa0e794c,
         type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2065901975}
+    - target: {fileID: 2572307250883796560, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 15
       objectReference: {fileID: 0}
@@ -781,6 +786,36 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1514840038}
+    - target: {fileID: 5154017817776311895, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_JoinBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154017817776311895, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786340282273566205, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2065901975}
+    - target: {fileID: 7786340282273566205, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786340282273566205, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: 239ee3ca-17ea-4fb2-85ef-91f8046dfddb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786340282273566205, guid: ee5912a739553564283ca475aa0e794c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: PlayerControls/CameraRotation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3170,6 +3205,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 20, z: 90}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!20 &2065901975 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20646998284766860, guid: ee5912a739553564283ca475aa0e794c,
+    type: 3}
+  m_PrefabInstance: {fileID: 464461709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2066090421
 PrefabInstance:
   m_ObjectHideFlags: 0
