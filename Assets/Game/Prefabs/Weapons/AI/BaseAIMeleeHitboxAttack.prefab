@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321151183377729451}
-  - component: {fileID: 7214435677246508981}
+  - component: {fileID: 8776470508450044242}
   - component: {fileID: 5168054645349362049}
   m_Layer: 0
   m_Name: BaseAIMeleeHitboxAttack
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8469110740121158988}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7214435677246508981
+--- !u!114 &8776470508450044242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a557e2b93323f4831a62221b200348c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponName: Pickaxe
+  WeaponName: basemeleeweapon
   WeaponCurrentlyActive: 1
   InputAuthorized: 1
-  TriggerMode: 1
+  TriggerMode: 0
   DelayBeforeUse: 0
   DelayBeforeUseReleaseInterruption: 0
   TimeBetweenUses: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   AutoDestroyWhenEmptyDelay: 1
   PreventReloadIfAmmoEmpty: 0
   CurrentAmmoLoaded: 30
-  WeaponAttachmentOffset: {x: 0, y: 0.31, z: 0}
+  WeaponAttachmentOffset: {x: 0, y: 0, z: 0}
   FlipWeaponOnCharacterFlip: 0
   RightFacingFlipValue: {x: 1, y: 1, z: 1}
   LeftFacingFlipValue: {x: -1, y: 1, z: 1}
@@ -77,17 +77,17 @@ MonoBehaviour:
   LeftHandHandle: {fileID: 0}
   RightHandHandle: {fileID: 0}
   ModifyMovementWhileAttacking: 0
-  MovementMultiplier: 0
+  MovementMultiplier: 5
   PreventAllMovementWhileInUse: 1
-  PreventAllAimWhileInUse: 1
+  PreventAllAimWhileInUse: 0
   _pInput: {fileID: 0}
-  RecoilForce: 5
+  RecoilForce: -20
   Animators: []
   PerformAnimatorSanityChecks: 0
   MirrorCharacterAnimatorParameters: 0
-  WeaponAnimationID: 10
+  WeaponAnimationID: 0
   IdleAnimationParameter: 
-  StartAnimationParameter: Attack
+  StartAnimationParameter: MeleeAttackStart
   DelayBeforeUseAnimationParameter: 
   SingleUseAnimationParameter: 
   UseAnimationParameter: 
@@ -100,34 +100,34 @@ MonoBehaviour:
   WeaponAngleRelativeAnimationParameter: 
   EquippedAnimationParameter: 
   WeaponStartMMFeedback: {fileID: 0}
-  WeaponUsedMMFeedback: {fileID: 597493854821943815}
+  WeaponUsedMMFeedback: {fileID: 0}
   WeaponUsedMMFeedbackAlt: {fileID: 0}
   WeaponStopMMFeedback: {fileID: 0}
   WeaponReloadMMFeedback: {fileID: 0}
   WeaponReloadNeededMMFeedback: {fileID: 0}
   WeaponReloadImpossibleMMFeedback: {fileID: 0}
-  InitializeOnStart: 0
+  InitializeOnStart: 1
   Interruptable: 0
   Flipped: 0
   MeleeDamageAreaMode: 0
   DamageAreaShape: 2
   AreaOffset: {x: 0, y: 0, z: 0}
-  AreaSize: {x: 2, y: 2, z: 2}
+  AreaSize: {x: 3.5, y: 2, z: 3.5}
   TriggerFilter: 195
-  HitDamageableFeedback: {fileID: 1046551573555803220}
+  HitDamageableFeedback: {fileID: 0}
   HitNonDamageableFeedback: {fileID: 0}
   ExistingDamageArea: {fileID: 0}
   InitialDelay: 0
-  ActiveDuration: 1
+  ActiveDuration: 0.3
   TargetLayerMask:
     serializedVersion: 2
-    m_Bits: 1024
-  MinDamageCaused: 10
-  MaxDamageCaused: 10
+    m_Bits: 1280
+  MinDamageCaused: 1
+  MaxDamageCaused: 1
   Knockback: 1
-  KnockbackForce: {x: 0, y: 0, z: 10}
+  KnockbackForce: {x: 0, y: 0, z: 2}
   KnockbackDirection: 0
-  InvincibilityDuration: 1
+  InvincibilityDuration: 0.5
   CanDamageOwner: 0
 --- !u!114 &5168054645349362049
 MonoBehaviour:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AimControl: 4
-  AimControlActive: 0
+  AimControlActive: 1
   RotationMode: 0
   WeaponRotationSpeed: 0
   MinimumAngle: -180

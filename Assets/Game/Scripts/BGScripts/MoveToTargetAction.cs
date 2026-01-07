@@ -9,9 +9,10 @@ using Unity.Properties;
 [NodeDescription(name: "MoveToTarget", story: "Agent [MovesToTarget]", category: "Action", id: "9ed2538040f8dabd30db1917ddab8ed5")]
 public partial class MoveToTargetAction : Action
 {
-    [SerializeReference] public BlackboardVariable<AIActionAlwaysMoveTowardsTarget3D> MovesToTarget;
+    [SerializeReference] public BlackboardVariable<AIActionPathfinderToTarget3D> MovesToTarget;
     protected override Status OnStart()
     {
+        MovesToTarget.Value.Initialization();
         MovesToTarget.Value.PerformAction();
         return Status.Success;
     }

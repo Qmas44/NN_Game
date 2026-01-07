@@ -127,6 +127,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
+			Debug.Log("Attempting to move to target" + Target);
 
 			PerformRefresh();
 			DrawDebugPath();
@@ -151,6 +152,7 @@ namespace MoreMountains.TopDownEngine
 				_newMovement.x = _direction.x;
 				_newMovement.y = _direction.z;
 				_characterMovement.SetMovement(_newMovement);
+				Debug.LogWarning("ATTEMPTING MOVEMENT IN MOVE CONTROLLER" + _newMovement);
 			}
 		}
 
@@ -198,6 +200,7 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (!ignoreDelay && (Time.time - _lastRequestAt < MinimumDelayBeforePollingNavmesh))
 			{
+				Debug.LogWarning("WAITING FOR DELAY");
 				return;
 			}
 			

@@ -66,12 +66,20 @@ namespace MoreMountains.TopDownEngine
 			}
 		}
 
+		public virtual void StopPath()
+		{
+			Debug.LogWarning("IN STOP PATH" + _characterPathfinder3D + _characterMovement);
+			_characterPathfinder3D.SetNewDestination(null);
+		}
+
 		/// <summary>
 		/// On exit state we stop our movement
 		/// </summary>
 		public override void OnExitState()
 		{
 			base.OnExitState();
+
+			Debug.LogWarning("STOPING PATH");
             
 			_characterPathfinder3D?.SetNewDestination(null);
 			_characterMovement?.SetHorizontalMovement(0f);

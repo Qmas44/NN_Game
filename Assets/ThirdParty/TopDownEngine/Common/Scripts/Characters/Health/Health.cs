@@ -41,6 +41,7 @@ namespace MoreMountains.TopDownEngine
 		/// the model to disable (if set so)
 		[Tooltip("the model to disable (if set so)")]
 		public GameObject Model;
+		[SerializeField] private SpriteRenderer ModelSpriteRenderer;
 		
 		[MMInspectorGroup("Status", true, 29)]
 
@@ -290,6 +291,8 @@ namespace MoreMountains.TopDownEngine
 			_characterController = this.gameObject.GetComponentInParent<CharacterController>();
 			_collider2D = this.gameObject.GetComponentInParent<Collider2D>();
 			_collider3D = this.gameObject.GetComponentInParent<Collider>();
+
+			ModelSpriteRenderer = Model.GetComponentInParent<SpriteRenderer>();
 
 			DamageMMFeedbacks?.Initialization(this.gameObject);
 			DeathMMFeedbacks?.Initialization(this.gameObject);
@@ -834,8 +837,7 @@ namespace MoreMountains.TopDownEngine
 			MMLifeCycleEvent.Trigger(this, MMLifeCycleEventTypes.Death);
 
 			if (DelayBeforeDisable > 0f)
-			{
-				Debug.LogWarning("Disabling " + this.gameObject.name + " in " + DelayBeforeDisable + " seconds");
+			{;
 				Invoke ("DisableObject", DelayBeforeDisable);
 			}
 
@@ -853,6 +855,8 @@ namespace MoreMountains.TopDownEngine
 			{
 				Model.SetActive(false);
 			}
+
+			Debug.LogWarning("Model sprite renderer" + ModelSpriteRenderer);
 
 			if (DelayBeforeDestruction > 0f)
 			{
