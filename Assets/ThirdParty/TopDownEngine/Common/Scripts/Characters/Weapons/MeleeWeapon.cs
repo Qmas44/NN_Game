@@ -256,6 +256,11 @@ namespace MoreMountains.TopDownEngine
 			{
 				_characterMovement.MovementSpeed = 0;
 			}
+			if (_weaponAim != null)
+			{
+				_weaponAim.AimControlActive = false;
+			}
+
 		}
 
 
@@ -277,6 +282,12 @@ namespace MoreMountains.TopDownEngine
 				Debug.Log("Resetting movement speed NOW");
 				_characterMovement.MovementSpeed = 10;
 			}
+
+			if (_weaponAim != null)
+			{
+				_weaponAim.AimControlActive = true;
+			}
+
 		}
 
 		/// <summary>

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: -2025765609209791315}
   - component: {fileID: 2266700727274820682}
   - component: {fileID: 8406419462160161653}
+  - component: {fileID: 2857566864990562750}
   m_Layer: 10
   m_Name: BaseCharacter
   m_TagString: Player
@@ -426,7 +427,7 @@ MonoBehaviour:
   ForceAlwaysShoot: 0
   BufferInput: 1
   NewInputExtendsBuffer: 1
-  MaximumBufferDuration: 0.25
+  MaximumBufferDuration: 0.3
   RequiresPerfectTile: 0
   Jutsu: {fileID: 0}
   CurrentWeapon: {fileID: 0}
@@ -563,7 +564,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   AllowDashWhenJumping: 0
   Cooldown:
-    Unlimited: 1
+    Unlimited: 0
     ConsumptionDuration: 2
     PauseOnEmptyDuration: 1
     RefillDuration: 1
@@ -610,6 +611,69 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 270336
+--- !u!114 &2857566864990562750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357507880282749195}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3be21b59bb8e04ea46faef145776eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.TopDownEngine::MoreMountains.TopDownEngine.CharacterChainDash3D
+  AbilityStartSfx: {fileID: 0}
+  AbilityInProgressSfx: {fileID: 0}
+  AbilityStopSfx: {fileID: 0}
+  AbilityStartFeedbacks: {fileID: 0}
+  AbilityStopFeedbacks: {fileID: 0}
+  AbilityPermitted: 1
+  BlockingMovementStates: 
+  BlockingConditionStates: 
+  BlockingWeaponStates: 
+  DashMode: 1
+  DashSpace: 0
+  DashDirection: {x: 0, y: 0, z: 1}
+  DashDistance: 6
+  DashDuration: 0.5
+  DashCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AllowDashWhenJumping: 0
+  Cooldown:
+    Unlimited: 0
+    ConsumptionDuration: 2
+    PauseOnEmptyDuration: 1
+    RefillDuration: 1
+    CanInterruptRefill: 0
+    CooldownState: 0
+    CurrentDurationLeft: 0
+  InvincibleWhileDashing: 1
+  DashFeedback: {fileID: 1244327168266619109}
+  ConsecutiveDashTimeWindow: 2
+  ExtendedCooldownDuration: 3
 --- !u!1 &1795297429607270226
 GameObject:
   m_ObjectHideFlags: 0
