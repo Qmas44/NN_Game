@@ -386,7 +386,7 @@ namespace MoreMountains.TopDownEngine
 		/// <summary>
 		/// Describes what happens when the character is in the frozen state
 		/// </summary>
-		protected virtual void HandleFrozen()
+		public virtual void HandleFrozen()
 		{
 			if (!AbilityAuthorized)
 			{
@@ -532,6 +532,11 @@ namespace MoreMountains.TopDownEngine
 					MMSoundManagerSoundPlayEvent.Trigger(clip, MMSoundManager.MMSoundManagerTracks.Sfx, this.transform.position);
 				}
 			}
+		}
+
+		public virtual void StopVelocity()
+		{
+			_controller.Velocity = Vector3.zero;
 		}
 
 		public virtual void StopInput()

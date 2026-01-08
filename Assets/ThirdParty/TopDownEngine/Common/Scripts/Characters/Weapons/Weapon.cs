@@ -425,7 +425,8 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (PreventAllMovementWhileInUse && (_characterMovement != null) && (_controller != null))
 			{
-				_characterMovement.SetMovement(Vector2.zero);
+				Debug.LogWarning("Stop movement when attacking!!!!");
+				_characterMovement.MovementSpeed = 0;
 				_characterMovement.MovementForbidden = true;
 				_characterMovement.AbilityPermitted = false;
 				CharacterHandleWeapon.AbilityPermitted = false;
@@ -835,6 +836,7 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (PreventAllMovementWhileInUse && (_characterMovement != null))
 			{
+				_characterMovement.MovementSpeed = 10;
 				_characterMovement.MovementForbidden = false;
 				_characterMovement.AbilityPermitted = true;
 				CharacterHandleWeapon.AbilityPermitted = true;

@@ -86,6 +86,7 @@ namespace MoreMountains.TopDownEngine
 		/// if this is true, the owner can be damaged by its own weapon's damage area (usually false)
 		[Tooltip("if this is true, the owner can be damaged by its own weapon's damage area (usually false)")]
 		public bool CanDamageOwner = false;
+		public bool ShouldStopMovement = false;
 
 		protected Collider _damageAreaCollider;
 		protected Collider2D _damageAreaCollider2D;
@@ -99,6 +100,7 @@ namespace MoreMountains.TopDownEngine
 		protected Vector3 _gizmoOffset;
 		protected DamageOnTouch _damageOnTouch;
 		protected GameObject _damageArea;
+
 
 		/// <summary>
 		/// Initialization
@@ -249,6 +251,11 @@ namespace MoreMountains.TopDownEngine
 			{
 				_damageAreaCollider.enabled = true;
 			}
+
+			if (ShouldStopMovement)
+			{
+				_characterMovement.MovementSpeed = 0;
+			}
 		}
 
 
@@ -264,6 +271,11 @@ namespace MoreMountains.TopDownEngine
 			if (_damageAreaCollider != null)
 			{
 				_damageAreaCollider.enabled = false;
+			}
+			if (ShouldStopMovement)
+			{
+				Debug.Log("Resetting movement speed NOW");
+				_characterMovement.MovementSpeed = 10;
 			}
 		}
 
