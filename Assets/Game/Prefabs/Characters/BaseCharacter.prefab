@@ -166,7 +166,7 @@ MonoBehaviour:
     m_Bits: 199424
   GroundedRaycastLength: 8
   MinimumGroundedDistance: 0.2
-  GroundedComputationMode: 1
+  GroundedComputationMode: 0
   GroundNormalHeightThreshold: 10
   ImpactFalloff: 5
   MaximumFallSpeed: 20
@@ -226,9 +226,9 @@ MonoBehaviour:
   AbilityStartFeedbacks: {fileID: 0}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
-  BlockingMovementStates: 
+  BlockingMovementStates: 0c000000
   BlockingConditionStates: 
-  BlockingWeaponStates: 
+  BlockingWeaponStates: 03000000
   Movement: 0
   InputAuthorized: 1
   AnalogInput: 0
@@ -236,9 +236,9 @@ MonoBehaviour:
   WalkSpeed: 10
   ShouldSetMovement: 1
   IdleThreshold: 0.05
-  Acceleration: 5
+  Acceleration: 3
   Deceleration: 0
-  InterpolateMovementSpeed: 1
+  InterpolateMovementSpeed: 0
   WalkParticles:
   - {fileID: 5268053966290652342}
   TouchTheGroundParticles: []
@@ -406,7 +406,7 @@ MonoBehaviour:
   BlockingMovementStates: 
   BlockingConditionStates: 
   BlockingWeaponStates: 
-  InitialWeapon: {fileID: 114594623923584052, guid: 0e30730430bf5e7499b141657832dc8b,
+  InitialWeapon: {fileID: 114594623923584052, guid: abd091fd3a5d47848bf1915d32a36ee8,
     type: 3}
   SecondaryWeapon: {fileID: 2059335800674325366, guid: 9b2845c108520374693557b6f52ebade,
     type: 3}
@@ -426,8 +426,8 @@ MonoBehaviour:
   ForcedWeaponAimControl: 1
   ForceAlwaysShoot: 0
   BufferInput: 1
-  NewInputExtendsBuffer: 1
-  MaximumBufferDuration: 0.3
+  NewInputExtendsBuffer: 0
+  MaximumBufferDuration: 0.2
   RequiresPerfectTile: 0
   Jutsu: {fileID: 0}
   CurrentWeapon: {fileID: 0}
@@ -530,7 +530,7 @@ MonoBehaviour:
   AbilityStartFeedbacks: {fileID: 0}
   AbilityStopFeedbacks: {fileID: 0}
   AbilityPermitted: 1
-  BlockingMovementStates: 
+  BlockingMovementStates: 0c00000007000000
   BlockingConditionStates: 
   BlockingWeaponStates: 
   DashMode: 1
@@ -672,8 +672,6 @@ MonoBehaviour:
     CurrentDurationLeft: 0
   InvincibleWhileDashing: 1
   DashFeedback: {fileID: 1244327168266619109}
-  ConsecutiveDashTimeWindow: 2
-  ExtendedCooldownDuration: 3
 --- !u!1 &1795297429607270226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3104,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.84, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1357507880282749192}
@@ -3160,7 +3158,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1837505911, guid: 27339c5f400ede141814b52a6d7ae3c9, type: 3}
+  m_Sprite: {fileID: 103820292, guid: 1971b3a57af6ac041af735c99242d764, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -86,18 +86,6 @@ namespace MoreMountains.TopDownEngine
 		protected int _dashingDirectionYAnimationParameter;
 		protected int _dashingDirectionZAnimationParameter;
 		protected CharacterOrientation3D _characterOrientation3D;
-
-		[Header("Consecutive Dash Tracking")]
-		/// the time window in which dashes are considered consecutive
-		[Tooltip("the time window in which dashes are considered consecutive")]
-		public float ConsecutiveDashTimeWindow = 2f;
-		/// the extended cooldown duration applied after the 3rd consecutive dash
-		[Tooltip("the extended cooldown duration applied after the 3rd consecutive dash")]
-		public float ExtendedCooldownDuration = 3f;
-
-		protected int _consecutiveDashCount;
-		protected float _lastDashTime;
-		protected float _originalCooldownDuration;
         
 		/// <summary>
 		/// On init we initialize our cooldown and feedback
@@ -110,9 +98,6 @@ namespace MoreMountains.TopDownEngine
 			_mainCamera = Camera.main;
 			Cooldown.Initialization();
 			DashFeedback?.Initialization(this.gameObject);
-			_originalCooldownDuration = Cooldown.ConsumptionDuration;
-			_consecutiveDashCount = 0;
-			_lastDashTime = -ConsecutiveDashTimeWindow; // Initialize to ensure first dash isn't considered consecutive
 		}
 
 		/// <summary>
@@ -153,30 +138,6 @@ namespace MoreMountains.TopDownEngine
 			{
 				return;
 			}
-
-			// Check for consecutive dashes
-			float currentTime = Time.time;
-			if (currentTime - _lastDashTime <= ConsecutiveDashTimeWindow)
-			{
-				_consecutiveDashCount++;
-			}
-			else
-			{
-				_consecutiveDashCount = 1;
-			}
-			_lastDashTime = currentTime;
-
-			// Apply extended cooldown after 3rd consecutive dash
-			if (_consecutiveDashCount >= 3)
-			{
-				Cooldown.ConsumptionDuration = ExtendedCooldownDuration;
-				_consecutiveDashCount = 0; // Reset counter after extended cooldown
-			}
-			else
-			{
-				Cooldown.ConsumptionDuration = _originalCooldownDuration; // Use normal cooldown for 1st and 2nd dash
-			}
-
 			Cooldown.Start();
 
 			_movement.ChangeState(CharacterStates.MovementStates.Dashing);

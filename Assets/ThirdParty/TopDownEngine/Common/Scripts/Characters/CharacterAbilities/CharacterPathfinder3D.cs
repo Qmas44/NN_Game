@@ -198,7 +198,6 @@ namespace MoreMountains.TopDownEngine
 		{
 			if (!ignoreDelay && (Time.time - _lastRequestAt < MinimumDelayBeforePollingNavmesh))
 			{
-				Debug.LogWarning("WAITING FOR DELAY");
 				return;
 			}
 			

@@ -3,6 +3,7 @@ using System.Collections;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using UnityEngine.Serialization;
+using System.Buffers;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -100,6 +101,8 @@ namespace MoreMountains.TopDownEngine
 		protected Vector3 _gizmoOffset;
 		protected DamageOnTouch _damageOnTouch;
 		protected GameObject _damageArea;
+		protected MMStateMachine<CharacterStates.MovementStates> CharacterMovementState;
+		//protected CharacterStates _state;
 
 
 		/// <summary>
@@ -108,6 +111,11 @@ namespace MoreMountains.TopDownEngine
 		public override void Initialization()
 		{
 			base.Initialization();
+
+			CharacterMovementState = Owner.MovementState;
+
+			//_state = Owner.CharacterState;
+
 
 			if (_damageArea == null)
 			{
@@ -251,10 +259,13 @@ namespace MoreMountains.TopDownEngine
 			{
 				_damageAreaCollider.enabled = true;
 			}
+			//_characterMovement._movement.ChangeState(CharacterStates.MovementStates.Idle);
+
+			Debug.Log("Current character state" + CharacterMovementState);
+			CharacterMovementState.ChangeState(CharacterStates.MovementStates.Attacking);
 
 			if (ShouldStopMovement)
 			{
-				_characterMovement.MovementSpeed = 0;
 			}
 			if (_weaponAim != null)
 			{
@@ -279,9 +290,10 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (ShouldStopMovement)
 			{
-				Debug.Log("Resetting movement speed NOW");
-				_characterMovement.MovementSpeed = 10;
+				_characterMovement.MovementForbidden = false;
 			}
+
+			CharacterMovementState.ChangeState(CharacterStates.MovementStates.Idle);
 
 			if (_weaponAim != null)
 			{

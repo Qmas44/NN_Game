@@ -53,7 +53,7 @@ namespace MoreMountains.TopDownEngine
                             // Upgrade kunai damage caused
                             kunaiProjectile.SetDamageCaused(kunaiProjectile.GetMinDamageCaused(), kunaiProjectile.GetMaxDamageCaused() + upgradeData.weaponDamageCaused);
                             // Upgrade kunai Speed
-                            currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - upgradeData.weaponSpeed);
+                            //currentWeapon.SetTimeBetweenUses(currentWeapon.TimeBetweenUses - upgradeData.weaponSpeed);
                             break;
                         case UpgradeLevel.Level2:
                             Debug.Log("Level 2");

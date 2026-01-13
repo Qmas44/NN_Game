@@ -80,17 +80,16 @@ MonoBehaviour:
   MovementMultiplier: 5
   PreventAllMovementWhileInUse: 1
   PreventAllAimWhileInUse: 0
-  _pInput: {fileID: 0}
   RecoilForce: -20
   Animators: []
   PerformAnimatorSanityChecks: 0
   MirrorCharacterAnimatorParameters: 0
   WeaponAnimationID: 0
   IdleAnimationParameter: 
-  StartAnimationParameter: MeleeAttackStart
+  StartAnimationParameter: 
   DelayBeforeUseAnimationParameter: 
   SingleUseAnimationParameter: 
-  UseAnimationParameter: 
+  UseAnimationParameter: Attack1
   DelayBetweenUsesAnimationParameter: 
   StopAnimationParameter: 
   ReloadStartAnimationParameter: 
@@ -99,6 +98,7 @@ MonoBehaviour:
   WeaponAngleAnimationParameter: 
   WeaponAngleRelativeAnimationParameter: 
   EquippedAnimationParameter: 
+  InterruptedAnimationParameter: 
   WeaponStartMMFeedback: {fileID: 0}
   WeaponUsedMMFeedback: {fileID: 0}
   WeaponUsedMMFeedbackAlt: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   KnockbackDirection: 0
   InvincibilityDuration: 0.5
   CanDamageOwner: 0
+  ShouldStopMovement: 0
 --- !u!114 &5168054645349362049
 MonoBehaviour:
   m_ObjectHideFlags: 0

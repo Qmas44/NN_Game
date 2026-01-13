@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
 using System.Linq;
+using System.Diagnostics;
 
 namespace MoreMountains.TopDownEngine
 {	
@@ -83,6 +84,7 @@ namespace MoreMountains.TopDownEngine
 								{
 									if (BlockingWeaponStates[i] == (handleWeapon.CurrentWeapon.WeaponState.CurrentState))
 									{
+										UnityEngine.Debug.LogWarning("Blocking weapon state detected: " + BlockingWeaponStates[i]);
 										return false;
 									}
 								}

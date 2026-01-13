@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
-using UnityEngine.InputSystem;
 
 namespace MoreMountains.TopDownEngine
 {
@@ -133,7 +132,6 @@ namespace MoreMountains.TopDownEngine
 		/// if this is true all aim will be prevented while the weapon is active
 		[Tooltip("if this is true all aim will be prevented while the weapon is active")]
 		public bool PreventAllAimWhileInUse = false;
-		[SerializeField] private PlayerInput _pInput;
 
 		[MMInspectorGroup("Recoil", true, 15)]
 		/// the force to apply to push the character back when shooting - positive values will push the character back, negative values will launch it forward, turning that recoil into a thrust
@@ -194,6 +192,9 @@ namespace MoreMountains.TopDownEngine
 		/// the name of the parameter to send to true as long as this weapon is equipped, used or not. While all the other parameters defined here are updated by the Weapon class itself, and passed to the weapon and character, this one will be updated by CharacterHandleWeapon only."
 		[Tooltip("the name of the parameter to send to true as long as this weapon is equipped, used or not. While all the other parameters defined here are updated by the Weapon class itself, and passed to the weapon and character, this one will be updated by CharacterHandleWeapon only.")]
 		public string EquippedAnimationParameter;
+		/// the name of the parameter to send to true when the weapon gets interrupted. While all the other parameters defined here are updated by the Weapon class itself, and passed to the weapon and character, this one will be updated by CharacterHandleWeapon only."
+		[Tooltip("the name of the parameter to send to true when the weapon gets interrupted, used or not. While all the other parameters defined here are updated by the Weapon class itself, and passed to the weapon and character, this one will be updated by CharacterHandleWeapon only.")]
+		public string InterruptedAnimationParameter;
         
 		[MMInspectorGroup("Feedbacks", true, 18)]
 		/// the feedback to play when the weapon starts being used
@@ -227,29 +228,26 @@ namespace MoreMountains.TopDownEngine
 		public bool Interruptable = false;
 
 		/// the name of the inventory item corresponding to this weapon. Automatically set (if needed) by InventoryEngineWeapon
-		public string WeaponID { get; set; }
+		public virtual string WeaponID { get; set; }
 		/// the weapon's owner
-		public Character Owner { get; protected set; }
+		public virtual Character Owner { get; protected set; }
 		/// the weapon's owner's CharacterHandleWeapon component
-		public CharacterHandleWeapon CharacterHandleWeapon { get; set; }
+		public virtual CharacterHandleWeapon CharacterHandleWeapon { get; set; }
 		/// if true, the weapon is flipped
 		[MMReadOnly]
 		[Tooltip("if true, the weapon is flipped right now")]
 		public bool Flipped;
 		/// the WeaponAmmo component optionnally associated to this weapon
-		public WeaponAmmo WeaponAmmo { get; protected set; }
+		public virtual WeaponAmmo WeaponAmmo { get; protected set; }
 		/// the weapon's state machine
 		public MMStateMachine<WeaponStates> WeaponState;
 
 		protected SpriteRenderer _spriteRenderer;
 		protected WeaponAim _weaponAim;
-		protected float _movementMultiplierStorage = 1f;
-
-		public float MovementMultiplierStorage
-		{
-			get => _movementMultiplierStorage;
-			set => _movementMultiplierStorage = value;
-		}
+		
+		public bool IsComboWeapon { get; set; }
+		public bool IsAutoComboWeapon { get; set; }
+		
 		protected Animator _ownerAnimator;
 		protected WeaponPreventShooting _weaponPreventShooting;
 		protected float _delayBeforeUseCounter = 0f;
@@ -260,7 +258,6 @@ namespace MoreMountains.TopDownEngine
 		protected ComboWeapon _comboWeapon;
 		protected TopDownController _controller;
 		protected CharacterMovement _characterMovement;
-		protected CharacterDash3D _characterDash;
 		protected Vector3 _weaponOffset;
 		protected Vector3 _weaponAttachmentOffset;
 		protected Transform _weaponAttachment;
@@ -284,8 +281,10 @@ namespace MoreMountains.TopDownEngine
 		protected int _aliveAnimationParameter;
 		protected int _comboInProgressAnimationParameter;
 		protected int _equippedAnimationParameter;
+		protected int _interruptedAnimationParameter;
 		protected float _lastShootRequestAt = -float.MaxValue;
 		protected float _lastTurnWeaponOnAt = -float.MaxValue;
+		protected bool _movementSpeedMultiplierSet = false;
 
 		/// <summary>
 		/// On start we initialize our weapon
@@ -303,6 +302,11 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Initialization()
 		{
+			_reloading = false;
+			_triggerReleased = false;
+			_delayBeforeUseCounter = 0f;
+			_delayBetweenUsesCounter = 0f;
+			_reloadingCounter = 0f;
 			Flipped = false;
 			_spriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 			_comboWeapon = this.gameObject.GetComponent<ComboWeapon>();
@@ -336,6 +340,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void InitializeComboWeapons()
 		{
+
 			if (_comboWeapon != null)
 			{
 				_comboWeapon.Initialization();
@@ -354,8 +359,8 @@ namespace MoreMountains.TopDownEngine
 				CharacterHandleWeapon = handleWeapon;
 				_characterMovement = Owner.GetComponent<Character>()?.FindAbility<CharacterMovement>();
 				_controller = Owner.GetComponent<TopDownController>();
+
 				_controllerIs3D = Owner.GetComponent<TopDownController3D>() != null;
-				_characterDash = Owner?.GetComponent<CharacterDash3D>();
 
 				if (CharacterHandleWeapon.AutomaticallyBindAnimator)
 				{
@@ -373,6 +378,11 @@ namespace MoreMountains.TopDownEngine
 					}
 				}
 			}
+		}
+
+		public void SetTimeBetweenUses(float newTimeBetweenUses)
+		{
+			TimeBetweenUses = newTimeBetweenUses;
 		}
 
 		/// <summary>
@@ -411,13 +421,15 @@ namespace MoreMountains.TopDownEngine
 			}
 
 			_lastTurnWeaponOnAt = Time.time;
+
+			_ownerAnimator.CrossFade(_useAnimationParameter, 0.1f);
 			
 			TriggerWeaponStartFeedback();
 			WeaponState.ChangeState(WeaponStates.WeaponStart);
 			if ((_characterMovement != null) && (ModifyMovementWhileAttacking))
 			{
-				_movementMultiplierStorage = _characterMovement.MovementSpeedMultiplier;
-				_characterMovement.MovementSpeedMultiplier = MovementMultiplier;
+				_characterMovement.SetContextSpeedMultiplier(MovementMultiplier);
+				_movementSpeedMultiplierSet = true;
 			}
 			if (_comboWeapon != null)
 			{
@@ -425,15 +437,8 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (PreventAllMovementWhileInUse && (_characterMovement != null) && (_controller != null))
 			{
-				Debug.LogWarning("Stop movement when attacking!!!!");
-				_characterMovement.MovementSpeed = 0;
+				_characterMovement.SetMovement(Vector2.zero);
 				_characterMovement.MovementForbidden = true;
-				_characterMovement.AbilityPermitted = false;
-				CharacterHandleWeapon.AbilityPermitted = false;
-				if (_characterDash != null)
-				{
-					_characterDash.AbilityPermitted = false;
-				}
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{
@@ -520,7 +525,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void CaseWeaponIdle()
 		{
-			ResetMovementMultiplier();
+				ResetMovementMultiplier();	
 		}
 
 		/// <summary>
@@ -647,6 +652,12 @@ namespace MoreMountains.TopDownEngine
 		{
 			TurnWeaponOff();
 			ResetMovementMultiplier();
+			if ((WeaponState.CurrentState == WeaponStates.WeaponReload)
+			    || (WeaponState.CurrentState == WeaponStates.WeaponReloadStart)
+			    || (WeaponState.CurrentState == WeaponStates.WeaponReloadStop))
+			{
+				return;
+			}
 			WeaponState.ChangeState(WeaponStates.WeaponIdle);
 		}
 
@@ -655,6 +666,13 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void Interrupt()
 		{
+			if ((WeaponState.CurrentState == WeaponStates.WeaponReload)
+			    || (WeaponState.CurrentState == WeaponStates.WeaponReloadStart)
+			    || (WeaponState.CurrentState == WeaponStates.WeaponReloadStop))
+			{
+				return;
+			}
+			
 			if (Interruptable)
 			{
 				WeaponState.ChangeState(WeaponStates.WeaponInterrupted);
@@ -702,7 +720,7 @@ namespace MoreMountains.TopDownEngine
 				}
 			}
 
-			if (MagazineBased) // marker
+			if (MagazineBased)
 			{
 				if (WeaponAmmo != null)
 				{
@@ -809,10 +827,9 @@ namespace MoreMountains.TopDownEngine
 				return;
 			}
 			_triggerReleased = true;
-			if ((_characterMovement != null) && (ModifyMovementWhileAttacking))
+			if ((_characterMovement != null) && (ModifyMovementWhileAttacking) && TimeBetweenUsesReleaseInterruption)
 			{
-				_characterMovement.MovementSpeedMultiplier = _movementMultiplierStorage;
-				_movementMultiplierStorage = 1f;
+				ResetMovementMultiplier();
 			}
 		}
 
@@ -836,14 +853,7 @@ namespace MoreMountains.TopDownEngine
 			}
 			if (PreventAllMovementWhileInUse && (_characterMovement != null))
 			{
-				_characterMovement.MovementSpeed = 10;
 				_characterMovement.MovementForbidden = false;
-				_characterMovement.AbilityPermitted = true;
-				CharacterHandleWeapon.AbilityPermitted = true;
-				if (_characterDash != null)
-				{
-					_characterDash.AbilityPermitted = true;
-				}
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{
@@ -871,10 +881,10 @@ namespace MoreMountains.TopDownEngine
 
 		protected virtual void ResetMovementMultiplier()
 		{
-			if ((_characterMovement != null) && (ModifyMovementWhileAttacking))
+			if ((_characterMovement != null) && (ModifyMovementWhileAttacking) && _movementSpeedMultiplierSet)
 			{
-				_characterMovement.MovementSpeedMultiplier = _movementMultiplierStorage;
-				_movementMultiplierStorage = 1f;
+				_characterMovement.ResetContextSpeedMultiplier();
+				_movementSpeedMultiplierSet = false;
 			}
 		}
 
@@ -905,7 +915,6 @@ namespace MoreMountains.TopDownEngine
 			if (PreventAllMovementWhileInUse && (_characterMovement != null))
 			{
 				_characterMovement.MovementForbidden = false;
-				_characterMovement.AbilityPermitted = true;
 			}
 			if (PreventAllAimWhileInUse && (_weaponAim != null))
 			{
@@ -1104,6 +1113,15 @@ namespace MoreMountains.TopDownEngine
 
 					if (MirrorCharacterAnimatorParameters)
 					{
+						MMAnimatorMirror exisitngMirror = Animators[i].gameObject.GetComponent<MMAnimatorMirror>();
+						if (exisitngMirror != null)
+						{
+							if (exisitngMirror.SourceAnimator == _ownerAnimator && exisitngMirror.TargetAnimator == Animators[i])
+							{
+								continue;
+							}
+						}
+						
 						MMAnimatorMirror mirror = Animators[i].gameObject.AddComponent<MMAnimatorMirror>();
 						mirror.SourceAnimator = _ownerAnimator;
 						mirror.TargetAnimator = Animators[i];
@@ -1138,6 +1156,7 @@ namespace MoreMountains.TopDownEngine
 			MMAnimatorExtensions.AddAnimatorParameterIfExists(animator, ReloadAnimationParameter, out _reloadAnimationParameter, AnimatorControllerParameterType.Bool, list);
 			MMAnimatorExtensions.AddAnimatorParameterIfExists(animator, SingleUseAnimationParameter, out _singleUseAnimationParameter, AnimatorControllerParameterType.Bool, list);
 			MMAnimatorExtensions.AddAnimatorParameterIfExists(animator, UseAnimationParameter, out _useAnimationParameter, AnimatorControllerParameterType.Bool, list);
+			MMAnimatorExtensions.AddAnimatorParameterIfExists(animator, InterruptedAnimationParameter, out _interruptedAnimationParameter, AnimatorControllerParameterType.Bool, list);
 
 			if (_comboWeapon != null)
 			{
@@ -1146,7 +1165,7 @@ namespace MoreMountains.TopDownEngine
 		}
 
 		/// <summary>
-		/// Override this to send parameters to the character's animator. This is called once per cycle, by the Character
+		/// Override this to send parameters to the character's animator. This is called once per cycle, by the Character 
 		/// class, after Early, normal and Late process().
 		/// </summary>
 		public virtual void UpdateAnimator()
@@ -1168,7 +1187,7 @@ namespace MoreMountains.TopDownEngine
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _idleAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponIdle), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _startAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponStart), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _delayBeforeUseAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse), list, PerformAnimatorSanityChecks);
-			MMAnimatorExtensions.UpdateAnimatorBool(animator, _useAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBetweenUses), list, PerformAnimatorSanityChecks);
+			//MMAnimatorExtensions.UpdateAnimatorBool(animator, _useAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBetweenUses), list, PerformAnimatorSanityChecks); // Commenting out here as we are using animation cross fade in the weapon start
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _singleUseAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _delayBetweenUsesAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBetweenUses), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _stopAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponStop), list, PerformAnimatorSanityChecks);
@@ -1176,6 +1195,11 @@ namespace MoreMountains.TopDownEngine
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _reloadAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponReload), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _reloadStopAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponReloadStop), list, PerformAnimatorSanityChecks);
 
+			if (WeaponState.CurrentState == Weapon.WeaponStates.WeaponInterrupted)
+			{
+				MMAnimatorExtensions.UpdateAnimatorTrigger(animator, _interruptedAnimationParameter, list, PerformAnimatorSanityChecks);
+			}
+			
 			if (Owner != null)
 			{
 				MMAnimatorExtensions.UpdateAnimatorBool(animator, _aliveAnimationParameter, (Owner.ConditionState.CurrentState != CharacterStates.CharacterConditions.Dead), list, PerformAnimatorSanityChecks);
@@ -1196,11 +1220,6 @@ namespace MoreMountains.TopDownEngine
 			{
 				MMAnimatorExtensions.UpdateAnimatorBool(animator, _comboInProgressAnimationParameter, _comboWeapon.ComboInProgress, list, PerformAnimatorSanityChecks);
 			}
-		}
-
-		public void SetTimeBetweenUses(float newTimeBetweenUses)
-		{
-			TimeBetweenUses = newTimeBetweenUses;
 		}
 	}
 }

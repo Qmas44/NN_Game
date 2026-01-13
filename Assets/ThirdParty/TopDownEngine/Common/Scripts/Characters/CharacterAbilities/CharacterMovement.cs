@@ -164,8 +164,12 @@ namespace MoreMountains.TopDownEngine
 				{
 					StopAbilityUsedSfx();
 				}
+				//Debug.LogWarning("CAN NOT MOVE");
 				return;
 			}
+			//Debug.LogWarning("CAN MOVE NOW");
+
+		
 			HandleDirection();
 			HandleMovement();
 			Feedbacks ();
@@ -330,6 +334,7 @@ namespace MoreMountains.TopDownEngine
 			if ( !AbilityAuthorized
 			     || (_condition.CurrentState != CharacterStates.CharacterConditions.Normal) )
 			{
+				Debug.LogWarning("CAN NOT MOVE");
 				return;				
 			}
             
@@ -398,6 +403,10 @@ namespace MoreMountains.TopDownEngine
 				_verticalMovement = 0f;
 				SetMovement();
 			}
+		}
+		public virtual void SetMovementState(CharacterStates.MovementStates newState)
+		{
+			_movement.ChangeState(newState);
 		}
 
 		/// <summary>
