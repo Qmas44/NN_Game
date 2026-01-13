@@ -549,8 +549,8 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void CaseWeaponDelayBeforeUse()
 		{
-			_delayBeforeUseCounter -= Time.deltaTime;
-			if (_delayBeforeUseCounter <= 0)
+			DelayBeforeUse -= Time.deltaTime;
+			if (DelayBeforeUse <= 0)
 			{
 				StartCoroutine(ShootRequestCo());
 			}

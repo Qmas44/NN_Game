@@ -19,13 +19,13 @@
   <Project Path="MoreMountains.InventoryEngine.csproj" />
   <Project Path="MoreMountains.Feedbacks.HDRP.csproj" />
   <Project Path="ProceduralToolkit.ClipperLib.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="MoreMountains.Feedbacks.PostProcessing.csproj" />
   <Project Path="AiToolbox.Samples.csproj" />
   <Project Path="MoreMountains.Feedbacks.Cinemachine.csproj" />
   <Project Path="AllIn1VfxDemoScriptAssemblies.csproj" />
   <Project Path="MoreMountains.InventoryEngine.Editor.csproj" />
   <Project Path="NavMeshComponentsEditor.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="NavMeshComponents.csproj" />
   <Project Path="ProceduralToolkit.Editor.csproj" />
   <Project Path="AllIn1VfxTexDemoAssembly.csproj" />

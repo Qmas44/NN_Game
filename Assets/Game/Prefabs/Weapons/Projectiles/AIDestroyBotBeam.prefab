@@ -416,7 +416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6988560506940196056
 Transform:
   m_ObjectHideFlags: 0
@@ -5258,7 +5258,7 @@ GameObject:
   - component: {fileID: 8123149175507759073}
   - component: {fileID: 7001144521924106571}
   m_Layer: 18
-  m_Name: GunBullet
+  m_Name: BeamModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5274,7 +5274,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4780354161680540670}
@@ -5328,8 +5328,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8092905494906706274, guid: 0098a7042c689504a813880d86e91777,
-    type: 3}
+  m_Sprite: {fileID: 1793607683, guid: fe08c93d3bc7c414f931fa418736d8e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5356,7 +5355,7 @@ GameObject:
   - component: {fileID: -1128889198008925854}
   - component: {fileID: -3814198882456875334}
   m_Layer: 18
-  m_Name: AITurretCannonBall
+  m_Name: AIDestroyBotBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17171,7 +17170,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -17179,8 +17178,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.07008722, g: 0.48951003, b: 0.7075472, a: 1}
+        key1: {r: 0.28186512, g: 0.13594696, b: 0.4433962, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -17188,7 +17187,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
+        ctime1: 63800
         ctime2: 0
         ctime3: 0
         ctime4: 0
