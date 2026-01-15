@@ -4308,7 +4308,7 @@ MonoBehaviour:
       type: {class: MMF_CinemachineImpulse, ns: MoreMountains.FeedbacksForThirdParty,
         asm: MoreMountains.Feedbacks.Cinemachine}
       data:
-        Active: 0
+        Active: 1
         UniqueID: 234322681
         Label: Cinemachine Impulse
         ChannelMode: 0
@@ -5168,7 +5168,7 @@ MonoBehaviour:
     - rid: 8623670108907373416
       type: {class: MMF_CameraShake, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
       data:
-        Active: 1
+        Active: 0
         UniqueID: -1865534081
         Label: Camera Shake
         ChannelMode: 0
@@ -5235,8 +5235,8 @@ MonoBehaviour:
         DebugActive: 0
         RepeatUntilStopped: 0
         CameraShakeProperties:
-          Duration: 0.1
-          Amplitude: 0.2
+          Duration: 0.4
+          Amplitude: 0.4
           Frequency: 40
           AmplitudeX: 0
           AmplitudeY: 0

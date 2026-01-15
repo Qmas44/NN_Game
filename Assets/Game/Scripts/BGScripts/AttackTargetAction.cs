@@ -18,8 +18,8 @@ public partial class AttackTargetAction : Action
     protected override Status OnStart()
     {
         _shootTimer = 0f; //Reset shot timer
-        Attacks.Value.Shoot();
-        return Status.Running;
+        Attacks.Value.TestShoot();
+        return Status.Success;
     }
 
     protected override Status OnUpdate()
@@ -28,7 +28,7 @@ public partial class AttackTargetAction : Action
 
         if (_shootTimer >= SHOOT_DURATION)
         {
-            Attacks.Value.StopShoot();
+           // Attacks.Value.StopShoot();
             return Status.Success;
         }
 

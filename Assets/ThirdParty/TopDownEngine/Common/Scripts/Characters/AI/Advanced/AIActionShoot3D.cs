@@ -163,6 +163,14 @@ namespace MoreMountains.TopDownEngine
 				}                
 			}
 		}
+		public virtual void TestShoot()
+		{
+			if (TargetHandleWeaponAbility.CurrentWeapon != null)
+			{
+				TargetHandleWeaponAbility.CurrentWeapon.WeaponInputStart();
+			}
+			
+		}
 
 		/// <summary>
 		/// Activates the weapon

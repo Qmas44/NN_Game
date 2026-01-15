@@ -390,6 +390,7 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void WeaponInputStart()
 		{
+			Debug.Log("Weapon input start called");
 			if (_reloading)
 			{
 				return;
@@ -421,8 +422,6 @@ namespace MoreMountains.TopDownEngine
 			}
 
 			_lastTurnWeaponOnAt = Time.time;
-
-			_ownerAnimator.CrossFade(_useAnimationParameter, 0.1f);
 			
 			TriggerWeaponStartFeedback();
 			WeaponState.ChangeState(WeaponStates.WeaponStart);
@@ -537,6 +536,7 @@ namespace MoreMountains.TopDownEngine
 			{
 				_delayBeforeUseCounter = DelayBeforeUse;
 				WeaponState.ChangeState(WeaponStates.WeaponDelayBeforeUse);
+				_ownerAnimator?.CrossFade(_delayBeforeUseAnimationParameter, 0.1f);
 			}
 			else
 			{
@@ -549,8 +549,8 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void CaseWeaponDelayBeforeUse()
 		{
-			DelayBeforeUse -= Time.deltaTime;
-			if (DelayBeforeUse <= 0)
+			_delayBeforeUseCounter -= Time.deltaTime;
+			if (_delayBeforeUseCounter <= 0)
 			{
 				StartCoroutine(ShootRequestCo());
 			}
@@ -561,6 +561,8 @@ namespace MoreMountains.TopDownEngine
 		/// </summary>
 		public virtual void CaseWeaponUse()
 		{
+			_ownerAnimator?.CrossFade(_useAnimationParameter, 0.1f);
+
 			WeaponUse();
 			_delayBetweenUsesCounter = TimeBetweenUses;
 			WeaponState.ChangeState(WeaponStates.WeaponDelayBetweenUses);
@@ -1186,7 +1188,7 @@ namespace MoreMountains.TopDownEngine
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _equippedAnimationParameter, true, list);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _idleAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponIdle), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _startAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponStart), list, PerformAnimatorSanityChecks);
-			MMAnimatorExtensions.UpdateAnimatorBool(animator, _delayBeforeUseAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse), list, PerformAnimatorSanityChecks);
+			//MMAnimatorExtensions.UpdateAnimatorBool(animator, _delayBeforeUseAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse), list, PerformAnimatorSanityChecks);
 			//MMAnimatorExtensions.UpdateAnimatorBool(animator, _useAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBeforeUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse || WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBetweenUses), list, PerformAnimatorSanityChecks); // Commenting out here as we are using animation cross fade in the weapon start
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _singleUseAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse), list, PerformAnimatorSanityChecks);
 			MMAnimatorExtensions.UpdateAnimatorBool(animator, _delayBetweenUsesAnimationParameter, (WeaponState.CurrentState == Weapon.WeaponStates.WeaponDelayBetweenUses), list, PerformAnimatorSanityChecks);
